@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Registeration</title>
@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="hospital.js"></script>
+    <script src="node_modules/angular/angular.js"></script> -->
+    <!-- <script src="hospital.js"></script> -->
     <style>
 /*  */
 .border-md {
@@ -57,8 +57,7 @@ select.form-control {
 
       
     </style>
-</head>
-<body ng-app="myApp" ng-controller="RegisterController">
+<body >
     
     <div class="container">
         <h1 style="margin: 2%; margin-left: 29%; font-size: 50px;">Welcome to our Bank</h1>
@@ -72,7 +71,7 @@ select.form-control {
     
             <!-- Registeration Form -->
             <div class="col-md-7 col-lg-6 ml-auto mt-2">
-                <form ng-submit="DocRegistrationfrom">
+                <form ng-submit="Register()">
                     <div class="row">
     
                         <!-- First Name -->
@@ -116,33 +115,58 @@ select.form-control {
                                     <i class="fa fa-user text-muted"></i>
                                 </span>
                             </div>
-                            <input id="dob" type="date" name="dob" ng-model="dob" placeholder="Date of Birth" class="form-control bg-white border-left-0 border-md">
+                            <input id="dob" type="text" name="dob" ng-model="dob" placeholder="Date of Birth" class="form-control bg-white border-left-0 border-md">
                         </div>
     
-                        <!-- Phone Number -->
                         <div class="input-group col-lg-6 mb-4">
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-white px-4 border-md border-right-0">
                                     <i class="fa fa-phone-square text-muted"></i>
                                 </span>
                             </div>
-                           
                             <input id="phoneNumber" type="tel" name="phone" ng-model="contact" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3">
                         </div>
+
+
+                        <div class="input-group col-lg-6 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-user text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="dob" type="text" name="name" ng-model="nominee" placeholder="Nominee Name" class="form-control bg-white border-left-0 border-md">
+                        </div>
+    
+                        <div class="input-group col-lg-6 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-phone-square text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="phoneNumber" type="tel" name="phone" ng-model="nomineenumber" placeholder="Nominee Number" class="form-control bg-white border-md border-left-0 pl-3">
+                        </div>
+
+                        <div style="margin-left: 3%; font-size: 18px;">
+                            User Photo:
+                        </div>
+                         <div class="input-group col-lg-12 mb-4">
+                             
+                             <input id="Photo" type="file" name="aadhar"  file-upload ng-model="userimage" placeholder="Photo" class="form-control bg-white">
+                         </div>
     
                        <div style="margin-left: 3%; font-size: 18px;">
                            Aadhar Card:
                        </div>
                         <div class="input-group col-lg-12 mb-4">
                             
-                            <input id="Age" type="file" name="age"  ng-model="age" placeholder="" class="form-control bg-white">
+                            <input id="Aadhar" type="file" name="aadhar" file-upload ng-model="Aadhar" placeholder="Enter Aadhar" class="form-control bg-white">
                         </div>
 
                         <div style="margin-left: 3%; font-size: 18px;">
                             Pan Card:
                         </div>                        
                         <div class="input-group col-lg-12 mb-4">
-                            <input id="Age" type="file" name="age"  ng-model="age" placeholder="Enter Aadhar" class="form-control bg-white">
+                            <input id="Pan" type="file" name="pan"  file-upload ng-model="Pan" placeholder="Enter Pan" class="form-control bg-white">
                         </div>
 
                         <div class="input-group col-lg-6 mb-4">
@@ -179,11 +203,11 @@ select.form-control {
                         </div>
     
                         <div class="form-group col-lg-12 mx-auto mb-0">
-                            <button type="submit" ng-click="Register()" class="btn btn-primary btn-lg" style="margin-left: 33%;" >Register Now</button>
+                            <button type="submit"  class="btn btn-primary btn-lg" style="margin-left: 40%;" >Register Now</button>
                             </div>
     
                        <div class="text-center w-100">
-                            <p class="text-muted font-weight-bold">Already have an Account <a  class="text-primary ml-2" ui-sref="Login">Login</a></p>
+                            <p class="text-muted font-weight-bold">Already have an Account <a  class="text-primary ml-2 mt-lg-4" ui-sref="PayWind">Login</a></p>
                         </div>
     
                     </div>
@@ -191,7 +215,4 @@ select.form-control {
             </div>
         </div>
     </div>
-    
-
 </body>
-</html>

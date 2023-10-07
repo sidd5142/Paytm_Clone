@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code Scanner</title>
+    <style>
+        /* Add your CSS styles here */
+        #preview {
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        #qrcode {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body ng-controller="QRCodeController">
+    <video id="preview"></video>
+    <div id="qrcode"></div>
+    <button ng-click="startCamera()">Start Camera</button>
+    <button ng-click="stopCamera()">Stop Camera</button>
+    <button ng-click="generateQRCode('Hello, World!')">Generate QR Code</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instascan/1.0.0/instascan.min.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('QRCodeController', ['$scope', function($scope) {
+            const videoElement = document.getElementById('preview');
+            const qrCodeElement = document.getElementById('qrcode');
+            let scanner = null;
+
+            function initializeScanner() {
+                scanner = new Instascan.Scanner({ video: videoElement });
+                scanner.addListener('scan', function(content) {
+                    qrCodeElement.innerHTML = '';
+                    new QRCode(qrCodeElement, content);
+                });
+            }
+
+            $scope.startCamera = function() {
+                if (scanner) {
+                    scanner.start(videoElement);
+                } else {
+                    initializeScanner();
+                    scanner.start(videoElement);
+                }
+            };
+
+            $scope.stopCamera = function() {
+                if (scanner) {
+                    scanner.stop();
+                }
+            };
+
+            $scope.generateQRCode = function(data) {
+                qrCodeElement.innerHTML = '';
+                new QRCode(qrCodeElement, data);
+            };
+        }]);
+    </script>
+</body>
+</html>
