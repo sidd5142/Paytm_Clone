@@ -391,7 +391,12 @@ footer span:hover {
         <div class="modal-body">
           <div class="mb-3 mt-3" style="font-size: 20px;">
             <label for="number" class="form-label">Mobile Number:</label>
-            <input type="number" class="form-control" id="number" placeholder="Enter Mobile Number" name="number" style="font-size: 20px;">
+            <div style="flex-direction: row;">
+            <input type="text" class="form-control" id="number" ng-model="number" placeholder="Enter Mobile Number" name="number" style="font-size: 20px;">
+            <button class="btn btn-outline-primary" ng-click="otp()">Get OTP</button>
+            </div>
+            <input type="text" class="form-control" id="otp" ng-model="otpverify" placeholder="Enter 4 digit OTP" name="number" style="font-size: 20px;" ng-show="showotp">
+
           </div>
         </div>
   

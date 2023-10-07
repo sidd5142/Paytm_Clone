@@ -12,11 +12,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			templateUrl: '/home/Register/register.html',
 			controller: 'RegisterController'
 		})
-		// .state('LogIn', {
-        //     url: '/login',
-		// 	templateUrl: '/home//login.html',
-		// 	controller: 'LogInController'
-		// })
+		.state('AddAccount', {
+            url: '/addaccount',
+			templateUrl: '/home/Register/bankaccount.html',
+			controller: 'AccountController'
+		})
 		
 		$urlRouterProvider.otherwise('/paywind');
 }]);
