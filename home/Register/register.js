@@ -19,8 +19,7 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
         formdata.append('password', $scope.password)
         formdata.append('confirmpassword', $scope.confpassword)
         formdata.append('address', $scope.address)
-        formdata.append('nominee', $scope.nominee)
-        formdata.append('nominee_phoneno', $scope.nomineenumber)
+        
 
         console.log(formdata)
 
@@ -32,6 +31,13 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
         })
         .then(function (response) {
           console.log(response.data)
+          Swal.fire({
+            position: 'centre',
+            icon: 'success',
+            title: response.data.message,
+            showConfirmButton: false,
+            timer: 1500
+          })
         })
         .catch(function (error) {
           console.log(error)
