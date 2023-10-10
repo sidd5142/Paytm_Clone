@@ -77,6 +77,11 @@ app.controller('HomeController',function($scope,$http,$window,$state){
             }
         });
     };
+
+    // to pay the amount 
+    $scope.Pay = function (amount) {
+        $state.reload('Paywind')
+    }
 })
 
    
