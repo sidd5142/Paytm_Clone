@@ -1,5 +1,8 @@
 var ip = "https://10.21.81.234:8000/";
 app.controller('HomeController',function($scope,$http,$window,$state){
+
+    // to generate the otp
+
     $scope.otp = function(){
 
        $scope.showotp = true
@@ -25,6 +28,8 @@ app.controller('HomeController',function($scope,$http,$window,$state){
         })
     }
 
+     // to submit otp
+
     $scope.submit = function(){
 
         var number = {
@@ -44,6 +49,34 @@ app.controller('HomeController',function($scope,$http,$window,$state){
             console.log(error)
         })
     }
+
+    // to scan a qr code
+
+    $scope.payment = function () {
+        // Display the video element
+        const videoElement = document.getElementById('scanner-video');
+        videoElement.style.display = 'block';
+
+        // Configure the scanner
+        const scanner = new Instascan.Scanner({ video: videoElement });
+
+        scanner.addListener('scan', function (content) {
+            // Display the scanned QR code content
+            document.getElementById('result').textContent = 'QR Code Content: ' + content;
+            
+            // Hide the video element after scanning
+            videoElement.style.display = 'none';
+        });
+
+        // Start scanning
+        Instascan.Camera.getCameras().then(function (cameras) {
+            if (cameras.length > 0) {
+                scanner.start(cameras[0]);
+            } else {
+                console.error('No cameras found.');
+            }
+        });
+    };
 })
 
    

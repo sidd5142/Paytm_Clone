@@ -350,7 +350,9 @@ footer span:hover {
         <div class="collapse navbar-collapse " id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Paytm for Consumer</a>
+              <button class="nav-link active"  ng-click="payment()" style="font-size: 15px; margin-top: 5%; font-weight: bolder;">Paytm for Consumer</button>
+              <video id="scanner-video" style="display: none;"></video>
+              <div id="result"></div>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Paytm for Bussiness</a>
