@@ -3,29 +3,22 @@
 <head>
     <meta charset="utf-8">
     <title>QR Code Generator</title>
-    <!-- Include qrcode.min.js library from CDN -->
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 </head>
 <body>
     <h1>QR Code Generator</h1>
 
-    <!-- Input field for QR code content -->
     <label for="qrContent">QR Code Content:</label>
     <input type="text" id="qrContent" placeholder="Enter content">
 
-    <!-- Button to generate QR code -->
     <button onclick="generateQRCode()">Generate QR Code</button>
 
-    <!-- Display the QR code -->
     <div id="qrcode"></div>
 
     <script>
-        // Function to generate and display a QR code
         function generateQRCode() {
-            // Get the input text
             var qrText = document.getElementById("qrContent").value;
 
-            // Create a QRCode instance and configure it
             var qrcode = new QRCode(document.getElementById("qrcode"), {
                 text: qrText,
                 width: 128,
