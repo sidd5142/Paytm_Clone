@@ -17,6 +17,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			templateUrl: '/home/Register/bankaccount.html',
 			controller: 'AccountController'
 		})
+		.state('SplitBill', {
+            url: '/splitbill',
+			templateUrl: '/home/homepage/bill.html',
+			controller: 'BillController'
+		})
 		
 		$urlRouterProvider.otherwise('/paywind');
 }]);

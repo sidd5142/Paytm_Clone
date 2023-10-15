@@ -2,32 +2,29 @@ var ip = "https://10.21.81.234:8000/";
 
 app.controller('RegisterController',function($scope,$http,$window,$state){
   
-  $scope.Register = function(){
+  $scope.submit = function(){
 
-    var addhar_image = $scope.Aadhar
-      var pan_image = $scope.Pan
-      var image = $scope.userimage
+       
         var formdata = new FormData();
-        formdata.append('photo', image)
-        formdata.append('aadhaar_card', addhar_image)
-        formdata.append('pan_card', pan_image)
+        
         formdata.append('firstname', $scope.firstname)
         formdata.append('lastname', $scope.lastname)
         formdata.append('email', $scope.email)
         formdata.append('dob', $scope.dob)
         formdata.append('phone_number', $scope.contact)
+        formdata.append('gender', $scope.gender)
         formdata.append('password', $scope.password)
         formdata.append('confirmpassword', $scope.confpassword)
-        formdata.append('address', $scope.address)
-        
 
+        // if($scope.Register)
+        // {
         console.log(formdata)
 
         $http.post(ip + 'register/', formdata,{
           withCredentials:true,
-          headers: {
-            'Content-Type': undefined
-          }
+          // headers: {
+          //   'Content-Type': undefined
+          // }
         })
         .then(function (response) {
           console.log(response.data)
@@ -43,7 +40,11 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
           console.log(error)
         })
       }
-
+      // else{
+      //   console.log("FIll the fields")
+      // }
+    
+    
     
 })
 

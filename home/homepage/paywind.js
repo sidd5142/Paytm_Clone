@@ -53,18 +53,15 @@ app.controller('HomeController',function($scope,$http,$window,$state){
     // to scan a qr code
 
     $scope.payment = function () {
-        // Display the video element
+
         const videoElement = document.getElementById('scanner-video');
         videoElement.style.display = 'block';
 
-        // Configure the scanner
         const scanner = new Instascan.Scanner({ video: videoElement });
 
         scanner.addListener('scan', function (content) {
-            // Display the scanned QR code content
             document.getElementById('result').textContent = 'QR Code Content: ' + content;
             
-            // Hide the video element after scanning
             videoElement.style.display = 'none';
         });
 

@@ -1,0 +1,36 @@
+    <div class="card text-center">
+        <div class="card w-50" style="margin-left: 23%; margin-top: 5%;">
+        <div class="card-header">
+          <h4 style="font-weight: bolder; font-size: 20px;">SPLIT PAYMENT</h4>
+           <p class="font-weight-light" style="font-size: 14px;">with a group of friends</p>
+        </div>
+        <div class="card-body">
+            <!-- <div class="card w-10"> -->
+            <div class="card text-center" style="width: 50%; margin-left: 25%;background-color: whitesmoke;"  >
+                <h5 class="card-title font-weight-normal" style="font-size: 22px; margin-top: 5%;">Total Amount</h5>
+                <!-- <iframe class="card-text" frameborder="0" title="Ruppees"></iframe> -->
+                <input type="text"  placeholder=" &#x20b9 0" style="border: 0; height: 150px; font-size: 60px; text-align: center; background-color: whitesmoke;" id="">
+                <input type="text" placeholder="What's this payment for ?" style="height: 60px; border-radius: 10px; font-size: large; text-align: center; width: fit-content;border:0cm; margin-left: 20%; margin-bottom: 4%; margin-top: 3%;">
+                      <!-- </div> -->
+            </div>
+        </div>
+        <div>
+        <input type="text" placeholder="&#xF002 Find by name or number" ng-model="number" style="height: 60px; border-radius: 15px; width: 50%; margin-top: 2%; margin-left: 10%; font-size: 22px;border-color: black;">
+
+        <button type="submit" class="btn btn-outline-danger" ng-click="submit" style="height: 50px; width: 8%; margin-left: 1%; border-radius: 15px;">Add</button>
+        </div>
+
+        <h4 style="font-size: large; margin-top: 2%; margin-right: 30%;">Create a new group</h4>
+
+        <div ng-repeat="contact in contacts">
+         <div ng-model="showcontacts"></div>
+         <!-- <button type="button" class="btn btn-close removeField" ng-click="removeContactField($index)"></button> -->
+        </div>
+
+        </form>
+
+        <div class="card-footer text-muted">
+            <button type="submit" class="btn-lg btn-primary" style="height: 55px; width: 50%; border-radius: 158px;">Continue</button>
+        </div>
+        </div>
+    </div>
