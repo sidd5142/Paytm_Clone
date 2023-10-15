@@ -81,7 +81,7 @@ select.form-control {
                                     <i class="fa fa-user text-muted"></i>
                                 </span>
                             </div>
-                            <input id="firstName" type="text" name="" ng-model="firstname" placeholder="First Name" class="form-control bg-white border-left-0 border-md">
+                            <input id="firstName" type="text" name="firstname" ng-model="firstname" placeholder="First Name" class="form-control bg-white border-left-0 border-md">
                         </div>
     
                         <!-- Last Name -->
@@ -91,7 +91,7 @@ select.form-control {
                                     <i class="fa fa-user text-muted"></i>
                                 </span>
                             </div>
-                            <input id="lastName" type="text" name="" ng-model="lastname" placeholder="Last Name" class="form-control bg-white border-left-0 border-md">
+                            <input id="lastName" type="text" name="lastname" ng-model="lastname" placeholder="Last Name" class="form-control bg-white border-left-0 border-md">
                         </div>
     
                         <div class="input-group col-lg-12 mb-4">
@@ -100,7 +100,7 @@ select.form-control {
                                     <i class="fa fa-envelope text-muted"></i>
                                 </span>
                             </div>
-                            <input id="email" type="email" name="" ng-model="email" ng-change="validateEmail()" ng placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
+                            <input id="email" type="email" name="email" ng-model="email" ng-change="validateEmail()" ng placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
                             <!-- <div ng-show="email == '' && !emailIsValid">
                                 <p style="color: red;">Invalid email format</p>
                             </div>
@@ -115,7 +115,7 @@ select.form-control {
                                     <i class="fa fa-user text-muted"></i>
                                 </span>
                             </div>
-                            <input id="dob" type="text" name="" ng-model="dob" placeholder="Date of Birth" class="form-control bg-white border-left-0 border-md">
+                            <input id="dob" type="text" name="dob" value="dob" ng-model="dob" placeholder="Date of Birth" class="form-control bg-white border-left-0 border-md">
                         </div>
     
                         <div class="input-group col-lg-6 mb-4">
@@ -124,7 +124,7 @@ select.form-control {
                                     <i class="fa fa-phone-square text-muted"></i>
                                 </span>
                             </div>
-                            <input id="phoneNumber" type="tel" name="" ng-model="contact" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3">
+                            <input id="phoneNumber" type="tel" name="phone" value="phonenumber" ng-model="contact" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3">
                         </div>
 
 

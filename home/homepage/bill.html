@@ -1,4 +1,4 @@
-    <div class="card text-center">
+    <div class="card text-center" ng-controller="BillController">
         <div class="card w-50" style="margin-left: 23%; margin-top: 5%;">
         <div class="card-header">
           <h4 style="font-weight: bolder; font-size: 20px;">SPLIT PAYMENT</h4>
@@ -17,13 +17,14 @@
         <div>
         <input type="text" placeholder="&#xF002 Find by name or number" ng-model="number" style="height: 60px; border-radius: 15px; width: 50%; margin-top: 2%; margin-left: 10%; font-size: 22px;border-color: black;">
 
-        <button type="submit" class="btn btn-outline-danger" ng-click="submit" style="height: 50px; width: 8%; margin-left: 1%; border-radius: 15px;">Add</button>
+        <button type="submit" class="btn btn-outline-danger" ng-click="submit()" style="height: 50px; width: 8%; margin-left: 1%; border-radius: 15px;">Add</button>
         </div>
 
         <h4 style="font-size: large; margin-top: 2%; margin-right: 30%;">Create a new group</h4>
 
-        <div ng-repeat="contact in contacts">
-         <div ng-model="showcontacts"></div>
+        <div ng-repeat="number in contacts">
+            <span id="text" style="border: 1px solid white; font-size: 25px;">{{number.numbers}}</span>
+            <!-- <div ng-model="showcontacts"></div> -->
          <!-- <button type="button" class="btn btn-close removeField" ng-click="removeContactField($index)"></button> -->
         </div>
 

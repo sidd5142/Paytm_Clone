@@ -81,4 +81,43 @@ app.controller('HomeController',function($scope,$http,$window,$state){
     }
 })
 
+app.controller('BillController',function($scope,$http,$window,$state){
+
+    $scope.contacts = [];
+    $scope.numbers = [];
+
+    $scope.number = "";
+
+    $scope.submit = function(){
+
+        // $scope.numbers.push(
+        // $scope.input = $scope.number 
+        // )
+
+        // console.log("GOoding!");
+        $scope.contacts.push({
+            numbers : $scope.number
+    });
+
+    $scope.number= "";
+};
+    $scope.removeContactField = function(index){ 
+       $scope.contacts.splice(index, 1);
+    };
+
+    // $scope.submit=function(){
+    //     $http.post(ip + 'splitbill', {
+    //         withCredentials:true
+    //     })
+    //     .then(function(response){
+    //         console.log(response)
+    //     })
+    //     .catch(function(error){
+    //         console.log(error)
+    //     })
+    // }
+})
+
+
+
    
