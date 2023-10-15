@@ -1,0 +1,57 @@
+<style>
+    #loginimg{ 
+        margin-left: 2%;
+    }
+</style>
+
+<div class="card text-center" ng-controller="PaymentController">
+    <div class="card w-50" style="margin-left: 23%; margin-top: 5%;">
+    <div class="card-header">
+      <h4 style="font-weight: bolder; font-size: 20px;">Split Payment Detail</h4>
+    </div>
+    <div class="card-body">
+        <!-- <div class="card w-10"> -->
+        <div class="card text-center" style="width: 50%; margin-left: 25%;background-color: rgb(255, 246, 246);"  >
+            <h5 class="card-title font-weight-normal" style="font-size: 22px; margin-top: 5%;">You Paid</h5>
+            <!-- <iframe class="card-text" frameborder="0" title="Ruppees"></iframe> -->
+            <span style="height: 150px; font-size: 60px; text-align: center; margin-top: 5%; background-color: rgb(255, 246, 246);" id="">&#x20b9 100 &#10004</span>
+            <span  style="height: 60px; border-radius: 10px; font-size: large;  text-align: center;">Coffee</span>
+                  <!-- </div> -->
+        </div>
+    </div>
+
+    <div ng-repeat="number in contacts" style="margin: 2%;">
+        <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg">
+        <span id="text" style="border: 1px solid white; font-size: 25px;">{{number.numbers}}</span>
+        <button class="btn btn-lg" style="font-size: 20px;">&#x20b9 100</button>
+        <input type="checkbox" ng-model="number.completed" ng-change="done($index, number.completed)">
+        <button type="button" class="btn btn-close removeField" ng-click="removeContactField($index)"></button>
+
+        <span ng-if="number.completed" style="font-size: 18px;">Payment Completed</span>
+
+        <hr>
+    </div>
+    <div style="margin-top: 3%;">
+    <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg" width="40" height="40">
+    <span id="text" style="border: 1px solid white; font-size: 25px;">Siddharth</span>
+    <button class="btn btn-lg" style="font-size: 20px;">&#x20b9 100</button>
+    <input type="checkbox" ng-model="completed" ng-change="done($index,completed)">
+    <button type="button" class="btn btn-close removeField" ng-click="removeContactField($index)"></button>
+    <span ng-if="completed" style="font-size: 18px;">Payment Completed</span>
+
+    <hr>
+
+    <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg" width="40" height="40">
+    <span id="text" style="border: 1px solid white; font-size: 25px;">Nikhil</span>
+    <button class="btn btn-lg" style="font-size: 20px;">&#x20b9 100</button>
+    <input type="checkbox" ng-model="completed" ng-change="done($index,completed)">
+    <button type="button" class="btn btn-close removeField" ng-click="removeContactField($index)"></button>
+    <span ng-if="completed" style="font-size: 18px;">Payment Completed</span>
+    
+    </div>
+
+    <div class="card-footer text-muted" style="margin-top: 3%;">
+        <button type="submit" class="btn-lg btn-primary" style="height: 55px; width: 50%; border-radius: 158px; font-size: 20px;">Marks as Paid</button>
+    </div>
+    </div>
+</div>

@@ -1,3 +1,9 @@
+    <style>
+        #loginimg{ 
+            margin-left: 2%;
+        }
+    </style>
+
     <div class="card text-center" ng-controller="BillController">
         <div class="card w-50" style="margin-left: 23%; margin-top: 5%;">
         <div class="card-header">
@@ -17,21 +23,27 @@
         <div>
         <input type="text" placeholder="&#xF002 Find by name or number" ng-model="number" style="height: 60px; border-radius: 15px; width: 50%; margin-top: 2%; margin-left: 10%; font-size: 22px;border-color: black;">
 
-        <button type="submit" class="btn btn-outline-danger" ng-click="submit()" style="height: 50px; width: 8%; margin-left: 1%; border-radius: 15px;">Add</button>
+        <button type="submit" class="btn btn-outline-danger" ng-click="submit()" style="height: 50px; width: 8%; margin-left: 1%; border-radius: 15px; font-size: 18px;">Add</button>
         </div>
 
         <h4 style="font-size: large; margin-top: 2%; margin-right: 30%;">Create a new group</h4>
 
-        <div ng-repeat="number in contacts">
+        <div ng-repeat="number in contacts" style="margin: 2%;">
+            <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg">
             <span id="text" style="border: 1px solid white; font-size: 25px;">{{number.numbers}}</span>
-            <!-- <div ng-model="showcontacts"></div> -->
-         <!-- <button type="button" class="btn btn-close removeField" ng-click="removeContactField($index)"></button> -->
+            <button class="btn btn-lg" style="font-size: 20px;">&#x20b9 100</button>
+            <input type="checkbox" ng-model="number.completed" ng-change="done($index, number.completed)">
+            <button type="button" class="btn btn-close removeField" ng-click="removeContactField($index)"></button>
+
+            <span ng-if="number.completed" style="font-size: 18px;">Payment Completed</span>
+
+            <hr>
         </div>
 
         </form>
 
         <div class="card-footer text-muted">
-            <button type="submit" class="btn-lg btn-primary" style="height: 55px; width: 50%; border-radius: 158px;">Continue</button>
+            <button type="submit" class="btn-lg btn-primary" ui-sref="SplitBillPayment" style="height: 55px; width: 50%; border-radius: 158px;">Continue</button>
         </div>
         </div>
     </div>

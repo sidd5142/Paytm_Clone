@@ -75,21 +75,25 @@ app.directive('fileUpload', function() {
  
 app.controller('AccountController',function($scope,$http,$window,$state){
 
+  // var image = $scope.userimage
+
   $scope.AddAccount = function(){
 
-    var image = $scope.userimage
+   
   
   var formdata = new FormData();
-      formdata.append('photo', image)
-      formdata.append('aadhaar_card', addhar)
-      formdata.append('pan_card', pan)
+      formdata.append('photo', $scope.userimage)
+      formdata.append('aadhaar_card', $scope.aadhaar)
+      formdata.append('pan_card', $scope.pan)
       formdata.append('phonenumber', $scope.number)
-      formdata.append('aadhaar_card_no', $scope.aadharnumber)
-      formdata.append('pan_card_no', $scope.pannumber)
+      formdata.append('aadhaar_card_no', $scope.aadharnum)
+      formdata.append('pan_card_no', $scope.pan_num)
       formdata.append('marital_status', $scope.status)
       formdata.append('nominee', $scope.nominee)
       formdata.append('nominee_phoneno', $scope.nomineenumber)
       formdata.append('address', $scope.address)
+
+       console.log(formdata)
 
   $http.post(ip + 'create_account', formdata, {
       withCredentials:true,

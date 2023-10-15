@@ -5,12 +5,15 @@ app.controller('HomeController',function($scope,$http,$window,$state){
 
     $scope.otp = function(){
 
-       $scope.showotp = true
-        var formdata = {
-            phone:$scope.number
-        }
+        if($scope.number)
+        {
 
-        $http.post(ip + 'otp', formdata, {
+            $scope.showotp = true
+            var formdata = {
+            phone:$scope.number
+            }
+       
+            $http.post(ip + 'otp', formdata, {
             withCredentials:true
         })
         .then(function(response){
@@ -26,6 +29,10 @@ app.controller('HomeController',function($scope,$http,$window,$state){
         .catch(function(error){
             console.log(error)
         })
+        }
+        else{
+            window.alert("Input Number")
+        }
     }
 
      // to submit otp
@@ -44,6 +51,7 @@ app.controller('HomeController',function($scope,$http,$window,$state){
         })
         .then(function(response){
             console.log(response)
+            // $state.go('BankAccount')
         })
         .catch(function(error){
             console.log(error)
@@ -89,12 +97,6 @@ app.controller('BillController',function($scope,$http,$window,$state){
     $scope.number = "";
 
     $scope.submit = function(){
-
-        // $scope.numbers.push(
-        // $scope.input = $scope.number 
-        // )
-
-        // console.log("GOoding!");
         $scope.contacts.push({
             numbers : $scope.number
     });
@@ -105,7 +107,7 @@ app.controller('BillController',function($scope,$http,$window,$state){
        $scope.contacts.splice(index, 1);
     };
 
-    // $scope.submit=function(){
+    // $scope.continue=function(){
     //     $http.post(ip + 'splitbill', {
     //         withCredentials:true
     //     })
@@ -115,6 +117,9 @@ app.controller('BillController',function($scope,$http,$window,$state){
     //     .catch(function(error){
     //         console.log(error)
     //     })
+    // }
+    // $scope.continue = function(){
+    //     $state.go('SplitBillPayment');
     // }
 })
 

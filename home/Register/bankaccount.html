@@ -78,7 +78,7 @@
                                             <i class="fa fa-user text-muted"></i>
                                         </span>
                                     </div>
-                                    <input id="dob" type="number" name="dob" ng-model="aadhar" placeholder="Aadhar Card Number" class="form-control bg-white border-left-0 border-md">
+                                    <input id="dob" type="number" name="dob" ng-model="aadharnum" placeholder="Aadhar Card Number" class="form-control bg-white border-left-0 border-md">
                                 </div>
             
                                 <div class="input-group col-lg-6 mb-4">
@@ -87,7 +87,7 @@
                                             <i class="fa fa-user text-muted"></i>
                                         </span>
                                     </div>
-                                    <input id="phoneNumber" type="number" name="number" ng-model="pannumber" placeholder="Pan card Number" class="form-control bg-white border-md border-left-0 pl-3">
+                                    <input id="phoneNumber" type="number" name="number" ng-model="pan_num" placeholder="Pan card Number" class="form-control bg-white border-md border-left-0 pl-3">
                                 </div>
         
         
@@ -114,7 +114,7 @@
                                 </div>
                                  <div class="input-group col-lg-12 mb-4">
                                      
-                                     <input id="Photo" type="file" name="aadhar"  file-upload ng-model="userimage" placeholder="Photo" class="form-control bg-white">
+                                     <input id="Photo" type="file" name="photo"  file-upload ng-model="userimage" placeholder="Photo" class="form-control bg-white">
                                  </div>
             
                                <div style="margin-left: 3%; font-size: 18px;">
@@ -122,20 +122,22 @@
                                </div>
                                 <div class="input-group col-lg-12 mb-4">
                                     
-                                    <input id="Aadhar" type="file" name="aadhar" file-upload ng-model="Aadhar" placeholder="Enter Aadhar" class="form-control bg-white">
+                                    <input id="Aadhar" type="file" name="aadhar" file-upload ng-model="aadhaar" placeholder="Enter Aadhar" class="form-control bg-white">
                                 </div>
         
                                 <div style="margin-left: 3%; font-size: 18px;">
                                     Pan Card:
                                 </div>                        
                                 <div class="input-group col-lg-12 mb-4">
-                                    <input id="Pan" type="file" name="pan"  file-upload ng-model="Pan" placeholder="Enter Pan" class="form-control bg-white">
+                                    <input id="Pan" type="file" name="pan"  file-upload ng-model="pan" placeholder="Enter Pan" class="form-control bg-white">
                                 </div>
 
                                 <div class="input-group col-lg-6 mb-4" >
-                                    <select class="form-select " ng-model="department" style="width: 100%;" aria-label="Default select example">
+                                    <select class="form-select " ng-model="status" style="width: 100%;" aria-label="Default select example">
                                         <option value="" selected disabled hidden>Marital Status</option>                               
-                                      <option value="{{depart.id}}" ng-repeat="depart in departs">{{depart.departments}}</option>
+                                      <option value="Married">Married</option>
+                                      <option value="Unmarried">Unmarried</option>
+
                                       
                                     </select>                  
                                 </div>

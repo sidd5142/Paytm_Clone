@@ -1,0 +1,61 @@
+
+<div class="card text-center" ng-controller="BankController">
+    <div class="card w-50" style="margin-left: 23%; margin-top: 5%;">
+    <div class="card-header" style="background-color: rgb(74, 151, 214);">
+      <h4 style="font-weight: bolder; font-size: 20px;">Enter your Account Details where you have your Account</h4>
+       <p class="font-weight-light" style="font-size: 14px;">Account should be registered with given mobile number</p>
+    </div>
+
+    <div>
+        <div class="input-group col-lg-6 mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                    <i class="fa fa-user text-muted"></i>
+                </span>
+            </div>
+            <input id="dob" type="text" name="dob" value="dob" ng-model="number" placeholder="Enter Registered Mobile Number" class="form-control bg-white border-left-0 border-md">
+        </div>
+
+        <div class="input-group col-lg-6 mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                    <i class="fa fa-phone-square text-muted"></i>
+                </span>
+            </div>
+            <input id="phoneNumber" type="text" name="phone" value="phonenumber" ng-model="branch" placeholder="Enter Branch Name" class="form-control bg-white border-md border-left-0 pl-3">
+        </div>
+
+        <div class="input-group col-lg-6 mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                    <i class="fa fa-user text-muted"></i>
+                </span>
+            </div>
+            <input id="dob" type="text" name="dob" value="do" ng-model="account_number" placeholder="Account Number" class="form-control bg-white border-left-0 border-md">
+        </div>
+
+        <div class="input-group col-lg-6 mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                    <i class="fa fa-phone-square text-muted"></i>
+                </span>
+            </div>
+            <input id="phoneNumber" type="tel"  value="phonenumber" ng-model="account_type" placeholder="Type" class="form-control bg-white border-md border-left-0 pl-3">
+        </div>
+
+        <div class="input-group col-lg-6 mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                    <i class="fa fa-user text-muted"></i>
+                </span>
+            </div>
+            <input id="dob" type="text" name="dob" value="dob" ng-model="ifsc" placeholder="IFSC Code" class="form-control bg-white border-left-0 border-md">
+        </div>
+    </div>
+    
+
+    <div class="card-footer text-muted" style="background-color: rgb(74, 151, 214);">
+        <button type="submit" class="btn-lg btn-outline-danger" ng-click="Add()" ui-sref="CreatePin" style="height: 55px; width: 40%; border-radius: 158px;">Add Bank Account</button>
+    </div>
+    </div>
+</div>
