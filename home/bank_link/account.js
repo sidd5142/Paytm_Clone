@@ -21,11 +21,29 @@ app.controller('BankController',function($scope,$http,$window,$state){
         } )
         .then(function(response) {
             console.log(response)
+            $state.go('CreatePin')
         })
         .catch(function(error) {
             console.log(error)
-        })
-        // 9524485485
-    
-}
+        })    
+    }
 });
+
+app.controller('PinController',function($scope,$http,$window,$state){
+
+    $scope.setpin = function(){
+    
+    $http.post(ip + 'pin', {pin : $scope.pin}, {
+        withCredentials:true
+    })
+    .then(function(response) {
+        console.log(response)
+        $state.go('PayWind')
+    })
+    .catch(function(error) {
+        console.log(error)
+    })
+ }
+})
+
+ // 9524485485

@@ -2,9 +2,14 @@ var app = angular.module("myApp", ['ui.router']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) { 
 	$stateProvider
+	    .state('PayHome', {
+            url: '/home',
+            templateUrl: '/home/homepage/home.html',
+            controller: 'HomePageController'
+        }) 
         .state('PayWind', {
             url: '/paywind',
-            templateUrl: '/home/homepage/paywind.html',
+            templateUrl: '/home/login/paywind.html',
             controller: 'HomeController'
         })    
 		.state('Register', {
@@ -19,12 +24,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		})
 		.state('SplitBill', {
             url: '/splitbill',
-			templateUrl: '/home/homepage/bill.html',
+			templateUrl: '/home/login/bill.html',
 			controller: 'BillController'
 		})
 		.state('SplitBillPayment', {
             url: '/splitbillpayment',
-			templateUrl: '/home/homepage/payment.html',
+			templateUrl: '/home/login/payment.html',
 			controller: 'PaymentController'
 		})
 		.state('BankAccount', {
@@ -38,5 +43,5 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			controller: 'PinController'
 		})
 		
-		$urlRouterProvider.otherwise('/paywind');
+		$urlRouterProvider.otherwise('/home');
 }]);

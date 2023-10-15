@@ -51,7 +51,7 @@ app.controller('HomeController',function($scope,$http,$window,$state){
         })
         .then(function(response){
             console.log(response)
-            // $state.go('BankAccount')
+            $state.go('BankAccount')
         })
         .catch(function(error){
             console.log(error)
@@ -59,6 +59,7 @@ app.controller('HomeController',function($scope,$http,$window,$state){
     }
 
     // to scan a qr code
+    var data = {};
 
     $scope.payment = function () {
 
@@ -68,7 +69,7 @@ app.controller('HomeController',function($scope,$http,$window,$state){
         const scanner = new Instascan.Scanner({ video: videoElement });
 
         scanner.addListener('scan', function (content) {
-            document.getElementById('result').textContent = 'QR Code Content: ' + content;
+        data = document.getElementById('result').textContent = content;
             
             videoElement.style.display = 'none';
         });
@@ -84,10 +85,57 @@ app.controller('HomeController',function($scope,$http,$window,$state){
     };
 
     // to pay the amount 
-    $scope.Pay = function (amount) {
-        $state.reload('Paywind')
+    $scope.pin = function () {
+        console.log($scope.amount)
+        
+        $http.post(ip + 'valid_amount', {'amount' : $scope.amount}, {
+            withCredentials: true
+        })
+        .then(function(response){
+                    console.log(response)
+                })
+        .catch(function(error){
+                    console.log(error)
+                })   
+        
+        // $http.post(ip + '', data , {
+        //     withCredentials: true
+        // })
+        // .then(function(response){
+        //             console.log(response)
+        //             $state.reload('Paywind')
+        //         })
+        // .catch(function(error){
+        //             console.log(error)
+        //         })       
+    }
+
+    $scope.FinalPay = function(){
+       console.log($scope.pin)
+       console.log($scope.amount)
+
+       var data = {
+        'pin' : $scope.pin,
+        'amount' : $scope.amount,
+        'date': dashSquare,
+        'time' : time,
+        'upi_number' : $scope.result
+       }
+
+
+       $http.post(ip + 'check_pin', data, {
+        withCredentials: true
+       })
+       .then(function(response){
+        console.log(response)
+        })
+        .catch(function(error){
+        console.log(error)
+        })
     }
 })
+
+   
 
 app.controller('BillController',function($scope,$http,$window,$state){
 

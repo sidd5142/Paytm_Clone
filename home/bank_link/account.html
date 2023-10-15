@@ -6,56 +6,28 @@
        <p class="font-weight-light" style="font-size: 14px;">Account should be registered with given mobile number</p>
     </div>
 
-    <div>
-        <div class="input-group col-lg-6 mb-4">
-            <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                    <i class="fa fa-user text-muted"></i>
-                </span>
-            </div>
-            <input id="dob" type="text" name="dob" value="dob" ng-model="number" placeholder="Enter Registered Mobile Number" class="form-control bg-white border-left-0 border-md">
-        </div>
+    <div style="margin-left: 5%;" >
+        
+            <form ng-submit="details">
 
-        <div class="input-group col-lg-6 mb-4">
-            <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                    <i class="fa fa-phone-square text-muted"></i>
-                </span>
-            </div>
-            <input id="phoneNumber" type="text" name="phone" value="phonenumber" ng-model="branch" placeholder="Enter Branch Name" class="form-control bg-white border-md border-left-0 pl-3">
-        </div>
+            <input id="dob" type="text" name="dob" value="dob" ng-model="number" placeholder="Enter Registered Mobile Number" class="form-control bg-white border-left-0 border-md" style="height: 40px; margin-top:5%; border-radius: 8px; width: 60%; margin-left: 17%; font-size: 15px;">
 
-        <div class="input-group col-lg-6 mb-4">
-            <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                    <i class="fa fa-user text-muted"></i>
-                </span>
-            </div>
-            <input id="dob" type="text" name="dob" value="do" ng-model="account_number" placeholder="Account Number" class="form-control bg-white border-left-0 border-md">
-        </div>
+            
+            <input id="phoneNumber" type="text" name="phone" value="phonenumber" ng-model="branch" placeholder="Enter Branch Name" class="form-control bg-white border-md border-left-0 pl-3" style="height: 40px; margin-top:3%; border-radius: 8px; width: 60%; margin-left: 17%; font-size: 15px;">
+        
 
-        <div class="input-group col-lg-6 mb-4">
-            <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                    <i class="fa fa-phone-square text-muted"></i>
-                </span>
-            </div>
-            <input id="phoneNumber" type="tel"  value="phonenumber" ng-model="account_type" placeholder="Type" class="form-control bg-white border-md border-left-0 pl-3">
-        </div>
+            <input id="dob" type="text" name="dob" value="do" ng-model="account_number" placeholder="Account Number" class="form-control bg-white border-left-0 border-md" style="height: 40px; margin-top:3%; border-radius: 8px; width: 60%; margin-left: 17%; font-size: 15px;">
+        
 
-        <div class="input-group col-lg-6 mb-4">
-            <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                    <i class="fa fa-user text-muted"></i>
-                </span>
-            </div>
-            <input id="dob" type="text" name="dob" value="dob" ng-model="ifsc" placeholder="IFSC Code" class="form-control bg-white border-left-0 border-md">
-        </div>
+            <input id="phoneNumber" type="tel"  value="phonenumber" ng-model="account_type" placeholder="Type" class="form-control bg-white border-md border-left-0 pl-3" style="height: 40px; margin-top:3%; border-radius: 8px; width: 60%; margin-left: 17%; font-size: 15px;">
+
+            <input id="dob" type="text" name="dob" value="dob" ng-model="ifsc" placeholder="IFSC Code" class="form-control bg-white border-left-0 border-md" style="height: 40px; margin-top:3%; border-radius: 8px; width: 60%; margin-bottom: 5%; margin-left: 17%; font-size: 15px;">
+            </form>
     </div>
     
 
     <div class="card-footer text-muted" style="background-color: rgb(74, 151, 214);">
-        <button type="submit" class="btn-lg btn-outline-danger" ng-click="Add()" ui-sref="CreatePin" style="height: 55px; width: 40%; border-radius: 158px;">Add Bank Account</button>
+        <button type="submit" class="btn-lg btn-outline-danger" ng-click="Add()" style="height: 55px; width: 40%; border-radius: 158px;">Add Bank Account</button>
     </div>
     </div>
 </div>
