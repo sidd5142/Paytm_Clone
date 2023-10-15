@@ -59,7 +59,7 @@ app.controller('HomeController',function($scope,$http,$window,$state){
     }
 
     // to scan a qr code
-    var data = {};
+    var scan_number = {};
 
     $scope.payment = function () {
 
@@ -69,7 +69,7 @@ app.controller('HomeController',function($scope,$http,$window,$state){
         const scanner = new Instascan.Scanner({ video: videoElement });
 
         scanner.addListener('scan', function (content) {
-        data = document.getElementById('result').textContent = content;
+        scan_number = document.getElementById('result').textContent = content;
             
             videoElement.style.display = 'none';
         });
@@ -87,8 +87,13 @@ app.controller('HomeController',function($scope,$http,$window,$state){
     // to pay the amount 
     $scope.pin = function () {
         console.log($scope.amount)
+
+        var amt = {
+            'amount' : $scope.amount,
+            'to' : scan_number
+        }
         
-        $http.post(ip + 'valid_amount', {'amount' : $scope.amount}, {
+        $http.post(ip + 'valid_amount', amt, {
             withCredentials: true
         })
         .then(function(response){
@@ -113,13 +118,14 @@ app.controller('HomeController',function($scope,$http,$window,$state){
     $scope.FinalPay = function(){
        console.log($scope.pin)
        console.log($scope.amount)
+       console.log(scan_number)
 
        var data = {
         'pin' : $scope.pin,
         'amount' : $scope.amount,
-        'date': dashSquare,
-        'time' : time,
-        'upi_number' : $scope.result
+        // 'date': 2023-10-15,
+        // 'time' : 9.30 ,
+        'to' : scan_number
        }
 
 
