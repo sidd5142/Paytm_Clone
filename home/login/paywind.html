@@ -337,6 +337,22 @@ footer span:hover {
 
 
 <body>
+<!-- Side Bar -->
+  <template>
+    <div>
+      <b-button v-b-toggle.sidebar-border>Toggle Sidebar</b-button>
+      <b-sidebar id="sidebar-border" sidebar-class="border-right border-danger">
+        <div class="px-3 py-2">
+          <p>
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+            in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+          </p>
+          <b-img src="https://picsum.photos/500/500/?image=54" fluid thumbnail></b-img>
+        </div>
+      </b-sidebar>
+    </div>
+  </template>
+
   <header>
   <section id="navbarshadow">
     <nav class="navbar navbar-expand-lg  navcolor">
@@ -451,21 +467,21 @@ footer span:hover {
                 <label for="amount" class="form-label">Amount:</label>
                 <input type="text" class="form-control" placeholder="Enter Amount" ng-model="amount" name="amount" style="height: 40px;">
               </div>
-              <!-- <div class="mb-3">
-                <label for="pwd" class="form-label">Phone Number:</label>
-                <input type="password" class="form-control" placeholder="Enter Your PIN" name="pswd" style="height: 40px;">
-              </div> -->
+              <div class="mb-3">
+                <label for="pwd" class="form-label">PIN :</label>
+                <input type="password" class="form-control" ng-model="pin" placeholder="Enter Your PIN" name="pswd" style="height: 40px;">
+              </div>
             </div>
       
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" ng-click="pin()" data-bs-toggle="modal" data-bs-target="#Pin">Enter Pin</button>
+              <button type="button" class="btn btn-danger" ng-click="FinalPay()" >Enter Pin</button>
             </div>
       
           </div>
         </div>
       </div>
 
-      <div class="modal" id="Pin">
+      <!-- <div class="modal" id="Pin">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
       
@@ -487,7 +503,7 @@ footer span:hover {
       
           </div>
         </div>
-      </div>
+      </div> -->
   
   
 

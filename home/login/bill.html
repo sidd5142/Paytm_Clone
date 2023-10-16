@@ -15,7 +15,7 @@
             <div class="card text-center" style="width: 50%; margin-left: 25%;background-color: whitesmoke;"  >
                 <h5 class="card-title font-weight-normal" style="font-size: 22px; margin-top: 5%;">Total Amount</h5>
                 <!-- <iframe class="card-text" frameborder="0" title="Ruppees"></iframe> -->
-                <input type="text"  placeholder=" &#x20b9 0" style="border: 0; height: 150px; font-size: 60px; text-align: center; background-color: whitesmoke;" id="">
+                <input type="text"  placeholder=" &#x20b9 0" style="border: 0; height: 150px; font-size: 60px; text-align: center; background-color: whitesmoke;" id="" ng-model="rupees">
                 <input type="text" placeholder="What's this payment for ?" style="height: 60px; border-radius: 10px; font-size: large; text-align: center; width: fit-content;border:0cm; margin-left: 20%; margin-bottom: 4%; margin-top: 3%;">
                       <!-- </div> -->
             </div>
@@ -29,6 +29,7 @@
         <h4 style="font-size: large; margin-top: 2%; margin-right: 30%;">Create a new group</h4>
 
         <div ng-repeat="number in contacts" style="margin: 2%;">
+            <p>{{$index}}</p>
             <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg">
             <span id="text" style="border: 1px solid white; font-size: 25px;">{{number.numbers}}</span>
             <button class="btn btn-lg" style="font-size: 20px;">&#x20b9 100</button>
@@ -43,7 +44,7 @@
         </form>
 
         <div class="card-footer text-muted">
-            <button type="submit" class="btn-lg btn-primary" ui-sref="SplitBillPayment" style="height: 55px; width: 50%; border-radius: 158px;">Continue</button>
+            <button type="submit" class="btn-lg btn-primary" ng-click="Continue()" style="height: 55px; width: 50%; border-radius: 158px;">Continue</button>
         </div>
         </div>
     </div>

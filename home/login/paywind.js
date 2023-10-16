@@ -1,4 +1,4 @@
-var ip = "https://10.21.81.234:8000/";
+var ip = "https://10.21.81.242:8000/";
 app.controller('HomeController',function($scope,$http,$window,$state){
 
     // to generate the otp
@@ -85,23 +85,23 @@ app.controller('HomeController',function($scope,$http,$window,$state){
     };
 
     // to pay the amount 
-    $scope.pin = function () {
-        console.log($scope.amount)
+    // $scope.pin = function () {
+    //     console.log($scope.amount)
 
-        var amt = {
-            'amount' : $scope.amount,
-            'to' : scan_number
-        }
+    //     var amt = {
+    //         'amount' : $scope.amount,
+    //         'to' : scan_number
+    //     }
         
-        $http.post(ip + 'valid_amount', amt, {
-            withCredentials: true
-        })
-        .then(function(response){
-                    console.log(response)
-                })
-        .catch(function(error){
-                    console.log(error)
-                })   
+    //     $http.post(ip + 'valid_amount', amt, {
+    //         withCredentials: true
+    //     })
+    //     .then(function(response){
+    //                 console.log(response)
+    //             })
+    //     .catch(function(error){
+    //                 console.log(error)
+    //             })   
         
         // $http.post(ip + '', data , {
         //     withCredentials: true
@@ -113,7 +113,7 @@ app.controller('HomeController',function($scope,$http,$window,$state){
         // .catch(function(error){
         //             console.log(error)
         //         })       
-    }
+    // }
 
     $scope.FinalPay = function(){
        console.log($scope.pin)
@@ -128,8 +128,9 @@ app.controller('HomeController',function($scope,$http,$window,$state){
         'to' : scan_number
        }
 
+       console.log(data)
 
-       $http.post(ip + 'check_pin', data, {
+       $http.post(ip + 'transaction', data, {
         withCredentials: true
        })
        .then(function(response){
@@ -141,22 +142,33 @@ app.controller('HomeController',function($scope,$http,$window,$state){
     }
 })
 
-   
+var count = 0; 
+var amount = 0;  
 
 app.controller('BillController',function($scope,$http,$window,$state){
-
     $scope.contacts = [];
     $scope.numbers = [];
 
     $scope.number = "";
 
     $scope.submit = function(){
+        count++;
         $scope.contacts.push({
             numbers : $scope.number
     });
+    amount = $scope.rupees
 
     $scope.number= "";
 };
+
+    $scope.Continue = function($index){
+        // $scope.number = $index
+        console.log(count);
+        console.log(amount);
+        $state.go('SplitBillPayment')
+    }
+    
+
     $scope.removeContactField = function(index){ 
        $scope.contacts.splice(index, 1);
     };
@@ -176,6 +188,14 @@ app.controller('BillController',function($scope,$http,$window,$state){
     //     $state.go('SplitBillPayment');
     // }
 })
+
+
+  app.controller('PaymentController',function($scope,$http,$window,$state){
+     var equal = amount/count;
+     console.log(equal);
+
+     
+  })
 
 
 
