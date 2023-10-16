@@ -1,4 +1,4 @@
-var ip = "https://10.21.81.242:8000/";
+// var ip = "https://10.21.81.242:8000/";
 app.controller('HomeController',function($scope,$http,$window,$state){
 
     // to generate the otp
@@ -121,11 +121,11 @@ app.controller('HomeController',function($scope,$http,$window,$state){
        console.log(scan_number)
 
        var data = {
-        'pin' : $scope.pin,
-        'amount' : $scope.amount,
+        pin : $scope.pin,
+        amount : $scope.amount,
         // 'date': 2023-10-15,
         // 'time' : 9.30 ,
-        'to' : scan_number
+        to : scan_number
        }
 
        console.log(data)

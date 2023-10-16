@@ -1,4 +1,4 @@
-var ip = "https://10.21.81.234:8000/";
+// var ip = "https://10.21.81.234:8000/";
 
 
 app.controller('BankController',function($scope,$http,$window,$state){
