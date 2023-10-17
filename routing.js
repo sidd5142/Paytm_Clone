@@ -42,6 +42,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			templateUrl: '/home/bank_link/pin.html',
 			controller: 'PinController'
 		})
+		.state('Transaction_History', {
+            url: '/history',
+			templateUrl: '/home/bank_link/transaction.html',
+			controller: 'TransactionController'
+		})
+		.state('History', {
+            url: '/historypayment',
+			templateUrl: '/home/bank_link/history.html',
+			controller: 'HistoryController'
+		})
 		
 		$urlRouterProvider.otherwise('/home');
 }]);
