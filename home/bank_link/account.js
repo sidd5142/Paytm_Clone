@@ -49,5 +49,8 @@ app.controller('PinController',function($scope,$http,$window,$state){
 app.controller('TransactionController',function($scope,$http,$window,$state){
 })
 
+app.controller('HistoryController',function($scope,$http,$window,$state){
+})
+
 
  // 9524485485

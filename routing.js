@@ -52,9 +52,19 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			templateUrl: '/home/bank_link/history.html',
 			controller: 'HistoryController'
 		})
+		.state('Message', {
+            url: '/message',
+			templateUrl: '/home/payment/thistory.html',
+			controller: 'PaymentController'
+		})
+		.state('Data', {
+            url: '/data',
+			templateUrl: '/home/payment/paymentdata.html',
+			controller: 'DataController'
+		})
 		
 		$urlRouterProvider.otherwise('/home');
 }]);
 
-var ip = "https://10.21.81.242:8000/";
+var ip = "https://10.21.80.33:8000/";
 

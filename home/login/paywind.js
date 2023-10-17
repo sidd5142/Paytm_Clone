@@ -1,4 +1,3 @@
-// var ip = "https://10.21.81.242:8000/";
 app.controller('HomeController',function($scope,$http,$window,$state){
 
     // to generate the otp
@@ -8,7 +7,6 @@ app.controller('HomeController',function($scope,$http,$window,$state){
         if($scope.number)
         {
 
-            $scope.showotp = true
             var formdata = {
             phone:$scope.number
             }
@@ -18,6 +16,7 @@ app.controller('HomeController',function($scope,$http,$window,$state){
         })
         .then(function(response){
             console.log(response)
+            $scope.showotp = true
             Swal.fire({
                 position: 'centre',
                 icon: 'success',
