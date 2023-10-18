@@ -129,14 +129,25 @@ app.controller('HomeController',function($scope,$http,$window,$state){
 
        console.log(data)
 
-       $http.post(ip + 'transaction', data, {
+       $http.get(ip + 'transaction', { params : data,
         withCredentials: true
        })
        .then(function(response){
         console.log(response)
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Cashback Earned...',
+            text: response.data.cashback
+         } )
         })
         .catch(function(error){
         console.log(error)
+        Swal.fire({
+            icon: 'success',
+            title: 'Insufficient...',
+            text: error.data.message
+         } )
         })
     }
 })
@@ -219,4 +230,5 @@ app.controller('BillController',function($scope,$http,$window,$state){
 
 
 
-   
+  app.controller('DashboardController',function($scope,$http,$window,$state){
+  })

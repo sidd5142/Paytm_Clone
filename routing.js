@@ -7,6 +7,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             templateUrl: '/home/homepage/home.html',
             controller: 'HomePageController'
         }) 
+		.state('Dashboard', {
+            url: '/dashboard',
+            templateUrl: '/home/login/dashboard.html',
+            controller: 'DashboardController'
+        }) 
         .state('PayWind', {
             url: '/paywind',
             templateUrl: '/home/login/paywind.html',
@@ -66,5 +71,5 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		$urlRouterProvider.otherwise('/home');
 }]);
 
-var ip = "https://10.21.80.33:8000/";
+var ip = "https://10.21.83.157:8000/";
 
