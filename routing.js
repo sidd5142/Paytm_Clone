@@ -55,7 +55,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		.state('Message', {
             url: '/message',
 			templateUrl: '/home/payment/thistory.html',
-			controller: 'PaymentController'
+			controller: 'MessageController'
 		})
 		.state('Data', {
             url: '/data',

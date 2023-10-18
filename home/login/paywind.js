@@ -143,6 +143,8 @@ app.controller('HomeController',function($scope,$http,$window,$state){
 
 var count = 0; 
 var amount = 0;  
+var names = [];
+var info = {};
 
 app.controller('BillController',function($scope,$http,$window,$state){
     $scope.contacts = [];
@@ -158,12 +160,26 @@ app.controller('BillController',function($scope,$http,$window,$state){
     amount = $scope.rupees
 
     $scope.number= "";
+
+    names = $scope.contacts;
+
+    var equal = amount/count;
+    var data = {
+        names : $scope.contacts,
+        amount : amount,
+        equal : equal        
+    }
+    info = data
+
 };
+
 
     $scope.Continue = function($index){
         // $scope.number = $index
         console.log(count);
         console.log(amount);
+        // console.log($scope.contacts);
+        // console.log(amount/count);
         $state.go('SplitBillPayment')
     }
     
@@ -190,10 +206,15 @@ app.controller('BillController',function($scope,$http,$window,$state){
 
 
   app.controller('PaymentController',function($scope,$http,$window,$state){
+    $scope.bankers = [];
      var equal = amount/count;
      console.log(equal);
+    //  var data = response
+    $scope.bankers = info
+     console.log($scope.bankers);
 
-     
+    //  console.log(info);
+
   })
 
 
