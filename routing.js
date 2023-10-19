@@ -27,7 +27,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			templateUrl: '/home/Register/bankaccount.html',
 			controller: 'AccountController'
 		})
-		.state('SplitBill', {
+		.state('Dashboard.SplitBill', {
             url: '/splitbill',
 			templateUrl: '/home/login/bill.html',
 			controller: 'BillController'
@@ -52,12 +52,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			templateUrl: '/home/bank_link/transaction.html',
 			controller: 'TransactionController'
 		})
-		.state('Dashboard.History', {
+		.state('History', {
             url: '/historypayment',
 			templateUrl: '/home/bank_link/history.html',
 			controller: 'HistoryController'
 		})
-		.state('Message', {
+		.state('Dashboard.Message', {
             url: '/message',
 			templateUrl: '/home/payment/thistory.html',
 			controller: 'MessageController'
@@ -71,6 +71,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             url: '/transaction',
 			templateUrl: '/home/payment/transaction.html',
 			controller: 'TransactionController'
+		})
+		.state('Dashboard.Cashback', {
+            url: '/',
+			templateUrl: '/home/login/cashback.html',
+			controller: 'CashbackController'
 		})
 		
 		$urlRouterProvider.otherwise('/dashboard');

@@ -129,6 +129,8 @@ app.controller('HomeController',function($scope,$http,$window,$state){
 
        console.log(data)
 
+       if($scope.pin && $scope.amount)
+       {
        $http.get(ip + 'transaction', { params : data,
         withCredentials: true
        })
@@ -152,6 +154,14 @@ app.controller('HomeController',function($scope,$http,$window,$state){
          } )
         })
     }
+    else{
+        Swal.fire({
+            icon: 'error',
+            title: 'Some fiels are missing...',
+            text: error
+        })
+    }
+  }
 })
 
 var count = 0; 
@@ -233,4 +243,8 @@ app.controller('BillController',function($scope,$http,$window,$state){
 
 
   app.controller('DashboardController',function(){
+  })
+
+
+  app.controller('CashbackController',function($scope,$http,$window,$state){
   })

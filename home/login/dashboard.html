@@ -259,7 +259,7 @@ button {
                     <li><a href="">Contact</a></li>
                 </ul>
               </div> -->
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" style="background-color: #00baf2;">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" style="background-color: rgb(217, 217, 217);">
                   <!-- <button class="btn btn-close closebtn" data-bs-dismiss="sidebar"></button> -->
                     <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" >
                         <span class="" style="font-size: 25px;">DASHBOARD</span>
@@ -278,9 +278,19 @@ button {
                             <a  class="nav-link px-0 align-middle"
                                  ng-click="dash" ui-sref="Dashboard.Transaction_History"><i class=""></i>History</a>
                         </li>
-                        <ul>
-                          <!-- <button class="btn btn-outline-primary" style="margin-top: 500px; height: 10%;" ng-click="logout()">LogOut</button> -->
-                          </ul>
+                        <li>
+                          <a  class="nav-link px-0 align-middle"
+                               ng-click="dash" ui-sref="Dashboard.Message"><i class=""></i>Message</a>
+                        </li>
+                        <li>
+                          <a  class="nav-link px-0 align-middle"
+                             ng-click="dash" ui-sref="Dashboard.SplitBill"><i class=""></i>Split Bill</a>
+                        </li>
+                        <li>
+                          <a  class="nav-link px-0 align-middle"
+                             ng-click="dash" ui-sref="Dashboard.Cashback"><i class=""></i>Cashback & Offers</a>
+                        </li>
+                        
                     </ul>
                     <hr>
                      

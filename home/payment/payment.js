@@ -45,6 +45,7 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
         console.log($scope.amount)
         console.log(scan_number)
  
+        
         var data = {
          pin : $scope.pin,
          amount : $scope.amount,
@@ -54,6 +55,9 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
         }
  
         console.log(data)
+
+        if($scope.pin)
+        {
  
         $http.get(ip + 'transaction', { params : data,
          withCredentials: true
@@ -73,10 +77,19 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
          console.log(error)
          Swal.fire({
              icon: 'error',
-             // title: 'Insufficient...',
-             text: error.data.message
+            //  title: 'Inputs are missing...',
+             text: 'error'
           } )
          })
+        }
+        else
+        {
+            Swal.fire({
+                icon: 'error',
+                title: 'Inputs are missing...',
+                text: 'error'
+             } )
+        }
      }
 
 
