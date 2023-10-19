@@ -133,19 +133,21 @@ app.controller('HomeController',function($scope,$http,$window,$state){
         withCredentials: true
        })
        .then(function(response){
-        console.log(response)
+        console.log(response.data)
+        console.log(response.data.cashback)
 
         Swal.fire({
             icon: 'success',
             title: 'Cashback Earned...',
-            text: response.data.cashback
+            text: response.data
          } )
+         $state.reload('Dashboard.PayWind')
         })
         .catch(function(error){
         console.log(error)
         Swal.fire({
-            icon: 'success',
-            title: 'Insufficient...',
+            icon: 'error',
+            // title: 'Insufficient...',
             text: error.data.message
          } )
         })
@@ -230,5 +232,5 @@ app.controller('BillController',function($scope,$http,$window,$state){
 
 
 
-  app.controller('DashboardController',function($scope,$http,$window,$state){
+  app.controller('DashboardController',function(){
   })

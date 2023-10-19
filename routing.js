@@ -2,7 +2,7 @@ var app = angular.module("myApp", ['ui.router']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) { 
 	$stateProvider
-	    .state('PayHome', {
+	    .state('Dashboard.PayHome', {
             url: '/home',
             templateUrl: '/home/homepage/home.html',
             controller: 'HomePageController'
@@ -12,7 +12,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             templateUrl: '/home/login/dashboard.html',
             controller: 'DashboardController'
         }) 
-        .state('PayWind', {
+        .state('Dashboard.PayWind', {
             url: '/paywind',
             templateUrl: '/home/login/paywind.html',
             controller: 'HomeController'
@@ -47,12 +47,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			templateUrl: '/home/bank_link/pin.html',
 			controller: 'PinController'
 		})
-		.state('Transaction_History', {
+		.state('Dashboard.Transaction_History', {
             url: '/history',
 			templateUrl: '/home/bank_link/transaction.html',
 			controller: 'TransactionController'
 		})
-		.state('History', {
+		.state('Dashboard.History', {
             url: '/historypayment',
 			templateUrl: '/home/bank_link/history.html',
 			controller: 'HistoryController'
@@ -67,9 +67,14 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			templateUrl: '/home/payment/paymentdata.html',
 			controller: 'DataController'
 		})
+		.state('Dashboard.Transaction', {
+            url: '/transaction',
+			templateUrl: '/home/payment/transaction.html',
+			controller: 'TransactionController'
+		})
 		
-		$urlRouterProvider.otherwise('/home');
+		$urlRouterProvider.otherwise('/dashboard');
 }]);
 
-var ip = "https://10.21.83.157:8000/";
+var ip = "https://10.21.87.151:8000/";
 
