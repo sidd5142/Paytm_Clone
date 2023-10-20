@@ -1,6 +1,22 @@
 // var ip = "https://10.21.81.234:8000/";
 
 app.controller('RegisterController',function($scope,$http,$window,$state){
+ 
+  $scope.gender1 = function(){
+    var data = {
+      value : 'Gender'
+    }
+    $http.get(ip + 'dropdown' , { params : data,
+      withCredentials: true
+    })
+    .then(function(response){
+      console.log(response)
+      $scope.gender = response.data
+    })
+    .catch(function(error){
+      console.log(error)
+    })
+  }
   
   $scope.submit = function(){
 
@@ -75,7 +91,21 @@ app.directive('fileUpload', function() {
  
 app.controller('AccountController',function($scope,$http,$window,$state){
 
-  // var image = $scope.userimage
+  $scope.marital = function(){
+    var status = {
+      value : 'Marital Status'
+    }
+    $http.get(ip + 'dropdown' , { params : status,
+      withCredentials: true
+    })
+    .then(function(response){
+      console.log(response.data)
+      $scope.status1 = response.data
+    })
+    .catch(function(error){
+      console.log(error)
+    })
+  }
 
   $scope.AddAccount = function(){
 

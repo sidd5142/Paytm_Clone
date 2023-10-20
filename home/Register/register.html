@@ -10,35 +10,19 @@
     <script src="node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
     <script src="node_modules/angular/angular.js"></script> -->
     <!-- <script src="hospital.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
 /*  */
 .border-md {
     border-width: 2px;
 }
 
-.btn-facebook {
-    background: #405D9D;
-    border: none;
-}
-
-.btn-facebook:hover, .btn-facebook:focus {
-    background: #314879;
-}
-
-.btn-twitter {
-    background: #42AEEC;
-    border: none;
-}
-
-.btn-twitter:hover, .btn-twitter:focus {
-    background: #1799e4;
-}
 body {
     min-height: 100vh;
 }
 
 .form-control:not(select) {
-    padding: 1.5rem 0.5rem;
+    padding: 2.5rem 0.5rem;
 }
 
 select.form-control {
@@ -49,7 +33,7 @@ select.form-control {
 .form-control::placeholder {
     color: #ccc;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
 }
 .form-control:focus {
     box-shadow: none;
@@ -81,7 +65,7 @@ select.form-control {
                                     <i class="fa fa-user text-muted"></i>
                                 </span>
                             </div>
-                            <input id="firstName" type="text" name="firstname" ng-model="firstname" placeholder="First Name" class="form-control bg-white border-left-0 border-md">
+                            <input id="firstName" type="text" name="firstname" ng-model="firstname" placeholder="First Name" style="font-size: 18px;" class="form-control bg-white border-left-0 border-md">
                         </div>
     
                         <!-- Last Name -->
@@ -91,7 +75,7 @@ select.form-control {
                                     <i class="fa fa-user text-muted"></i>
                                 </span>
                             </div>
-                            <input id="lastName" type="text" name="lastname" ng-model="lastname" placeholder="Last Name" class="form-control bg-white border-left-0 border-md">
+                            <input id="lastName" type="text" name="lastname" ng-model="lastname" placeholder="Last Name" style="font-size: 18px;" class="form-control bg-white border-left-0 border-md">
                         </div>
     
                         <div class="input-group col-lg-12 mb-4">
@@ -100,7 +84,7 @@ select.form-control {
                                     <i class="fa fa-envelope text-muted"></i>
                                 </span>
                             </div>
-                            <input id="email" type="email" name="email" ng-model="email" ng-change="validateEmail()" ng placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
+                            <input id="email" type="email" name="email" ng-model="email" ng-change="validateEmail()" style="font-size: 18px;" ng placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
                             <!-- <div ng-show="email == '' && !emailIsValid">
                                 <p style="color: red;">Invalid email format</p>
                             </div>
@@ -115,7 +99,7 @@ select.form-control {
                                     <i class="fa fa-user text-muted"></i>
                                 </span>
                             </div>
-                            <input id="dob" type="text" name="dob" value="dob" ng-model="dob" placeholder="Date of Birth" class="form-control bg-white border-left-0 border-md">
+                            <input id="dob" type="text" name="dob" value="dob" ng-model="dob" style="font-size: 18px;" placeholder="Date of Birth" class="form-control bg-white border-left-0 border-md">
                         </div>
     
                         <div class="input-group col-lg-6 mb-4">
@@ -124,28 +108,26 @@ select.form-control {
                                     <i class="fa fa-phone-square text-muted"></i>
                                 </span>
                             </div>
-                            <input id="phoneNumber" type="tel" name="phone" value="phonenumber" ng-model="contact" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3">
+                            <input id="phoneNumber" type="tel" name="phone" value="phonenumber" ng-model="contact" style="font-size: 18px;" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3">
                         </div>
 
 
                         <div class="input-group col-lg-6 mb-4" >
-                            <select class="form-select " ng-model="gender" style="width: 100%;" aria-label="Default select example">
+                            <select class="input-group-prepend" ng-model="gender" ng-click="gender1()" style="width: 100%; padding: 2.0rem;" aria-label="Default select example">
                                 <option value="" selected disabled hidden>Gender</option>                               
-                              <option value="male">Male</option>
-                              <option value="female">Female</option>
-                              <option value="other">Others</option>
-                              <!-- <option value="male">{{Male}}</option>                               -->
+                              <option value="{{data}}" ng-repeat="data in gender">{{data}}</option>
+                              <!-- <option value="male">{{Male}}</option> -->
                             </select>                  
                         </div>
     
-
+                        <br>
                         <div class="input-group col-lg-6 mb-4">
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-white px-4 border-md border-right-0">
                                     <i class="fa fa-lock text-muted"></i>
                                 </span>
                             </div>
-                            <input id="password" type="password" name="password" ng-model="password" placeholder="Password" class="form-control bg-white border-left-0 border-md">
+                            <input id="password" type="password" name="password" ng-model="password" style="font-size: 18px;" placeholder="Password" class="form-control bg-white border-left-0 border-md">
                         </div>
     
                         <!-- Password Confirmation -->
@@ -155,7 +137,7 @@ select.form-control {
                                     <i class="fa fa-lock text-muted"></i>
                                 </span>
                             </div>
-                            <input id="passwordConfirmation" type="password" ng-model="confpassword" name="passwordConfirmation" ng-change="validatePassword()" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md">
+                            <input id="passwordConfirmation" type="password" ng-model="confpassword" style="font-size: 18px;" name="passwordConfirmation" ng-change="validatePassword()" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md">
                             <!-- <div class="text-danger" ng-show="myForm.confpassword.$dirty && myForm.confpassword.$error.required">Confirm Password is Required</div>
                                  <div class="text-danger" ng-show="passwordMismatch">
                                    Password do not match.
@@ -173,15 +155,15 @@ select.form-control {
                         </div> -->
     
                         <div class="form-group col-lg-12 mx-auto mb-0">
-                            <button type="submit"  class="btn btn-primary btn-lg" style="margin-left: 40%;" ng-click="submit()">Register Now</button>
+                            <button type="submit"  class="btn btn-primary btn-lg" style="margin-left: 37%; font-size: 20px; margin-bottom: 2%;" ng-click="submit()">Register Now</button>
                             </div>
     
                        <div class="text-center w-100">
-                            <p class="text-muted font-weight-bold">Already have an Account <a  class="text-primary ml-2 mt-lg-4" ui-sref="PayHome">Login</a></p>
+                            <p class="text-muted font-weight-bold" style="font-size: 15px;">Already have an Account ?<a  class="text-primary ml-2 mt-lg-4" ui-sref="PayHome">Login</a></p>
                         </div>
 
                         <div class="text-center w-100">
-                            <p class="text-muted font-weight-bold">Add Account Details<a  class="text-primary ml-2 mt-lg-4" ui-sref="AddAccount">Add Account</a></p>
+                            <p class="text-muted font-weight-bold" style="font-size: 15px;">Add Account Details<a  class="text-primary ml-2 mt-lg-4" ui-sref="AddAccount">Add Account</a></p>
                         </div>
     
                     </div>
