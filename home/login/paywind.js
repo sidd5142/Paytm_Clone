@@ -188,23 +188,36 @@ app.controller('BillController',function($scope,$http,$window,$state){
 
     var equal = amount/count;
     var data = {
-        names : $scope.contacts,
+        UPI : $scope.contacts,
         amount : amount,
-        equal : equal        
+        no : count       
     }
     info = data
+
+    $scope.Continue = function(){
+        $http.post(ip + 'split_bill', data ,{
+            withCredentials: true
+        })
+        .then(function(response){
+            console.log(response)
+            $state.go('SplitBillPayment')
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    }
 
 };
 
 
-    $scope.Continue = function($index){
-        // $scope.number = $index
-        console.log(count);
-        console.log(amount);
-        // console.log($scope.contacts);
-        // console.log(amount/count);
-        $state.go('SplitBillPayment')
-    }
+    // $scope.Continue = function($index){
+    //     // $scope.number = $index
+    //     console.log(count);
+    //     console.log(amount);
+    //     // console.log($scope.contacts);
+    //     // console.log(amount/count);
+       
+    // }
     
 
     $scope.removeContactField = function(index){ 
@@ -234,7 +247,9 @@ app.controller('BillController',function($scope,$http,$window,$state){
      console.log(equal);
     //  var data = response
     $scope.bankers = info
-     console.log($scope.bankers);
+    console.log($scope.bankers);
+    $scope.naam = $scope.bankers.names
+     console.log($scope.naam);
 
     //  console.log(info);
 
@@ -242,9 +257,38 @@ app.controller('BillController',function($scope,$http,$window,$state){
 
 
 
-  app.controller('DashboardController',function(){
+  app.controller('DashboardController',function($scope,$http){
+
+    $scope.logout = function(){
+        $http.post(ip + 'logout1', {
+            withCredentials : true
+        })
+        .then(function(response){
+            console.log(response)
+            $state.go('PayHome')
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    }
+
+
   })
 
 
   app.controller('CashbackController',function($scope,$http,$window,$state){
+
+    $scope.coupons = {};
+
+    $http.get(ip + 'show_coupons', {
+        withCredentials : true
+    })
+    .then(function(response){
+        console.log(response)
+        $scope.coupons = response.data
+        console.log($scope.coupons)
+    })
+    .catch(function(error){
+        console.log(error)
+    })
   })

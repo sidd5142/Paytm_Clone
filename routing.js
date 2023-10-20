@@ -2,7 +2,7 @@ var app = angular.module("myApp", ['ui.router']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) { 
 	$stateProvider
-	    .state('Dashboard.PayHome', {
+	    .state('PayHome', {
             url: '/home',
             templateUrl: '/home/homepage/home.html',
             controller: 'HomePageController'
@@ -50,7 +50,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		.state('Dashboard.Transaction_History', {
             url: '/history',
 			templateUrl: '/home/bank_link/transaction.html',
-			controller: 'TransactionController'
+			controller: 'TransactionDetailController'
 		})
 		.state('History', {
             url: '/historypayment',
@@ -73,12 +73,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			controller: 'TransactionController'
 		})
 		.state('Dashboard.Cashback', {
-            url: '/',
+            url: '/cashback',
 			templateUrl: '/home/login/cashback.html',
 			controller: 'CashbackController'
 		})
 		
-		$urlRouterProvider.otherwise('/dashboard');
+		$urlRouterProvider.otherwise('/home');
 }]);
 
 var ip = "https://10.21.87.151:8000/";

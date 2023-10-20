@@ -46,8 +46,25 @@ app.controller('PinController',function($scope,$http,$window,$state){
  }
 })
 
-app.controller('TransactionController',function($scope,$http,$window,$state){
+app.controller('TransactionDetailController',function($scope,$http,$window,$state){
+
+    $scope.details = {};
+
+    console.log('TransactionControlle')
+    $http.get(ip + 'Payment_history', {
+        withCredentials:true
+    })
+    .then(function(response) {
+        console.log(response)
+        $scope.details = response.data;
+        console.log($scope.details)
+    })
+    .catch(function(error) {
+        console.log(error)
+    })
+// }    
 })
+
 
 app.controller('HistoryController',function($scope,$http,$window,$state){
 })

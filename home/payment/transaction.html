@@ -23,7 +23,7 @@
       <div class="modal-content">
   
         <div class="modal-header">
-          <h4 class="modal-title">Scan QR Code</h4>
+          <h4 class="modal-title" style="font-size: 25px;">Scan QR Code</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
   
@@ -33,34 +33,34 @@
         </div>
   
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" ng-click="Pay()" data-bs-toggle="modal" data-bs-target="#FinalPayment">Continue</button>
+          <button type="button" class="btn btn-danger" ng-click="Pay()" data-bs-toggle="modal" data-bs-target="#FinalPayment" style="width: fit-content; font-size: large;">Continue</button>
         </div>
       </div>
     </div>
   </div>
 
   <div class="modal" id="FinalPayment">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
+    <div class="modal-dialog">
+      <div class="modal-content" style="font-size: 20px;">
   
         <div class="modal-header">
-          <h4 class="modal-title">Make Payment</h4>
+          <h4 class="modal-title" style="font-size: 25px;">Make Payment</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
   
         <div class="modal-body">
           <div class="mt-3">
             <label for="amount" class="form-label">Amount:</label>
-            <input type="text" class="form-control" placeholder="Enter Amount" ng-model="amount" name="amount" style="height: 40px;">
+            <input type="text" class="form-control" placeholder="Enter Amount" ng-model="amount" name="amount" style="height: 40px; font-size: 15px;">
           </div>
           <div class="mb-3">
             <label for="pwd" class="form-label">PIN :</label>
-            <input type="password" class="form-control" ng-model="pin" placeholder="Enter Your PIN" name="pswd" style="height: 40px;">
+            <input type="password" class="form-control" ng-model="pin" placeholder="Enter Your PIN" name="pswd" style="height: 40px; font-size: 15px;">
           </div>
         </div>
   
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" ng-click="FinalPay()" >Pay</button>
+          <button type="button" class="btn btn-danger" ng-click="FinalPay()" style="font-size: 20px; width: fit-content;">Pay</button>
         </div>
   
       </div>
@@ -74,19 +74,19 @@
       <div class="modal-content">
   
         <div class="modal-header">
-          <h4 class="modal-title">Make Payment</h4>
+          <h4 class="modal-title" style="font-size: 25px;">Make Payment</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
   
         <div class="modal-body">
           <div class="mt-3">
-            <label for="amount" class="form-label">Mobile Number :</label>
-            <input type="text" class="form-control" placeholder="Enter Registered Number" ng-model="number" name="amount" style="height: 40px;">
+            <label for="amount" class="form-label" style="font-size: 20px;">Mobile Number :</label>
+            <input type="text" class="form-control" placeholder="Enter Registered Number" ng-model="number" name="amount" style="height: 50px; font-size: 15px;">
           </div>
         </div>
   
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" ng-click="Continue()" data-bs-toggle="modal" data-bs-target="#FinalPhonePayment">Continue</button>
+          <button type="button" class="btn btn-danger" ng-click="Continue()" data-bs-toggle="modal" data-bs-target="#FinalPhonePayment" style="width: fit-content; font-size: 20px;">Continue</button>
         </div>
   
       </div>
@@ -95,27 +95,27 @@
 
 
   <div class="modal" id="FinalPhonePayment">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
+    <div class="modal-dialog">
+      <div class="modal-content" style="font-size: 20px;">
   
         <div class="modal-header">
-          <h4 class="modal-title">Make Payment</h4>
+          <h4 class="modal-title" style="font-size: 25px;">Make Payment</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
   
         <div class="modal-body">
           <div class="mt-3">
             <label for="amount" class="form-label">Amount:</label>
-            <input type="text" class="form-control" placeholder="Enter Amount" ng-model="amount" name="amount" style="height: 40px;">
+            <input type="text" class="form-control" placeholder="Enter Amount" ng-model="amount" name="amount" style="height: 50px; font-size: 15px;">
           </div>
           <div class="mb-3">
             <label for="pwd" class="form-label">PIN :</label>
-            <input type="password" class="form-control" ng-model="pin" placeholder="Enter Your PIN" name="pswd" style="height: 40px;">
+            <input type="password" class="form-control" ng-model="pin" placeholder="Enter Your PIN" name="pswd" style="height: 50px; font-size: 15px;">
           </div>
         </div>
   
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" ng-click="PhonePay()" >Pay</button>
+          <button type="button" class="btn btn-danger" ng-click="PhonePay()" style="font-size: 20px; width:fit-content ;" >Pay</button>
         </div>
   
       </div>

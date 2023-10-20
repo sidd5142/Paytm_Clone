@@ -192,6 +192,17 @@ button {
   left:0;
 }
 
+td {
+  padding: 10px;
+}
+td:hover {
+    background-color: rgb(237, 237, 237); 
+}
+
+#addmoney:hover {
+  background-color: rgb(237, 237, 237); 
+}
+
 
 </style>
 <body ng-controller="DashboardController">
@@ -247,6 +258,51 @@ button {
           </div>
         </nav>
       </section>
+
+      <div class="modal" id="myModal">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+      
+            <div class="modal-header">
+              <div style="margin-right: 120px; margin-top: 10%;">
+              <p style="font-size: 12px; font-weight: lighter;"><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/wallet.png" alt="" width="20" height="20"> Wallet Balance</p>  
+              <p style="font-size: 20px; font-weight: bold;">Rs. 0</p>        
+              </div>
+    
+              <div id="addmoney"> 
+                <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/addMoney.png" alt="" style="margin-left: 35px;" width="20" height="20">
+                 <p style="font-size: 10px; font-weight: bolder;">Add Money</p>
+              </div>
+            </div>
+      
+            <div class="modal-body">
+              <table style="font-size: 15px;">
+                <tr>
+                  <td >View profile</td>
+                </tr>
+                <tr>
+                 <td >Your Orders</td>
+                </tr>
+                <tr>
+                  <td>Your Wallet</td>
+                 </tr>
+                 <tr>
+                  <td>Your Offer</td>
+                 </tr>
+                 <tr>
+                  <td ng-click="logout()">Log Out</td>
+                 </tr>
+              </table>
+            </div>
+      
+            <div class="modal-footer">
+              
+            </div>
+      
+          </div>
+        </div>
+      </div>
+    
     
 
     <div class="container-fluid" >
@@ -265,7 +321,10 @@ button {
                         <span class="" style="font-size: 25px;">DASHBOARD</span>
                     </a>
                     <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-lg-start" id="menu" style="font-size: 20px;">
-                       
+                      
+                      <img class="text-center" src="https://ui-avatars.com/api/?color=ff0000" alt="">
+                      <h3 style="color: black;">JOHN DOE</h3>
+
                         <li>
                             <a  class="nav-link px-0 align-middle"
                                  ng-click="dash" ui-sref="Dashboard.PayWind"><i class=""></i> Home</a>

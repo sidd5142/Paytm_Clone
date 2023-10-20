@@ -1,4 +1,13 @@
 app.controller('MessageController',function($scope,$http,$window,$state){
+    $http.get(ip + 'notification', {
+        withCredentials:true,
+    })
+    .then(function(response){
+        console.log(response)
+    })
+    .catch(function(error){
+        console.log(error)
+    })
 })
 
 app.controller('DataController',function($scope,$http,$window,$state){
