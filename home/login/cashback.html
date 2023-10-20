@@ -77,14 +77,14 @@
   
         <div class="modal-body" ng-repeat="offers in coupons">
             <div style="text-align: center;">
-                <h1>Brand Name : <h2>{{offers.brand_name}}</h2></h1><br>
-                <h4>Coupon Code : {{offers.coupon_code}}</h4> <br>
-                <h2>Offer : {{offers.offer}}</h2>
+                <h1>Brand Name : <h1 style="color: blue;">{{offers.brand_name}}</h1></h1><br>
+                <h4 >Coupon Code : <h4 style="color: blue;">{{offers.coupon_code}}</h4></h4> <br>
+                <h2>Offer : <h2 style="color: blue;">{{offers.offer}}</h2></h2>
             </div>
         </div>
   
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" ng-click="FinalPay()" >Pay</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" >Close</button>
         </div>
   
       </div>

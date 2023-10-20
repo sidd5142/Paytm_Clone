@@ -1,9 +1,11 @@
 app.controller('MessageController',function($scope,$http,$window,$state){
+    $scope.bills = {};
     $http.get(ip + 'notification', {
         withCredentials:true,
     })
     .then(function(response){
         console.log(response)
+        $scope.bills = response.data;
     })
     .catch(function(error){
         console.log(error)

@@ -257,7 +257,7 @@ app.controller('BillController',function($scope,$http,$window,$state){
 
 
 
-  app.controller('DashboardController',function($scope,$http){
+  app.controller('DashboardController',function($scope,$http,$state){
 
     $scope.logout = function(){
         $http.post(ip + 'logout1', {
