@@ -62,7 +62,7 @@ select.form-control {
                         <div class="input-group col-lg-6 mb-4">
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                    <i class="fa fa-user text-muted"></i>
+                                    <i class="fa fa-user text-muted" style="font-size: 15px;"></i>
                                 </span>
                             </div>
                             <input id="firstName" type="text" name="firstname" ng-model="firstname" placeholder="First Name" style="font-size: 18px;" class="form-control bg-white border-left-0 border-md">
@@ -72,7 +72,7 @@ select.form-control {
                         <div class="input-group col-lg-6 mb-4">
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                    <i class="fa fa-user text-muted"></i>
+                                    <i class="fa fa-user text-muted" style="font-size: 15px;"></i>
                                 </span>
                             </div>
                             <input id="lastName" type="text" name="lastname" ng-model="lastname" placeholder="Last Name" style="font-size: 18px;" class="form-control bg-white border-left-0 border-md">
@@ -81,7 +81,7 @@ select.form-control {
                         <div class="input-group col-lg-12 mb-4">
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                    <i class="fa fa-envelope text-muted"></i>
+                                    <i class="fa fa-envelope text-muted" style="font-size: 15px;"></i>
                                 </span>
                             </div>
                             <input id="email" type="email" name="email" ng-model="email" ng-change="validateEmail()" style="font-size: 18px;" ng placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
@@ -96,7 +96,7 @@ select.form-control {
                         <div class="input-group col-lg-6 mb-4">
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                    <i class="fa fa-user text-muted"></i>
+                                    <i class="fa fa-user text-muted" style="font-size: 15px;"></i>
                                 </span>
                             </div>
                             <input id="dob" type="text" name="dob" value="dob" ng-model="dob" style="font-size: 18px;" placeholder="Date of Birth" class="form-control bg-white border-left-0 border-md">
@@ -105,7 +105,7 @@ select.form-control {
                         <div class="input-group col-lg-6 mb-4">
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                    <i class="fa fa-phone-square text-muted"></i>
+                                    <i class="fa fa-phone-square text-muted" style="font-size: 15px;"></i>
                                 </span>
                             </div>
                             <input id="phoneNumber" type="tel" name="phone" value="phonenumber" ng-model="contact" style="font-size: 18px;" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3">
@@ -113,7 +113,8 @@ select.form-control {
 
 
                         <div class="input-group col-lg-6 mb-4" >
-                            <select class="input-group-prepend" ng-model="gender" ng-click="gender1()" style="width: 100%; padding: 2.0rem;" aria-label="Default select example">
+                            
+                            <select class="input-group-prepend" ng-model="gender" ng-click="gender1()" style="width: 100%; padding: 2.0rem; font-size: 15px;" aria-label="Default select example">
                                 <option value="" selected disabled hidden>Gender</option>                               
                               <option value="{{data}}" ng-repeat="data in gender">{{data}}</option>
                               <!-- <option value="male">{{Male}}</option> -->
@@ -124,7 +125,7 @@ select.form-control {
                         <div class="input-group col-lg-6 mb-4">
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                    <i class="fa fa-lock text-muted"></i>
+                                    <i class="fa fa-lock text-muted" style="font-size: 15px;"></i>
                                 </span>
                             </div>
                             <input id="password" type="password" name="password" ng-model="password" style="font-size: 18px;" placeholder="Password" class="form-control bg-white border-left-0 border-md">
@@ -134,7 +135,7 @@ select.form-control {
                         <div class="input-group col-lg-6 mb-4">
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                    <i class="fa fa-lock text-muted"></i>
+                                    <i class="fa fa-lock text-muted" style="font-size: 15px;"></i>
                                 </span>
                             </div>
                             <input id="passwordConfirmation" type="password" ng-model="confpassword" style="font-size: 18px;" name="passwordConfirmation" ng-change="validatePassword()" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md">

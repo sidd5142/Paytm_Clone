@@ -35,7 +35,7 @@
             
             <div class="container" ng-controller="AccountController">
                 <h1 style="margin: 2%; margin-left: 29%; font-size: 50px;">Welcome to our Bank</h1>
-                <h4 style="margin-left: 38%; font-size: 30px;">Add Details</h4>
+                <h4 style="margin-left: 38%; font-size: 30px;"><u>Add Details</u></h4>
         
                 <div class="row py-4 align-items-center">
                     <!-- For Demo ] -->
@@ -61,7 +61,7 @@
                                 <div class="input-group col-lg-6 mb-4">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                            <i class="fa fa-user text-muted"></i>
+                                            <i class="fa fa-user text-muted" style="font-size: 15px;"></i>
                                         </span>
                                     </div>
                                     <input id="dob" type="number" name="dob" ng-model="aadharnum" style="font-size: 18px;" placeholder="Aadhar Card Number" class="form-control bg-white border-left-0 border-md">
@@ -70,7 +70,7 @@
                                 <div class="input-group col-lg-6 mb-4">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                            <i class="fa fa-user text-muted"></i>
+                                            <i class="fa fa-user text-muted" style="font-size: 15px;"></i>
                                         </span>
                                     </div>
                                     <input id="phoneNumber" type="number" name="number" ng-model="pan_num" style="font-size: 18px;" placeholder="Pan card Number" class="form-control bg-white border-md border-left-0 pl-3">
@@ -80,7 +80,7 @@
                                 <div class="input-group col-lg-6 mb-4">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                            <i class="fa fa-user text-muted"></i>
+                                            <i class="fa fa-user text-muted" style="font-size: 15px;"></i>
                                         </span>
                                     </div>
                                     <input id="dob" type="text" name="name" ng-model="nominee" placeholder="Nominee Name" style="font-size: 18px;" class="form-control bg-white border-left-0 border-md">
@@ -89,7 +89,7 @@
                                 <div class="input-group col-lg-6 mb-4">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                            <i class="fa fa-phone-square text-muted"></i>
+                                            <i class="fa fa-phone-square text-muted" style="font-size: 15px;"></i>
                                         </span>
                                     </div>
                                     <input id="phoneNumber" type="tel" name="phone" ng-model="nomineenumber" style="font-size: 18px;" placeholder="Nominee Number" class="form-control bg-white border-md border-left-0 pl-3">
@@ -99,7 +99,9 @@
                                     User Photo:
                                 </div>
                                  <div class="input-group col-lg-12 mb-4">
-                                     
+                                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                        <i class="fas fa-image text-muted" style="font-size: 15px;"></i>
+                                    </span>
                                      <input id="Photo" type="file" name="photo"  file-upload ng-model="userimage"  placeholder="Photo" style="font-size: 18px;" class="form-control bg-white">
                                  </div>
             
@@ -107,7 +109,9 @@
                                    Aadhar Card:
                                </div>
                                 <div class="input-group col-lg-12 mb-4">
-                                    
+                                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                        <i class="fas fa-file text-muted" style="font-size: 15px;"></i>
+                                    </span>
                                     <input id="Aadhar" type="file" name="aadhar" file-upload ng-model="aadhaar" placeholder="Enter Aadhar" style="font-size: 18px;" class="form-control bg-white">
                                 </div>
         
@@ -115,6 +119,9 @@
                                     Pan Card:
                                 </div>                        
                                 <div class="input-group col-lg-12 mb-4">
+                                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                        <i class="fas fa-file text-muted" style="font-size: 15px;"></i>
+                                    </span>
                                     <input id="Pan" type="file" name="pan"  file-upload ng-model="pan" placeholder="Enter Pan" style="font-size: 18px;" class="form-control bg-white">
                                 </div>
 
@@ -132,15 +139,18 @@
                                     Address:
                                 </div>                        
                                 <div class="input-group col-lg-12 mb-4">
+                                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                        <i class="fas fa-landmark text-muted" style="font-size: 15px;"></i>
+                                    </span>
                                     <input id="address" type="text" name="address"  file-upload ng-model="address" style="font-size: 18px;" placeholder="Enter Address" class="form-control bg-white">
                                 </div>
         
                                 <div class="form-group col-lg-12 mx-auto mb-0">
-                                    <button type="submit"  class="btn btn-primary btn-lg" style="margin-left: 40%;" >Add Account</button>
+                                    <button type="submit"  class="btn btn-primary btn-lg" style="margin-left: 40%; font-size: 15px;" >Add Account</button>
                                     </div>
             
                                     <div class="text-center w-100 mt-lg-4">
-                                        <p class="text-muted font-weight-bold">Already Added? <a  class="text-primary ml-2 " ui-sref="Register">Go Back</a></p>
+                                        <p class="text-muted font-weight-bold" style="font-size: 14px;">Already Added? <a  class="text-primary ml-2 " ui-sref="Register">Go Back</a></p>
                                     </div>
             
                             </div>

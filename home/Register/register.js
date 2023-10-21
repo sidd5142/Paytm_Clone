@@ -20,27 +20,15 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
   
   $scope.submit = function(){
 
-       
-        // var formdata = new FormData();
-        
-        // formdata.append('firstname', $scope.firstname)
-        // formdata.append('lastname', $scope.lastname)
-        // formdata.append('email', $scope.email)
-        // formdata.append('dob', $scope.dob)
-        // formdata.append('phone_number', $scope.contact)
-        // formdata.append('gender', $scope.gender)
-        // formdata.append('password', $scope.password)
-        // formdata.append('confirmpassword', $scope.confpassword)
-
         var formdata = {
-          'firstname': $scope.firstname,
-          'lastname': $scope.lastname,
-          'email': $scope.email,
-          'dob': $scope.dob,
-          'phonenumber': $scope.contact,
-          'gender': $scope.gender,
-          'password': $scope.password,
-          'confirmpassword': $scope.confpassword
+          firstname: $scope.firstname,
+          lastname: $scope.lastname,
+          email: $scope.email,
+          dob: $scope.dob,
+          phonenumber: $scope.contact,
+          gender: $scope.gender,
+          password: $scope.password,
+          confirmpassword: $scope.confpassword
         }
 
         // if($scope.Register)
@@ -53,16 +41,24 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
         })
         .then(function (response) {
           console.log(response.data)
-          // Swal.fire({
-          //   position: 'centre',
-          //   icon: 'success',
-          //   title: response.data.message,
-          //   showConfirmButton: false,
-          //   timer: 1500
-          // })
+          Swal.fire({
+            position: 'centre',
+            icon: 'success',
+            title: response.data.message,
+            showConfirmButton: false,
+            timer: 1500
+          })
+          $state.go('AddAccount')
         })
         .catch(function (error) {
           console.log(error)
+          Swal.fire({
+            position: 'centre',
+            icon: 'error',
+            title: error.data.message,
+            showConfirmButton: false,
+            timer: 1500
+          })
         })
       }
       // else{
@@ -107,10 +103,8 @@ app.controller('AccountController',function($scope,$http,$window,$state){
     })
   }
 
-  $scope.AddAccount = function(){
 
-   
-  
+  $scope.AddAccount = function(){
   var formdata = new FormData();
       formdata.append('photo', $scope.userimage)
       formdata.append('aadhaar_card', $scope.aadhaar)
@@ -140,9 +134,17 @@ app.controller('AccountController',function($scope,$http,$window,$state){
           showConfirmButton: false,
           timer: 1500
         })
+        $state.go('Dashboard.PayWind')
   })
   .catch(function(error){
       console.log(error)
+      Swal.fire({
+        position: 'centre',
+        icon: 'error',
+        title: error.data.message,
+        showConfirmButton: false,
+        timer: 1500
+      })
   })
  }
 })
