@@ -18,22 +18,23 @@
     </div>
   </div>
 
+  
   <div class="modal" id="myPayment">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
   
         <div class="modal-header">
-          <h4 class="modal-title" style="font-size: 25px;">Scan QR Code</h4>
+          <h4 class="modal-title">Scan QR Code</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
-  
+
         <div class="modal-body">
-          <video id="scanner-video" style="display: none;"></video>
-          <div id="result"></div>
+          <video id="scanner" style="display: none;"></video>
+          <div id="show"></div>
         </div>
   
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" ng-click="Pay()" data-bs-toggle="modal" data-bs-target="#FinalPayment" style="width: fit-content; font-size: large;">Continue</button>
+          <button type="button" class="btn btn-danger" ng-click="Pay()" style="width: fit-content;" data-bs-toggle="modal" data-bs-target="#FinalPayment">Continue</button>
         </div>
       </div>
     </div>

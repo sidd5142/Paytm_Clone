@@ -26,30 +26,30 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
     // .catch(function(error){
     // console.log(error)
 
-    $scope.payment = function () {
+    $scope.payment = function(){
 
-        const videoElement = document.getElementById('scanner-video');
-        videoElement.style.display = 'block';
+        var data = document.getElementById('scanner');
+        data.style.display = 'block';
 
-        const scanner = new Instascan.Scanner({ video: videoElement });
-
-        scanner.addListener('scan', function (content) {
-        scan_number = document.getElementById('result').textContent = content;
-            
-            videoElement.style.display = 'none';
+        let scan = new Instascan.Scanner({ video: data});
+        scan.addListener('scan', function (content) {
+        document.getElementById('show').textContent = content
+        data.style.displa
+        y = 'none';
         });
-
-        // Start scanning
-        Instascan.Camera.getCameras().then(function (cameras) {
-            if (cameras.length > 0) {
-                scanner.start(cameras[0]);
-            } else {
-                console.error('No cameras found.');
+        Instascan.Camera.getCameras().then(function(cameras){
+            if(cameras.length > 0)
+            {
+                scan.start(cameras[0]);
             }
-        });
-
-
-    };
+            else{
+                console.error('No cameras found');
+            }
+        })
+        .catch(function(error){
+            console.error(error)
+        })
+    }
 
     $scope.FinalPay = function(){
         console.log($scope.pin)

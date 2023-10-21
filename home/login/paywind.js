@@ -60,29 +60,6 @@ app.controller('HomeController',function($scope,$http,$window,$state){
     // to scan a qr code
     var scan_number = {};
 
-    $scope.payment = function () {
-
-        const videoElement = document.getElementById('scanner-video');
-        videoElement.style.display = 'block';
-
-        const scanner = new Instascan.Scanner({ video: videoElement });
-
-        scanner.addListener('scan', function (content) {
-        scan_number = document.getElementById('result').textContent = content;
-            
-            videoElement.style.display = 'none';
-        });
-
-        // Start scanning
-        Instascan.Camera.getCameras().then(function (cameras) {
-            if (cameras.length > 0) {
-                scanner.start(cameras[0]);
-            } else {
-                console.error('No cameras found.');
-            }
-        });
-    };
-
     // to pay the amount 
     // $scope.pin = function () {
     //     console.log($scope.amount)
@@ -271,6 +248,72 @@ app.controller('BillController',function($scope,$http,$window,$state){
             console.log(error)
         })
     }
+
+    $scope.number = '9569673877'
+     
+    var qrText = $scope.number
+
+        var qrcode = new QRCode(document.getElementById("scan"), {
+        text: qrText,
+        width: 60,
+        height: 60,
+    });
+    // }
+    $scope.balance = async function(){
+        console.log('balance')
+        const { value: pass } = await Swal.fire({
+            title: 'Input UPI PIN',
+            input: 'password',
+            inputLabel: 'Your UPI PIN',
+            inputPlaceholder: 'Enter your PIN'
+          })
+          
+          if (pass) {
+            // Swal.fire(`Entered email: ${email}`)
+            var pins = {
+                pin : pass
+            }
+        
+            $http.get(ip + 'check_balance' , {params : pins ,
+            withCredentials: true 
+            })
+            .then(function(response){
+                console.log(response)
+                $scope.money = response.data
+                console.log($scope.money)
+                Swal.fire(`Your Account Balance : &#x20b9; ${$scope.money}`)
+            })
+            .then(function(error){
+                console.log(error)
+            })            
+          }
+      }
+
+
+      $scope.pin = async function(){
+        const { value: password } = await Swal.fire({
+            title: 'Input UPI Pin',
+            input: 'password',
+            inputLabel: 'Your UPI PIN',
+            inputPlaceholder: 'Enter your UPI PIN'
+          })
+          
+          if (password) {
+
+            var num = {
+                pin : password
+            }
+
+            $http.get(ip + 'edit_pin', { params : num ,
+            withCredentials:true 
+            })
+            .then(function(response)
+            {
+                console.log(response)
+                $state.go('CreatePin')
+            })
+          }
+      }
 
 
   })
