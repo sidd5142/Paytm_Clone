@@ -152,8 +152,13 @@ app.controller('BillController',function($scope,$http,$window,$state){
 
     $scope.number = "";
 
+    // if($scope.number)
+    // {
+        console.log("yes")
     $scope.submit = function(){
         count++;
+        if($scope.number)
+        {
         $scope.contacts.push({
             numbers : $scope.number
     });
@@ -183,8 +188,20 @@ app.controller('BillController',function($scope,$http,$window,$state){
             console.log(error)
         })
     }
+    // } 
+ } 
+ else{
+    Swal.fire({
+        icon: 'error',
+        title: 'Some fiels are missing...',
+        showConfirmButton: false,
+        timer: 1500
+        // text: error
+    })
+ }
+}
 
-};
+
 
 
     // $scope.Continue = function($index){
@@ -255,8 +272,8 @@ app.controller('BillController',function($scope,$http,$window,$state){
 
         var qrcode = new QRCode(document.getElementById("scan"), {
         text: qrText,
-        width: 60,
-        height: 60,
+        width: 130,
+        height: 130
     });
     // }
     $scope.balance = async function(){

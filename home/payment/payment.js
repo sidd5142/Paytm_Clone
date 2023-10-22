@@ -17,15 +17,7 @@ app.controller('DataController',function($scope,$http,$window,$state){
 
 app.controller('TransactionController',function($scope,$http,$window,$state){
 
-    // $http.get(ip + 'show_coupons' , {
-    //     withCredentials:true
-    // })
-    // .then(function(response){
-    //     console.log(response)
-    // })
-    // .catch(function(error){
-    // console.log(error)
-
+    var scan_number = 0
     $scope.payment = function(){
 
         var data = document.getElementById('scanner');
@@ -33,9 +25,9 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
 
         let scan = new Instascan.Scanner({ video: data});
         scan.addListener('scan', function (content) {
-        document.getElementById('show').textContent = content
-        data.style.displa
-        y = 'none';
+        Scanner = document.getElementById('show').textContent = content
+        data.style.display = 'none';
+        scan_number = Scanner;
         });
         Instascan.Camera.getCameras().then(function(cameras){
             if(cameras.length > 0)
@@ -60,16 +52,12 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
         var data = {
          pin : $scope.pin,
          amount : $scope.amount,
-         // 'date': 2023-10-15,
-         // 'time' : 9.30 ,
          to : scan_number
         }
- 
         console.log(data)
 
         if($scope.pin)
         {
- 
         $http.get(ip + 'transaction', { params : data,
          withCredentials: true
         })
@@ -109,7 +97,6 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
      $scope.PhonePay = function(){
         console.log($scope.pin)
         console.log($scope.amount)
-        // console.log(scan_number)
  
         var data = {
          pin : $scope.pin,

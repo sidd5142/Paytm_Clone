@@ -29,7 +29,14 @@ app.controller('HomePageController',function($scope,$http,$window,$state){
         })
         }
         else{
-            window.alert("Input Number")
+            Swal.fire({
+                position: 'centre',
+                icon: 'error',
+                // title: response.data.message,
+                title : 'Fields are Empty!!',
+                showConfirmButton: false,
+                timer: 1500
+              })  
         }
     }
 
@@ -53,6 +60,14 @@ app.controller('HomePageController',function($scope,$http,$window,$state){
         })
         .catch(function(error){
             console.log(error)
+            Swal.fire({
+                position: 'centre',
+                icon: 'error',
+                // title: error.data.message,
+                title : 'Something went wrong',
+                showConfirmButton: false,
+                timer: 1500
+              })  
         })
     }
 });
