@@ -9,13 +9,13 @@
 }
 
 .redColor {
-  background-color: rgb(247, 132, 132);
+  color: rgb(241, 19, 19);
 }
-.yelloColor {
-  background-color: rgb(111, 236, 167);
+.greenColor {
+  color: rgb(39, 213, 118);
 }
 .blueColor {
-  background-color: rgb(105, 235, 242);
+  color: rgb(0, 0, 0);
 }
 </style>
 
@@ -23,9 +23,7 @@
     <header>
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-                <!-- <div  style="float: left;">
-                   <i class="fa-solid fa-arrow-left"></i>
-                </div> -->
+              
               <a class="navbar-brand" id="nav">Account Balance & History</a>
             </div>
           </nav>
@@ -40,7 +38,7 @@
                       </form>
                 </div>
                 <table style="width: 100%; font-size: 20px;">
-                    <tr ng-repeat="detail in details track by $index">
+                    <tr ng-repeat="detail in details | orderBy: sortComment : true | filter:search">
                         <td><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg" width="50" height="50">
                         </td>
 
@@ -54,53 +52,13 @@
 
                         <td>
                            <div>
-                            <div style="flex-direction: column;">
-                            <p class="color-SOMETHING" ng-class="{'redColor': detail.status1=='+', 'yelloColor': detail.status1=='-', 'blueColor': detail.status1=='!'}">{{detail.status1}}</p> 
-                            <p>&#8377; {{detail.amount}} </p>
-                            </div>
-                             <p style="font-size: 12px; font-weight: light;">From BOB</p>
+                            <p class="color-SOMETHING" ng-class="{'redColor': detail.status1=='!', 'greenColor': detail.status1=='+', 'blackColor': detail.status1=='-'}">{{detail.status1}}
+                            &#8377; {{detail.amount}} </p>
+                        
+                             <p style="font-size: 12px; font-weight: light;">Amount</p>
                            </div> 
                         </td>
                     </tr>
-
-                    <hr>
-
-                    <tr>
-                        <td>
-                            <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg" width="50" height="50">
-                        </td>
-                        <td>
-                            <div style="float: left;">
-                              Harsh Verma<br>
-                              <p style="font-size: 12px; font-weight: light; float: left;">Paid on 13 Oct, 10:56 PM</p>
-                            </div>
-                         </td>
-                         <td>
-                            <div>
-                               -&#8377; 500 <br>
-                               <p style="font-size: 12px; font-weight: light;">In SBI</p>
-                            </div>
-                         </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg" width="50" height="50">
-                        </td>
-                        <td>
-                            <div style="float: left;">
-                              Harsh Verma<br>
-                              <p style="font-size: 12px; font-weight: light; float: left;">Paid on 13 Oct, 10:56 PM</p>
-                            </div>
-                         </td>
-                         <td>
-                            <div>
-                               -&#8377; 500 <br>
-                               <p style="font-size: 12px; font-weight: light;">In SBI</p>
-                            </div>
-                         </td>
-                    </tr>
-                    
                 </table>
             </div>
           </div>

@@ -111,12 +111,13 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
         })
         .then(function(response){
          console.log(response.data)
-         console.log(response.data.cashback)
+         $scope.cashbacks = response.data
+        //  console.log(response.data.cashback)
  
          Swal.fire({
              icon: 'success',
-             title: 'Cashback Earned...',
-             text: response.data
+            //  title: 'Cashback Earned...',
+             title: $scope.cashbacks.cashback
           } )
           $state.reload('Dashboard.PayWind')
          })

@@ -155,13 +155,14 @@ app.controller('BillController',function($scope,$http,$window,$state){
     // if($scope.number)
     // {
         console.log("yes")
-    $scope.submit = function(){
+        $scope.submit = function(){
         count++;
         if($scope.number)
         {
-        $scope.contacts.push({
-            numbers : $scope.number
-    });
+        $scope.contacts.push(
+            $scope.number
+        );
+    count = $scope.contacts.length;
     amount = $scope.rupees
 
     $scope.number= "";
@@ -175,14 +176,16 @@ app.controller('BillController',function($scope,$http,$window,$state){
         no : count       
     }
     info = data
+    console.log(info)
 
     $scope.Continue = function(){
-        $http.post(ip + 'split_bill', data ,{
+        $http.get(ip + 'show_data', { params : data,
             withCredentials: true
         })
         .then(function(response){
             console.log(response)
             $state.go('SplitBillPayment')
+            count=0;
         })
         .catch(function(error){
             console.log(error)
@@ -242,7 +245,7 @@ app.controller('BillController',function($scope,$http,$window,$state){
     //  var data = response
     $scope.bankers = info
     console.log($scope.bankers);
-    $scope.naam = $scope.bankers.names
+    $scope.naam = $scope.bankers.UPI
      console.log($scope.naam);
 
     //  console.log(info);

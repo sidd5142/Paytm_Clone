@@ -95,7 +95,7 @@
     <div class="card-body">
         <!-- <div class="card w-10"> -->
         <div class="card text-center" style="width: 50%; margin-left: 25%;background-color: rgb(255, 246, 246);"  >
-            <h5 class="card-title font-weight-normal" style="font-size: 22px; margin-top: 5%;">You Paid</h5>
+            <h5 class="card-title font-weight-normal" style="font-size: 22px; margin-top: 5%;">Total Amount</h5>
             <!-- <iframe class="card-text" frameborder="0" title="Ruppees"></iframe> -->
             <span style="height: 150px; font-size: 60px; text-align: center; margin-top: 5%; background-color: rgb(255, 246, 246);" id="">&#x20b9 100 &#10004</span>
             <span  style="height: 60px; border-radius: 10px; font-size: large;  text-align: center;">Coffee</span>
@@ -111,7 +111,7 @@
         <td><button class="btn btn-lg" style="font-size: 20px; width: fit-content;">&#x20b9 {{number.equal}}</button>
         </td>
         <td><input type="checkbox" ng-model="completed" ng-change="done($index,completed)">
-          <button type="button" class="btn btn-close removeField" ng-click="removeContactField($index)"></button><br>
+          <button type="button" class="btn btn-close removeField" ng-click="removeContactField($index)"></button>
           <span ng-if="completed" style="font-size: 18px;">Payment Completed</span></td>
       </tr>
     </table>
@@ -136,7 +136,7 @@
     </div> 
 
     <div class="card-footer text-muted" style="margin-top: 3%;">
-        <button type="submit" class="btn-lg btn-primary" style="height: 55px; width: 50%; border-radius: 158px; font-size: 20px;">Marks as Paid</button>
+        <button type="submit" class="btn-lg btn-primary" style="height: 55px; width: 20%; border-radius: 158px; font-size: 20px; margin-right: 4%;">Marks as Paid</button>
     </div>
     </div>
 </div>
