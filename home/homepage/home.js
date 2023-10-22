@@ -5,8 +5,6 @@ app.controller('HomePageController',function($scope,$http,$window,$state){
 
         if($scope.number)
         {
-
-            $scope.showotp = true
             var formdata = {
             phone:$scope.number
             }
@@ -23,6 +21,8 @@ app.controller('HomePageController',function($scope,$http,$window,$state){
                 showConfirmButton: false,
                 timer: 1500
               })
+              $scope.showotp = true
+
         })
         .catch(function(error){
             console.log(error)
@@ -56,7 +56,7 @@ app.controller('HomePageController',function($scope,$http,$window,$state){
         })
         .then(function(response){
             console.log(response)
-            $state.go('BankAccount')
+            $state.go('Dashboard.BankAccount')
         })
         .catch(function(error){
             console.log(error)

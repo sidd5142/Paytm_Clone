@@ -297,7 +297,7 @@
     
                 <button
                   style="background-color: #00baf2; border-style: none; border-radius:20px; height:3%; width: 19%; margin-left: 10%; margin-top: 2%; "
-                  id="loginbutton" class="iiii" ng-click="signin()" data-bs-toggle="modal" data-bs-target="#myModal">
+                  id="loginbutton" ng-click="signin()" data-bs-toggle="modal" data-bs-target="#myModal">
                   <span id="signin">Sign In</span>
                   <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg">
                 </button>
@@ -332,8 +332,8 @@
             </div>
       
             <div class="modal-footer">
-              <button style="border-style: none; font-weight: bold; font-size: 15px;" class="p-2 bg-info"><a ui-sref="Register">Create a Bank Account</a></button>
-              <button type="button" class="btn btn-outline-danger" style="width: 14%; font-size: 15px;" ng-click="submit()" >Link</button>
+              <button style="border-style: none; font-weight: bold; font-size: 15px;" class="p-2 bg-info"><a ui-sref="Register" data-bs-dismiss="modal">Create a Bank Account</a></button>
+              <button type="button" class="btn btn-outline-success" style="width: 14%; font-size: 15px;" ng-click="submit()" data-bs-dismiss="modal" >LogIn</button>
             </div>
       
           </div>

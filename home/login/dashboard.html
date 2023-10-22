@@ -168,6 +168,43 @@ td:hover {
   background-color: rgb(237, 237, 237); 
 }
 
+/* dropdown hover */
+
+.dropbtn {
+  /* background-color: #04AA6D; */
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: rgb(231, 231, 231);}
+
 
 </style>
 <body ng-controller="DashboardController">
@@ -194,20 +231,35 @@ td:hover {
             <div class="collapse navbar-collapse">
               <!-- <div class="" style="width: 40%;"> -->
               <td class="navbar-nav">
+                <!-- <tr class="dropdown">
+                  <button class="nav-link dropbtn" style="font-size: 15px; margin-left: 10px; margin-bottom: 5%; font-weight: bolder;">Paytm Consumer</button>
+                  <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                  </div>
+                </tr> -->
                 <tr class="nav-item">
-                  <button class="nav-link"  ng-click="payment()" style="font-size: 15px; margin-left: 10px; margin-bottom: 15px; font-weight: bolder;" data-bs-toggle="modal" data-bs-target="#myPayment">Paytm Consumer</button>
+                <div class="dropdown">
+                  <button class="dropbtn">Paytm Consumer</button>
+                  <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                  </div>
+                </div>
                 </tr>
                 <tr class="nav-item">
-                  <a class="nav-link" ui-sref="Transaction_History" style="margin-left: 15%;">Paytm for Bussiness</a>
+                  <a class="nav-link" style="margin-left: 15%;">Paytm for Bussiness</a>
                 </tr>
                 <tr class="nav-item">
-                  <a class="nav-link" ui-sref="Message">Investor Relations</a>
+                  <a class="nav-link">Investor Relations</a>
                 </tr>
                 <tr class="nav-item">
-                  <a class="nav-link" ui-sref="Dashboard.PayHome">Company </a>
+                  <a class="nav-link">Company </a>
                 </tr>
                 <tr class="nav-item">
-                  <a class="nav-link" ui-sref="SplitBill">Career</a>
+                  <a class="nav-link">Career</a>
                 </tr>
     
                 <button
@@ -255,7 +307,7 @@ td:hover {
                   <td>Your Offer</td>
                  </tr>
                  <tr>
-                  <td ng-click="logout()">Log Out</td>
+                  <td ng-click="logout()" data-bs-dismiss="modal">Log Out</td>
                  </tr>
               </table>
             </div>
@@ -318,11 +370,11 @@ td:hover {
                         </li>
                         <li>
                           <a  class="nav-link px-0 align-middle"
-                              ng-click="balance()" style="color: #0091ff;"><i class=""></i>Check Balance</a>
+                              ng-click="balance()" style="color: #0088f1;"><i class=""></i>Check Balance</a>
                         </li>
                         <li>
                           <a  class="nav-link px-0 align-middle"
-                              ng-click="pin()" style="color: #0091ff;"><i class=""></i>Edit Pin</a>
+                              ng-click="pin()" style="color: #0088f1;"><i class=""></i>Edit Pin</a>
                         </li>
                         
                     </ul>
@@ -362,14 +414,5 @@ btn.onclick = function() {
     btnst = true;
   }
 }
-
-// function myFunction(){
-//   var x = document.getElementById("sidebar");
-//   if (x.style.display === "none") {
-//     x.style.display = "block";
-//   } else {
-//     x.style.display = "none";
-//   }
-// }  
 </script>
 </html>

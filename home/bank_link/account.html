@@ -1,49 +1,4 @@
-<style>
-         .navcolor {
-    background-color: white;
-    /* position:fixed;
-    block-size:inherit; */
-}
-
-.navcolor a {
-    font-family: Arial, Helvetica, sans-serif !important;
-    margin-left: 10%;
-    color: black !important;
-    font-size: 15px !important;
-    font-weight: bolder;
-}
-
-#signin {
-    color: white;
-    font-weight: bold;
-    font-size: 13px;
-    padding: 9px;
-}
-
-#loginimg {
-}
-
-#loginbutton:hover {
-    background-color: #002970 !important;
-}
-
-#loginimg:hover {
-  background-color:  #00baf2 !important;
-
-}
-
-.nav-item a:hover {
-    background-color: #f5f7fa;
-}
-
-.navbar-toggler {
-    color: black !important;
-}
-
-</style>
-
-
-<section id="navbarshadow">
+<!-- <section id="navbarshadow">
     <nav class="navbar navbar-expand-lg  navcolor">
       <div class="container ">
         <a class="" ui-sref="PayWind">
@@ -82,11 +37,11 @@
         </div>
       </div>
     </nav>
-  </section>
+  </section> -->
 
-<div class="card text-center" ng-controller="BankController">
+<div class="text-center" ng-controller="BankController">
     <div class="card w-50" style="margin-left: 23%; margin-top: 5%;">
-    <div class="card-header" style="background-color: rgb(74, 151, 214);">
+    <div class="card-header" style="background-color: rgb(196, 227, 252);">
       <h4 style="font-weight: bolder; font-size: 20px;">Enter your Account Details where you have your Account</h4>
        <p class="font-weight-light" style="font-size: 14px;">Account should be registered with given mobile number</p>
     </div>
@@ -95,25 +50,39 @@
         
             <form ng-submit="details">
 
-            <input id="dob" type="text" name="dob" value="dob" ng-model="number" placeholder="Enter Registered Mobile Number" class="form-control bg-white border-left-0 border-md" style="height: 40px; margin-top:5%; border-radius: 8px; width: 60%; margin-left: 17%; font-size: 15px;">
+            <input id="dob" type="text" name="dob" value="dob" ng-model="number" pattern="[0-9]{10}" maxlength="10" placeholder="Enter Registered Mobile Number" class="form-control bg-white border-left-0 border-md" style="height: 40px; margin-top:5%; border-radius: 8px; width: 60%; margin-left: 17%; font-size: 15px;">
+
+            <select class="input-group-prepend " ng-model="banks"  style="width: 50%; padding: 1.0rem; font-size: 15px; margin-left: 17%;  width: 60%; margin-top: 2%; background-color:white; border-radius: 8px;" aria-label="Default select example">
+              <option value="" selected disabled hidden >Bank Name</option>                               
+              <option value="{{banks}}" ng-repeat="banks in account" ng-click="bank(banks)">{{banks}}</option>                             
+            </select> 
+
+            <select class="input-group-prepend " ng-model="branches" style="width: 50%; padding: 1.0rem; font-size: 15px; margin-left: 17%;  width: 60%; margin-top: 2%; background-color:white; border-radius: 8px;" aria-label="Default select example">
+              <option value="" selected disabled hidden >Branch Name</option>                               
+              <option value="{{name}}" ng-repeat="name in saakha" ng-click="branch(name)">{{name}}</option>                             
+            </select> 
 
             
-            <input id="phoneNumber" type="text" name="phone" value="phonenumber" ng-model="branch" placeholder="Enter Branch Name" class="form-control bg-white border-md border-left-0 pl-3" style="height: 40px; margin-top:3%; border-radius: 8px; width: 60%; margin-left: 17%; font-size: 15px;">
+            <!-- <input id="phoneNumber" type="text" name="phone" value="phonenumber" ng-model="branch" placeholder="Enter Branch Name" class="form-control bg-white border-md border-left-0 pl-3" style="height: 40px; margin-top:3%; border-radius: 8px; width: 60%; margin-left: 17%; font-size: 15px;"> -->
         
 
             <input id="dob" type="text" name="dob" value="do" ng-model="account_number" placeholder="Account Number" class="form-control bg-white border-left-0 border-md" style="height: 40px; margin-top:3%; border-radius: 8px; width: 60%; margin-left: 17%; font-size: 15px;">
         
 
-            <input id="phoneNumber" type="tel"  value="phonenumber" ng-model="account_type" placeholder="Type" class="form-control bg-white border-md border-left-0 pl-3" style="height: 40px; margin-top:3%; border-radius: 8px; width: 60%; margin-left: 17%; font-size: 15px;">
+            <select class="input-group-prepend" ng-model="type" style="width: 50%; padding: 1.0rem; font-size: 15px; margin-left: 17%;  width: 60%; margin-top: 2%; background-color:white; border-radius: 8px;" aria-label="Default select example">
+              <option value="" selected disabled hidden >Type</option>                               
+              <option value="current">Current</option> 
+              <option value="savings">Savings</option>                                                         
+            </select> 
 
             <input id="dob" type="text" name="dob" value="dob" ng-model="ifsc" placeholder="IFSC Code" class="form-control bg-white border-left-0 border-md" style="height: 40px; margin-top:3%; border-radius: 8px; width: 60%; margin-bottom: 5%; margin-left: 17%; font-size: 15px;">
             </form>
     </div>
     
 
-    <div class="card-footer text-muted" style="background-color: rgb(74, 151, 214);">
-        <button type="submit" class="btn-lg btn-outline-danger" ng-click="Add()" style="height: 55px; width: 40%; border-radius: 158px;">Add Bank Account</button>
-        <h4>Alread added?  <i ui-sref="Dashboard.PayWind">paywind</i></h4>
+    <div class="card-footer text-muted" style="background-color: rgb(196, 227, 252);">
+        <button type="submit" class="btn-lg btn-outline-danger" ng-click="Add()" style="height: 55px; width: 40%; border-radius: 158px; margin-bottom: 2%; font-size:20px;">Add Bank Account</button>
+        <h4>Alread added? Go to <a ui-sref="Dashboard.PayWind">paywind</a></h4>
     </div>
     </div>
 </div>
