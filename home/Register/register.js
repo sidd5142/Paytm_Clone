@@ -1,6 +1,33 @@
 // var ip = "https://10.21.81.234:8000/";
 
 app.controller('RegisterController',function($scope,$http,$window,$state){
+
+  $scope.validatePassword = function(){
+    $scope.passwordMismatch = $scope.password !== $scope.confpassword;
+    }
+
+  $scope.validateEmail = function () {
+    // Regular expression for email validation
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    if (emailPattern.test($scope.email)) {
+      $scope.emailIsValid = true;
+    } else {
+      $scope.emailIsValid = false;
+    }
+  };
+
+  $scope.updateDate = function () {
+    var selectedDate = $scope.date;
+    if (selectedDate) {
+        var year = selectedDate.getFullYear();
+        var month = (selectedDate.getMonth() + 1).toString().padStart(2, '0');
+        var day = selectedDate.getDate().toString().padStart(2, '0');
+        $scope.date = year + '-' + month + '-' + day;
+    } else {
+        $scope.date = null;
+    }
+};
  
   $scope.gender1 = function(){
     var data = {
@@ -20,13 +47,17 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
   
   $scope.submit = function(){
 
+    var pass = $scope.password;
+		var confpass = $scope.confpassword;
+		var validemail = $scope.emailIsValid
+
         var formdata = {
           firstname: $scope.firstname,
           lastname: $scope.lastname,
           email: $scope.email,
-          dob: $scope.dob,
+          dob: $scope.date,
           phonenumber: $scope.contact,
-          gender: $scope.gender,
+          gender: $scope.genders,
           password: $scope.password,
           confirmpassword: $scope.confpassword
         }
@@ -34,6 +65,8 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
         // if($scope.Register)
         // {
         console.log(formdata)
+
+        if(pass == confpass && validemail){
 
         $http.post(ip + 'register', formdata,{
           withCredentials:true,
@@ -61,12 +94,18 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
           })
         })
       }
+      else{
+
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: 'Incorrect password or invalid email'
+			  })
+      }
+    }
       // else{
       //   console.log("FIll the fields")
-      // }
-    
-    
-    
+      // } 
 })
 
 app.directive('fileUpload', function() {

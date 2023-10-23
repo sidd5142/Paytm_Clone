@@ -83,6 +83,8 @@ app.controller('PinController',function($scope,$http,$window,$state){
  }
 })
 
+var detailed = [];
+
 app.controller('TransactionDetailController',function($scope,$http,$window,$state){
 
     $scope.details = {};
@@ -95,6 +97,25 @@ app.controller('TransactionDetailController',function($scope,$http,$window,$stat
         console.log(response)
         $scope.details = response.data;
         console.log($scope.details)
+
+        $scope.redirect = function(detail){
+            var data = {
+                pers : detail.to,
+                id : detail.id
+            }
+            console.log(data)
+            $http.get(ip + 'individual_paymenthist', { params: data,
+                withCredentials:true
+            })
+            .then(function(response) {
+                console.log(response)
+                detailed = response.data
+                $state.go('History')
+            })
+            .catch(function(error) {
+                console.log(error)
+            })
+        }
     })
     .catch(function(error) {
         console.log(error)
@@ -104,6 +125,9 @@ app.controller('TransactionDetailController',function($scope,$http,$window,$stat
 
 
 app.controller('HistoryController',function($scope,$http,$window,$state){
+
+    $scope.detail = detailed
+    console.log($scope.detail)
 })
 
 

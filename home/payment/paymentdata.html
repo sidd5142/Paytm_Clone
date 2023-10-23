@@ -43,6 +43,14 @@
     color: black !important;
 }
 
+.direction {
+  float: left;
+  background-color: rgb(177, 208, 221);
+}
+.direction {
+  float: right;
+  background-color: rgb(247, 228, 228);
+}
 </style>
 
 
@@ -76,7 +84,7 @@
 
             <button
               style="background-color: #00baf2; border-style: none; border-radius:20px; height:3%; width: 19%; margin-left: 10%; margin-top: 2%; "
-              id="loginbutton" class="iiii" ng-click="signin()" data-bs-toggle="modal" data-bs-target="#myModal">
+              id="loginbutton"  ng-click="signin()">
               <span id="signin">Sign In</span>
               <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg">
             </button>
@@ -88,8 +96,8 @@
   </section>
 
 
-<div class="card text-center" ng-controller="PaymentController">
-    <div class="card w-50" style="margin-left: 23%;height: 800px;">
+<div class="card text-center" ng-controller="DataController">
+    <div class="card w-50" style="margin-left: 23%;height:max-content; overflow: hidden;">
     <div class="card-header">
         <table style="width: 100%; font-size: 20px;">
             <tr>
@@ -112,12 +120,12 @@
         </table>
         </div>
     <div class="card-body">
-        <div class="card text-center" style="width: 40%;background-color: rgb(212, 242, 255);float: right; border-radius: 10px; padding: 10px;"  >
-            <h2 style="font-size: 60px; text-align: left; margin-top: 2%; background-color: rgb(212, 242, 255);" id="">&#x20b9 100 &#10004</h2>
+        <div class="card text-center" style="width: 40%; border-radius: 10px; padding: 10px; margin:3%;" ng-repeat="detail in outcome" ng-class="{'direction': detail.status=='!', 'direction1': detail.status=='-'}" >
+            <h2 style="font-size: 60px; text-align: left; margin-top: 2%;" id="">&#x20b9 {{detail.amount}} &#10004</h2>
             <h4 style="text-align: left;">Sent to Bank</h4>
 
             <button class="btn btn-outline-primary" style="width: fit-content;">Pay Again</button>
-        </div>
+      </div> 
     </div>
 
    

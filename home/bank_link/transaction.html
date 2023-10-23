@@ -45,7 +45,7 @@
                         <td>
                            <div style="float: left;">
                              {{detail.to}}<br>
-                             <p style="font-size: 12px; font-weight: light; float: left;" ui-sref='History'>Paid on {{detail.date|date}} at {{detail.time}}</p>
+                             <p style="font-size: 12px; font-weight: light; float: left;" ng-click="redirect(detail)">Paid on {{detail.date|date}} at {{detail.time}}</p>
                            </div>
                            
                         </td>

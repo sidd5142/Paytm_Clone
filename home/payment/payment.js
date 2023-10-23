@@ -1,18 +1,43 @@
+var message = [];
 app.controller('MessageController',function($scope,$http,$window,$state){
     $scope.bills = {};
-    $http.get(ip + 'Payment_history', {
+    $http.get(ip + 'messages', {
         withCredentials:true,
     })
     .then(function(response){
         console.log(response)
         $scope.bills = response.data;
+
+        $scope.send = function(split){
+            var msg = {
+               pers : split
+            }
+        $http.get(ip + 'individual_messages', { params : msg,
+            withCredentials:true
+        })
+        .then(function(response){
+            console.log(response)
+            message = response.data;
+            $state.go('Data')
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+      }
+
     })
     .catch(function(error){
         console.log(error)
     })
 })
 
+var outcome = [];
 app.controller('DataController',function($scope,$http,$window,$state){
+
+    $scope.outcome = message
+    console.log($scope.outcome)
+
+    
 })
 
 app.controller('TransactionController',function($scope,$http,$window,$state){

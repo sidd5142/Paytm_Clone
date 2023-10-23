@@ -203,7 +203,6 @@ app.controller('BillController',function($scope,$http,$window,$state){
         title: 'Some fiels are missing...',
         showConfirmButton: false,
         timer: 1500
-        // text: error
     })
  }
 }
@@ -223,18 +222,25 @@ app.controller('BillController',function($scope,$http,$window,$state){
     console.log($scope.bankers)
     $scope.amounts = numbers
     // console.log($scope.amounts)
-    
+    $scope.paid = function(){
         var datas = {
             UPI : info.UPI,
             amount : info.amount
         }
-    console.log(datas)
-    $scope.paid = function(){
-        $http.get(ip + 'show_data', { params : datas,
+        console.log(datas)
+        
+        $http.post(ip + 'split_bill', datas, { 
             withCredentials: true
         })
         .then(function(response){
             console.log(response)
+            Swal.fire({
+                icon: 'success',
+                title: 'Split Bill Created',
+                text : response.data.message,
+                showConfirmButton: false,
+                timer: 1500
+            })
             // console.log(info)
             // $state.go('SplitBillPayment')
         })

@@ -110,12 +110,12 @@
                 
                 <table style="width: 100%; font-size: 20px;">
 
-                  <tr ng-repeat="split in bills">
+                  <tr ng-repeat="split in bills track by $index">
                     <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxsKrQ9cOtTxblWfXCVOBjHmBwLBI8tcjZQg&usqp=CAU" alt="" id="loginimg" width="50" height="50"></td>
                     <td>
                       <div style="float: left;">
-                        {{split.to}}<br>
-                        <p style="font-size: 12px; font-weight: light; float: left;" ui-sref="Data">&#8377; {{split.amount}} to pay </p>
+                        {{split}}<br>
+                        <p style="font-size: 12px; font-weight: light; float: left;" ng-click="send(split)">&#8377; {{split.amount}} to pay </p>
                       </div>
                    </td>                    
                    <td>Split Payment</td>

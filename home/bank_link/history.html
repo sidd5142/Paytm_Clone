@@ -98,14 +98,14 @@
     </header>
         <div class="card text-center" style="width: 40%; margin-left: 30%;">
             <div class="card-body">
-                <div style="margin:3%; float: left;">
+                <div style="margin:3%; float: left;" ng-repeat="data in detail">
                    <h4 style="float: left;">Amount</h4><br>
-                   <h1 style="font-size: 45px; float: left;">&#8377; 100 &#10003;</h1><br>
+                   <h1 style="font-size: 45px; float: left;">&#8377; {{data.amount}} &#10003;</h1><br>
                     <p style="font-size: 15px;">Rupees One Hundred Only</p>
                    <button class="btn btn-lg" style="border: solid greenyellow; float: left; margin-top: 5%; font-size: 18px;">&#9751; Add Tag</button> <br><br>
                    <hr style="margin-top:30px ;">
                   <h5 style="float: left; font-size: 18px;">From</h5><br>
-                  <h2 style="float: left;font-size: 28px;">Rishab Gupta</h2><br>
+                  <h2 style="float: left;font-size: 28px;">{{data.from}}</h2><br>
                   <h5  style="float: left; font-size: 16px;">Rishab Gupta</h5><br>
                   <p style="float: left;margin-top: 12%; font-size: 16px;">
                     UPI ID : rishabh.988@paytm  
@@ -122,7 +122,7 @@
                   <hr>
 
                   <h5 style="float: left; font-size: 18px;">To</h5><br>
-                  <h2 style="float: left;font-size: 28px;">Siddharth Yadav</h2><br>
+                  <h2 style="float: left;font-size: 28px;">{{data.from_name}}</h2><br>
                   <p style="float: left;font-size: 16px;">
                     State Bank of India - 8616 
                   </p><br>

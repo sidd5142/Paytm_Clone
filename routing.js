@@ -77,6 +77,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			templateUrl: '/home/login/cashback.html',
 			controller: 'CashbackController'
 		})
+		.state('Dashboard.Profile', {
+            url: '/profile',
+			templateUrl: '/home/login/profile.html',
+			controller: 'ProfileController'
+		})
 		
 		$urlRouterProvider.otherwise('/home');
 }]);
