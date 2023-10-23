@@ -1,6 +1,6 @@
 app.controller('MessageController',function($scope,$http,$window,$state){
     $scope.bills = {};
-    $http.get(ip + 'notification', {
+    $http.get(ip + 'Payment_history', {
         withCredentials:true,
     })
     .then(function(response){

@@ -141,10 +141,11 @@ app.controller('HomeController',function($scope,$http,$window,$state){
   }
 })
 
-var count = 0; 
+var count = 1; 
 var amount = 0;  
 var names = [];
 var info = {};
+var numbers = [];
 
 app.controller('BillController',function($scope,$http,$window,$state){
     $scope.contacts = [];
@@ -156,13 +157,13 @@ app.controller('BillController',function($scope,$http,$window,$state){
     // {
         console.log("yes")
         $scope.submit = function(){
-        count++;
+        // count++;
         if($scope.number)
         {
         $scope.contacts.push(
-            $scope.number
+            $scope.number            
         );
-    count = $scope.contacts.length;
+    count = $scope.contacts.length+1;
     amount = $scope.rupees
 
     $scope.number= "";
@@ -173,10 +174,10 @@ app.controller('BillController',function($scope,$http,$window,$state){
     var data = {
         UPI : $scope.contacts,
         amount : amount,
-        no : count       
+        no : count, 
+        equal : equal    
     }
     info = data
-    console.log(info)
 
     $scope.Continue = function(){
         $http.get(ip + 'show_data', { params : data,
@@ -184,7 +185,10 @@ app.controller('BillController',function($scope,$http,$window,$state){
         })
         .then(function(response){
             console.log(response)
+            // console.log(info)
             $state.go('SplitBillPayment')
+            $scope.splitdata = response.data;
+            numbers = $scope.splitdata
             count=0;
         })
         .catch(function(error){
@@ -203,56 +207,42 @@ app.controller('BillController',function($scope,$http,$window,$state){
     })
  }
 }
-
-
-
-
-    // $scope.Continue = function($index){
-    //     // $scope.number = $index
-    //     console.log(count);
-    //     console.log(amount);
-    //     // console.log($scope.contacts);
-    //     // console.log(amount/count);
-       
-    // }
     
-
     $scope.removeContactField = function(index){ 
        $scope.contacts.splice(index, 1);
     };
-
-    // $scope.continue=function(){
-    //     $http.post(ip + 'splitbill', {
-    //         withCredentials:true
-    //     })
-    //     .then(function(response){
-    //         console.log(response)
-    //     })
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // }
-    // $scope.continue = function(){
-    //     $state.go('SplitBillPayment');
-    // }
 })
 
 
   app.controller('PaymentController',function($scope,$http,$window,$state){
     $scope.bankers = [];
-     var equal = amount/count;
-     console.log(equal);
-    //  var data = response
+    //  var equal = amount/count;
+    //  console.log(numbers)
+    console.log(info)
     $scope.bankers = info
-    console.log($scope.bankers);
-    $scope.naam = $scope.bankers.UPI
-     console.log($scope.naam);
-
-    //  console.log(info);
-
+    console.log($scope.bankers)
+    $scope.amounts = numbers
+    // console.log($scope.amounts)
+    
+        var datas = {
+            UPI : info.UPI,
+            amount : info.amount
+        }
+    console.log(datas)
+    $scope.paid = function(){
+        $http.get(ip + 'show_data', { params : datas,
+            withCredentials: true
+        })
+        .then(function(response){
+            console.log(response)
+            // console.log(info)
+            // $state.go('SplitBillPayment')
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    }
   })
-
-
 
   app.controller('DashboardController',function($scope,$http,$state){
 
@@ -285,7 +275,7 @@ app.controller('BillController',function($scope,$http,$window,$state){
             title: 'Input UPI PIN',
             input: 'password',
             inputLabel: 'Your UPI PIN',
-            inputPlaceholder: 'Enter your PIN'
+            inputPlaceholder: 'Enter your PIN',
           })
           
           if (pass) {
@@ -301,14 +291,13 @@ app.controller('BillController',function($scope,$http,$window,$state){
                 console.log(response)
                 $scope.money = response.data
                 console.log($scope.money)
-                Swal.fire(`Your Account Balance : &#x20b9; ${$scope.money}`)
+                Swal.fire(`Your Account Balance is _____: &#x20b9; ${$scope.money}`)
             })
             .then(function(error){
                 console.log(error)
             })            
           }
       }
-
 
       $scope.pin = async function(){
         const { value: password } = await Swal.fire({
@@ -334,10 +323,7 @@ app.controller('BillController',function($scope,$http,$window,$state){
             })
           }
       }
-
-
   })
-
 
   app.controller('CashbackController',function($scope,$http,$window,$state){
 

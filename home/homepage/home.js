@@ -70,6 +70,4 @@ app.controller('HomePageController',function($scope,$http,$window,$state){
               })  
         })
     }
-});
-
-// 9524485485
+})
