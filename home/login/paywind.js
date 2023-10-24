@@ -161,7 +161,7 @@ app.controller('BillController',function($scope,$http,$window,$state){
         if($scope.number)
         {
         $scope.contacts.push(
-            $scope.number            
+            $scope.number           
         );
     count = $scope.contacts.length+1;
     amount = $scope.rupees
@@ -180,6 +180,7 @@ app.controller('BillController',function($scope,$http,$window,$state){
     info = data
 
     $scope.Continue = function(){
+
         $http.get(ip + 'show_data', { params : data,
             withCredentials: true
         })
@@ -189,6 +190,7 @@ app.controller('BillController',function($scope,$http,$window,$state){
             $state.go('SplitBillPayment')
             $scope.splitdata = response.data;
             numbers = $scope.splitdata
+           
             count=0;
         })
         .catch(function(error){
@@ -212,19 +214,46 @@ app.controller('BillController',function($scope,$http,$window,$state){
     };
 })
 
-
+  var earlier = 0;
   app.controller('PaymentController',function($scope,$http,$window,$state){
     $scope.bankers = [];
-    //  var equal = amount/count;
-    //  console.log(numbers)
+    $scope.renew = [];
     console.log(info)
     $scope.bankers = info
     console.log($scope.bankers)
-    $scope.amounts = numbers
-    // console.log($scope.amounts)
+    earlier = $scope.bankers.equal
+    $scope.amounts = numbers  
+
+    $scope.updateData = function(number , value){
+        console.log($scope.bankers.amount)
+        console.log(number)
+        console.log(earlier)
+        console.log(value)
+        if(value <= $scope.bankers.amount-earlier)
+        {
+           var equalValue = (parseFloat($scope.bankers.amount-earlier)-value)
+           var divequal = equalValue/($scope.bankers.no-2)
+           console.log(divequal)
+           $scope.bankerss = divequal
+        }
+        else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Amount more than the actual amount',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+    }
+
+
+    // Creating group 
     $scope.paid = function(){
         var datas = {
-            UPI : info.UPI,
+            UPI : [{
+                number : info.UPI,
+                equal : info.equal
+                }],
             amount : info.amount
         }
         console.log(datas)
@@ -352,6 +381,18 @@ app.controller('BillController',function($scope,$http,$window,$state){
         .then(function(response){
             console.log(response)
             $scope.dashboard = response.data
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+      }
+
+      $scope.hit = function() {
+        $http.get(ip + 'notification_splitbill',{
+            withCredentials:true
+        })
+        .then(function(response){
+            console.log(response)
         })
         .catch(function(error){
             console.log(error)
