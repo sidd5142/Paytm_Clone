@@ -1,72 +1,17 @@
-Array(8) [ {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…} ]
-​
-0: Object { amount: 850, status: "-", "$$hashKey": "object:283" }
-​
-1: Object { amount: 850, status: "-", "$$hashKey": "object:284" }
-​
-2: Object { amount: 850, status: "-", "$$hashKey": "object:285" }
-​
-3: Object { amount: 100, status: "-", "$$hashKey": "object:286" }
-​
-4: Object { amount: 100, status: "-", "$$hashKey": "object:287" }
-​
-5: Object { amount: 850, status: "!", "$$hashKey": "object:288" }
-​
-6: Object { amount: 850, status: "!", "$$hashKey": "object:289" }
-​
-7: Object { amount: 850, status: "!", "$$hashKey": "object:290" }
-​
-length: 8
-​
-<prototype>: Array []
-payment.js:38:13
-
-
-
-
-
-Object { data: (1) […], status: 200, headers: headersGetter(name), config: {…}, statusText: "OK", xhrStatus: "complete" }
-​
-config: Object { method: "GET", jsonpCallbackParam: "callback", withCredentials: true, … }
-​
-data: Array [ {…} ]
-​​
-0: Object { to: "9569673877", from: "9524485485", from_name: "AnanyaJain", … }
-​​​
-"$$hashKey": "object:365"
-​​​
-amount: 100
-​​​
-date: "2023-10-18"
-​​​
-from: "9524485485"
-​​​
-from_name: "AnanyaJain"
-​​​
-id: 47
-​​​
-reason: "Your payment is unsuccessful as you do not have sufficient balance in your Bank account. Dont worrry, your money has NOT been deducted from the account."
-​​​
-status: "FAILED"
-​​​
-time: "16:17:42.572"
-​​​
-to: "9569673877"
-​​​
-<prototype>: Object { … }
-​​
-length: 1
-​​
-<prototype>: Array []
-​
-headers: function headersGetter(name)
-​
-status: 200
-​
-statusText: "OK"
-​
-xhrStatus: "complete"
-​
-<prototype>: Object { … }
-account.js:111:25
-
+<div ng-app="myApp" ng-controller="myCtrl">
+    <div ng-repeat="transaction in data">
+      <div class="card text-center" style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+        <h2 style="font-size: 24px;">Transaction ID: {{transaction.id}}</h2>
+        <h3>Status: {{transaction.status}}</h3>
+        <h4>Amount: &#x20b9 {{transaction.amount}}</h4>
+        <h4>Date: {{transaction.date}}</h4>
+        <h4>Time: {{transaction.time}}</h4>
+        <h4>From: {{transaction.from_name}} ({{transaction.from}})</h4>
+        <h4>To: {{transaction.to}} ({{transaction.to}})</h4>
+        
+        <div ng-if="transaction.status === 'FAILED'">
+          <p><strong>Reason for Failure:</strong> {{transaction.reason}}</p>
+        </div>
+      </div>
+    </div>
+  </div>

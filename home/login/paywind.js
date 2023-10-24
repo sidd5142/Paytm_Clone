@@ -250,6 +250,7 @@ app.controller('BillController',function($scope,$http,$window,$state){
     }
   })
 
+  var profiles = [];
   app.controller('DashboardController',function($scope,$http,$state){
 
     $scope.logout = function(){
@@ -329,6 +330,33 @@ app.controller('BillController',function($scope,$http,$window,$state){
             })
           }
       }
+
+      $scope.profile = function() {
+        $http.get(ip + 'profile',{
+            withCredentials:true
+        })
+        .then(function(response){
+            console.log(response)
+            profiles.push(response.data)
+            $state.go('Dashboard.Profile')
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+      }
+
+      $scope.panel = function() {
+        $http.get(ip + 'dynamicpanel',{
+            withCredentials:true
+        })
+        .then(function(response){
+            console.log(response)
+            $scope.dashboard = response.data
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+      }
   })
 
   app.controller('CashbackController',function($scope,$http,$window,$state){
@@ -346,4 +374,9 @@ app.controller('BillController',function($scope,$http,$window,$state){
     .catch(function(error){
         console.log(error)
     })
+  })
+
+  app.controller('ProfileController',function($scope,$http,$window,$state){
+    $scope.details = profiles
+    console.log($scope.details)
   })

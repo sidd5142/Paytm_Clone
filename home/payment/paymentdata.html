@@ -97,7 +97,7 @@
 
 
 <div class="card text-center" ng-controller="DataController">
-    <div class="card w-50" style="margin-left: 23%;height:max-content; overflow: hidden;">
+    <div class="card w-50" style="margin-left: 23%; height: 20%; overflow: hidden;">
     <div class="card-header">
         <table style="width: 100%; font-size: 20px;">
             <tr>
@@ -120,12 +120,14 @@
         </table>
         </div>
     <div class="card-body">
-        <div class="card text-center" style="width: 40%; border-radius: 10px; padding: 10px; margin:3%;" ng-repeat="detail in outcome" ng-class="{'direction': detail.status=='!', 'direction1': detail.status=='-'}" >
+      <div ng-repeat="detail in outcome">
+        <div class="card text-center" style="width: 40%; border-radius: 10px; padding: 10px; margin:3%;"  ng-class="{'direction': detail.status=='!', 'direction1': detail.status=='-'}" >
             <h2 style="font-size: 60px; text-align: left; margin-top: 2%;" id="">&#x20b9 {{detail.amount}} &#10004</h2>
             <h4 style="text-align: left;">Sent to Bank</h4>
 
             <button class="btn btn-outline-primary" style="width: fit-content;">Pay Again</button>
-      </div> 
+        </div> 
+      </div>
     </div>
 
    

@@ -1,0 +1,88 @@
+<style>
+    * {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    background-color: #afd3da
+}
+
+.card {
+    width: 600px;
+    background-color: #efefef;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.image img {
+    border-radius: 50%;
+}
+
+
+.btn {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.idd {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.idd1 {
+    font-size: 12px
+}
+
+.number {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.text span {
+    font-size: 13px;
+    color: #545454;
+    font-weight: 500
+}
+
+</style>
+
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
+    <div class="card p-4"> 
+        <div class=" image d-flex flex-column justify-content-center align-items-center" ng-repeat="detail in details">
+            <button class="btn btn-outline-danger"> 
+                <img src="https://ui-avatars.com/api/?name=Elon+Musk" height="100" width="100" />
+            </button>
+             <span class="name mt-3">{{detail.name}}</span> 
+             <span class="idd">{{detail.UPI_id}}</span>
+              <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
+                <span class="idd1">{{detail.UPI_number}}</span>
+              </div>
+    
+                    <div class="text mt-3">
+                        <h2>Gender : {{detail.gender}}</h2><br>
+                        <h2>Contact : {{detail.UPI_number}}</h2><br>
+                        <h2>Email : {{detail.email}}</h2><br>
+                        <h2>Bank Name : {{detail.bank_name}}</h2><br>
+                        <h2>Branch Name : {{detail.branch_name}}</h2><br>
+                        <h2>Account Number : {{detail.account_number}}</h2><br>
+
+                    </div>
+                         
+        </div> 
+        <div class="text-center" style="margin-top: 2%; font-size: 15px;">
+
+            Powered by <br>
+            <p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn6Y5DVqqrbBoi4HnB-G5YLf9TJHsMqKj-Pg&usqp=CAU" alt="" width="30" height="30">|
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTrzSeqb6V1ldaVC4drFb6axSZ0nZ_H70k4A&usqp=CAU" alt="" height="15"></p>
+
+          </div>
+    </div>
+</div>

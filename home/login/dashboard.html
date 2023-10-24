@@ -292,7 +292,7 @@ td:hover {
                 </tr>
     
                 <button
-                  style="background-color: #00baf2; border-style: none; border-radius:20px; height:3%; width: 21%; margin-left: 10%; margin-top: 2%; "
+                  style="background-color: #00baf2; border-style: none; border-radius:20px; height:3%; width: 12%; margin-left: 10%; margin-top: 2%; "
                   id="loginbutton" ng-click="signin()" data-bs-toggle="modal" data-bs-target="#myModal">
                   <span id="signin">Sign In</span>
                   <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg">
@@ -324,10 +324,10 @@ td:hover {
             <div class="modal-body">
               <table style="font-size: 15px;">
                 <tr>
-                  <td >View profile</td>
+                  <td ng-click="profile()">View profile</td>
                 </tr>
                 <tr>
-                 <td >Your Orders</td>
+                 <td ng-click="panel()">Your Orders</td>
                 </tr>
                 <tr>
                   <td>Your Wallet</td>
@@ -397,19 +397,74 @@ td:hover {
                           <a  class="nav-link px-0 align-middle"
                              ng-click="dash" ui-sref="Dashboard.Cashback"><i class=""></i>Cashback & Offers</a>
                         </li>
+                        <div>
                         <li>
                           <a  class="nav-link px-0 align-middle"
                               ng-click="balance()" style="color: #0088f1;"><i class=""></i>Check Balance</a>
                         </li>
                         <li>
                           <a  class="nav-link px-0 align-middle"
-                              ng-click="pin()" style="color: #0088f1;"><i class=""></i>Edit Pin</a>
+                              ng-click="pin()" style="color: #0088f1; margin-top: 3%;"><i class=""></i>Edit Pin</a>
                         </li>
+                        </div>
                         
                     </ul>
                     <hr>
                      
                 </div>
+
+
+
+                <!-- 
+                  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" style="background-color: #dff2f8;">
+                  <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" >
+                    <span class="" style="font-size: 25px; color: black;">DASHBOARD</span>
+                </a>
+                <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-lg-start" id="menu" style="font-size: 20px;" ng-repeat="dash in dashboard">
+                  
+                  <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 20%;" src="https://ui-avatars.com/api/?name={{dash.user.name}}" alt="">
+                  <h3 style="color: black; margin-left: 12%;">JOHN DOE</h3>
+
+                  <div id="scan"></div>
+
+                    <li>
+                        <a  class="nav-link px-0 align-middle"
+                             ng-click="dash" ui-sref="{{dash.dashboard.state}}"><i class=""></i>{{dash.dashboard.panel}}</a>
+                    </li>
+                    <li >
+                        <a  class="nav-link px-0 align-middle"
+                             ng-click="dash" ui-sref="Dashboard.Transaction"><i class=""></i>Transaction</a>
+                    </li>
+                    <li>
+                        <a  class="nav-link px-0 align-middle"
+                             ng-click="dash" ui-sref="Dashboard.Transaction_History"><i class=""></i>History</a>
+                    </li>
+                    <li>
+                      <a  class="nav-link px-0 align-middle"
+                           ng-click="dash" ui-sref="Dashboard.Message"><i class=""></i>Message</a>
+                    </li>
+                    <li>
+                      <a  class="nav-link px-0 align-middle"
+                         ng-click="dash" ui-sref="Dashboard.SplitBill"><i class=""></i>Split Bill</a>
+                    </li>
+                    <li>
+                      <a  class="nav-link px-0 align-middle"
+                         ng-click="dash" ui-sref="Dashboard.Cashback"><i class=""></i>Cashback & Offers</a>
+                    </li>
+                    <li>
+                      <a  class="nav-link px-0 align-middle"
+                          ng-click="balance()" style="color: #0088f1;"><i class=""></i>Check Balance</a>
+                    </li>
+                    <li>
+                      <a  class="nav-link px-0 align-middle"
+                          ng-click="pin()" style="color: #0088f1;"><i class=""></i>Edit Pin</a>
+                    </li>
+                    
+                </ul>
+                <hr>
+                 
+            </div>
+                 -->
             <!-- </div> -->
             </div>
         
