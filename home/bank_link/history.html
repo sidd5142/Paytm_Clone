@@ -114,6 +114,10 @@
                     State Bank of India - 9216 
                   </p><br>
 
+                  <div ng-if="data.status === 'FAILED'">
+                    <p><strong>Reason for Failure:</strong> {{data.reason}}</p>
+                  </div> <br>
+
                   <div>
                     <button type="button" class="btn btn-outline-primary" style="float: left; font-size: 15px;" ui-sref="Dashboard.Transaction">Pay</button>
                     <button type="button" class="btn btn-outline-primary" style="margin-left: 8%; font-size: 15px;">View History</button>

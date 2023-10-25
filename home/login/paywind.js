@@ -215,6 +215,10 @@ app.controller('BillController',function($scope,$http,$window,$state){
 })
 
   var earlier = 0;
+  var divide_amount = [];
+  var change_number = [];
+  var change_amount = [];
+  
   app.controller('PaymentController',function($scope,$http,$window,$state){
     $scope.bankers = [];
     $scope.renew = [];
@@ -229,12 +233,15 @@ app.controller('BillController',function($scope,$http,$window,$state){
         console.log(number)
         console.log(earlier)
         console.log(value)
+        change_amount.push(value)
+        change_number.push(number)
         if(value <= $scope.bankers.amount-earlier)
         {
            var equalValue = (parseFloat($scope.bankers.amount-earlier)-value)
            var divequal = equalValue/($scope.bankers.no-2)
            console.log(divequal)
            $scope.bankerss = divequal
+           divide_amount.push(divequal)
         }
         else{
             Swal.fire({
@@ -251,10 +258,10 @@ app.controller('BillController',function($scope,$http,$window,$state){
     $scope.paid = function(){
         var datas = {
             UPI : [{
-                number : info.UPI,
-                equal : info.equal
+                number : change_number,
+                equal : change_amount
                 }],
-            amount : info.amount
+            amount : divide_amount
         }
         console.log(datas)
         

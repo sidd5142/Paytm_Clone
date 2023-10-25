@@ -82,6 +82,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			templateUrl: '/home/login/profile.html',
 			controller: 'ProfileController'
 		})
+		.state('Dashboard.WalletHome', {
+            url: '/wallet',
+			templateUrl: '/home/wallet/wallethome.html',
+			controller: 'WalletController'
+		})
+		.state('Dashboard.WalletTran', {
+            url: '/wallettransaction',
+			templateUrl: '/home/wallet/wallet_trans.html',
+			controller: 'WalletTransactionController'
+		})
 		
 		$urlRouterProvider.otherwise('/home');
 }]);

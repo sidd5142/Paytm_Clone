@@ -40,6 +40,7 @@ app.controller('DataController',function($scope,$http,$window,$state){
     
 })
 
+var option_method = {};
 app.controller('TransactionController',function($scope,$http,$window,$state){
 
     var scan_number = 0
@@ -119,19 +120,50 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
 
      // By a number
 
+    $scope.ContinuePhone = function(){
+        $http.get(ip + 'activated' , { params : $scope.number ,
+        withCredentials: true 
+       })
+      .then(function(response){
+        console.log(response)
+        if(response.data === 'Activated')
+        {
+            showoption = true;
+            var info = {
+                pin : $scope.pin,
+                amount : $scope.amount,
+                to : $scope.number,
+                method : $scope.option
+            }
+            option_method = info
+        }
+        else {
+            var info = {
+                pin : $scope.pin,
+                amount : $scope.amount,
+                to : $scope.number,
+            }
+            option_method = info
+        }
+      })
+      .catch(function(error){
+        console.log(error)
+      })  
+    }  
+
      $scope.PhonePay = function(){
         console.log($scope.pin)
         console.log($scope.amount)
  
-        var data = {
-         pin : $scope.pin,
-         amount : $scope.amount,
-         to : $scope.number
-        }
+        // var data = {
+        //  pin : $scope.pin,
+        //  amount : $scope.amount,
+        //  to : $scope.number
+        // }
  
-        console.log(data)
+        console.log(option_method)
  
-        $http.get(ip + 'transaction', { params : data,
+        $http.get(ip + 'transaction', { params : option_method,
          withCredentials: true
         })
         .then(function(response){

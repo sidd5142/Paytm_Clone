@@ -87,7 +87,7 @@
         </div>
   
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" ng-click="Continue()" data-bs-toggle="modal" data-bs-target="#FinalPhonePayment" style="width: fit-content; font-size: 20px;">Continue</button>
+          <button type="button" class="btn btn-danger" ng-click="ContinuePhone()" data-bs-toggle="modal" data-bs-target="#FinalPhonePayment" style="width: fit-content; font-size: 20px;">Continue</button>
         </div>
   
       </div>
@@ -109,6 +109,14 @@
             <label for="amount" class="form-label">Amount:</label>
             <input type="text" class="form-control" placeholder="Enter Amount" ng-model="amount" name="amount" style="height: 50px; font-size: 15px;">
           </div>
+
+          <div class="input-group col-lg-6 mb-4" >
+            <select class="input-group-prepend " ng-model="option" ng-click="method()" style="width: 100%; padding: 2.0rem; font-size: 15px;" aria-label="Default select example" ng-show="payment_option">
+                <option value="" selected disabled hidden >Choose a Payment Option</option>                               
+              <option value="{{name}}" ng-repeat="name in gender">{{name}}</option>
+            </select>                  
+        </div>
+    
           <div class="mb-3">
             <label for="pwd" class="form-label">PIN :</label>
             <input type="password" class="form-control" ng-model="pin" placeholder="Enter Your PIN" name="pswd" style="height: 50px; font-size: 15px;">

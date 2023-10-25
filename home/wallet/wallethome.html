@@ -1,0 +1,15 @@
+<div class="card text-center w-50" style="margin-left: 23%;">
+    <div class="card-body">
+      <h1 class="card-title" style="font-size: 35px;">Paytm Wallet</h1>
+      <p class="card-text" style="font-size: 15px; font-weight: lighter;">Save your money here</p>
+      <div class="input-group col-lg-9  mb-4">
+        <input type="text" class="form-control" id="number" ng-model="number" placeholder="Enter Mobile Number" name="number" style="font-size: 20px; width: 40%; text-align: center; margin-left: 30%; border-radius: 10px;">
+        <button class="btn btn-outline-primary" style="width: max-content; border-radius: 8px; margin-left: 2%;" ng-click="otp()">Get OTP</button>
+      </div>
+      <input type="text" class="form-control" id="otp" ng-model="otpverify" placeholder="Enter 4 digit OTP" name="number" style="font-size: 20px; width: 45%; text-align: center; margin-left: 23%; border-radius: 10px;" ng-show="showotp">
+
+      <button type="button" class="btn btn-outline-success" style="width: 14%; font-size: 15px; margin-top: 3%;" ng-click="submit()">Activate</button>
+
+    </div>
+    </div>  
+  </div
