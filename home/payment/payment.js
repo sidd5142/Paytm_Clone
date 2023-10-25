@@ -43,6 +43,23 @@ app.controller('DataController',function($scope,$http,$window,$state){
 var option_method = {};
 app.controller('TransactionController',function($scope,$http,$window,$state){
 
+    $http.get(ip + 'increment_wallet', {
+        withCredentials:true
+    })
+    .then(function(response){
+        console.log(response)
+    })
+    .catch(function(error){
+        console.log(error)
+        Swal.fire({
+            position: 'centre',
+            icon: 'error',
+            title : 'Something went wrong',
+            showConfirmButton: false,
+            timer: 1500
+          })
+    })
+
     var scan_number = 0
     $scope.payment = function(){
 
@@ -121,29 +138,20 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
      // By a number
 
     $scope.ContinuePhone = function(){
-        $http.get(ip + 'activated' , { params : $scope.number ,
+        $http.get(ip + 'continue1' , {
         withCredentials: true 
        })
       .then(function(response){
-        console.log(response)
-        if(response.data === 'Activated')
+        console.log(response.data)
+        if(response.data === '2')
         {
-            showoption = true;
-            var info = {
-                pin : $scope.pin,
-                amount : $scope.amount,
-                to : $scope.number,
-                method : $scope.option
-            }
-            option_method = info
+            console.log("mesg")
+            $scope.payment_option = true;
         }
         else {
-            var info = {
-                pin : $scope.pin,
-                amount : $scope.amount,
-                to : $scope.number,
-            }
-            option_method = info
+            console.log("else")
+            $scope.payment_option = false;
+            $scope.option = 1
         }
       })
       .catch(function(error){
@@ -155,28 +163,28 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
         console.log($scope.pin)
         console.log($scope.amount)
  
-        // var data = {
-        //  pin : $scope.pin,
-        //  amount : $scope.amount,
-        //  to : $scope.number
-        // }
+         var info = {
+                pin : $scope.pin,
+                amount : $scope.amount,
+                to : $scope.number,
+                method : $scope.option
+            }
  
-        console.log(option_method)
+        console.log(info)
  
-        $http.get(ip + 'transaction', { params : option_method,
+        $http.get(ip + 'transaction', { params : info,
          withCredentials: true
         })
         .then(function(response){
          console.log(response.data)
          $scope.cashbacks = response.data
         //  console.log(response.data.cashback)
- 
          Swal.fire({
              icon: 'success',
             //  title: 'Cashback Earned...',
              title: $scope.cashbacks.cashback
           } )
-          $state.reload('Dashboard.PayWind')
+          $state.reload('Dashboard.Transaction')
          })
          .catch(function(error){
          console.log(error)

@@ -96,4 +96,4 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		$urlRouterProvider.otherwise('/home');
 }]);
 
-var ip = "https://10.21.80.135:8000/";
+var ip = "https://10.21.81.66:8000/";

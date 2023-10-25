@@ -1,11 +1,9 @@
 // var ip = "https://10.21.81.234:8000/";
 
 
-app.controller('BankController',function($scope,$http,$window,$state){
-
-
+app.controller('BankController',function($scope,$http,$window,$state)
+{
     // $scope.bank = function(){
-
         var na = {
             value : 'Bank Name'
         }
@@ -37,6 +35,13 @@ app.controller('BankController',function($scope,$http,$window,$state){
         })
         .catch(function(error) {
             console.log(error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Something went wrong',
+                text : error.data.message,
+                showConfirmButton: false,
+                timer: 2000
+            })
         })   
     // } 
     
@@ -79,6 +84,13 @@ app.controller('PinController',function($scope,$http,$window,$state){
     })
     .catch(function(error) {
         console.log(error)
+        Swal.fire({
+            icon: 'error',
+            title: 'Something went wrong',
+            text : error.data.message,
+            showConfirmButton: false,
+            timer: 2000
+        })
     })
  }
 })
@@ -87,7 +99,7 @@ var detailed = [];
 
 app.controller('TransactionDetailController',function($scope,$http,$window,$state){
 
-    $scope.details = {};
+    $scope.details = [];
 
     console.log('TransactionControlle')
     $http.get(ip + 'Payment_history', {
@@ -119,6 +131,13 @@ app.controller('TransactionDetailController',function($scope,$http,$window,$stat
     })
     .catch(function(error) {
         console.log(error)
+        Swal.fire({
+            icon: 'error',
+            title: 'Something went wrong',
+            text : error.data.message,
+            showConfirmButton: false,
+            timer: 2000
+        })
     })
 // }    
 })

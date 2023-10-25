@@ -15,7 +15,8 @@ app.controller('WalletController',function($scope,$http,$window,$state){
         Swal.fire({
             position: 'centre',
             icon: 'success',
-            title: response.data.message,
+            title : 'Activated',
+            text: response.data.message,
             showConfirmButton: false,
             timer: 1500
           })
@@ -24,6 +25,13 @@ app.controller('WalletController',function($scope,$http,$window,$state){
     })
     .catch(function(error){
         console.log(error)
+        Swal.fire({
+            position: 'centre',
+            icon: 'error',
+            title : error.data.message,
+            showConfirmButton: false,
+            timer: 1500
+          })
     })
     }
     else{
@@ -71,6 +79,14 @@ $scope.submit = function(){
             .then(function(response)
             {
                 console.log(response)
+                Swal.fire({
+                    position: 'centre',
+                    icon: 'success',
+                    // title: error.data.message,
+                    title : 'response.data.message',
+                    showConfirmButton: false,
+                    timer: 1500
+                  }) 
             })
             // Swal.fire(`Amount Added: ${amount}`)
           }
@@ -92,5 +108,42 @@ $scope.submit = function(){
 
 
 app.controller('WalletTransactionController',function($scope,$http,$window,$state){
+
+    $scope.proceed = function(){
+
+        var data = {
+            amount1 : $scope.wallet_balance,
+            amount2 : $scope.add
+        }
+    
+        console.log(data)
+    
+
+    $http.post(ip + 'autoincrement_wallet', data ,{
+        withCredentials:true
+    })
+    .then(function(response){
+        console.log(response)
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title : "Added",
+            text : response.data.message,
+            showConfirmButton: false,
+            timer: 1500
+          }) 
+    })
+    .catch(function(error){
+        console.log(error)
+        Swal.fire({
+            position: 'centre',
+            icon: 'error',
+            title : 'Something went wrong',
+            text : error.data.message,
+            showConfirmButton: false,
+            timer: 1500
+          }) 
+    })
+}
 })
 

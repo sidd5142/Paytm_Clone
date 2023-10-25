@@ -27,6 +27,13 @@ app.controller('HomeController',function($scope,$http,$window,$state){
         })
         .catch(function(error){
             console.log(error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Something went wrong',
+                text : error.data.message,
+                showConfirmButton: false,
+                timer: 2000
+            })
         })
         }
         else{
@@ -135,7 +142,7 @@ app.controller('HomeController',function($scope,$http,$window,$state){
         Swal.fire({
             icon: 'error',
             title: 'Some fiels are missing...',
-            text: error
+            text: 'error'
         })
     }
   }
@@ -147,7 +154,7 @@ var names = [];
 var info = {};
 var numbers = [];
 
-app.controller('BillController',function($scope,$http,$window,$state){
+app.controller('BillController',function($scope,$http,$state){
     $scope.contacts = [];
     $scope.numbers = [];
 
@@ -195,6 +202,13 @@ app.controller('BillController',function($scope,$http,$window,$state){
         })
         .catch(function(error){
             console.log(error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Something went wrong',
+                text : error.data.message,
+                showConfirmButton: false,
+                timer: 2000
+            })
         })
     }
     // } 
@@ -338,6 +352,13 @@ app.controller('BillController',function($scope,$http,$window,$state){
             })
             .then(function(error){
                 console.log(error)
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Something went wrong',
+                    text : error.data.message,
+                    showConfirmButton: false,
+                    timer: 2000
+                })
             })            
           }
       }
@@ -421,6 +442,13 @@ app.controller('BillController',function($scope,$http,$window,$state){
     })
     .catch(function(error){
         console.log(error)
+        Swal.fire({
+            icon: 'error',
+            title: 'Something went wrong',
+            // text : error.data.message,
+            showConfirmButton: false,
+            timer: 2000
+        })
     })
   })
 

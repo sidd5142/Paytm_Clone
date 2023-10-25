@@ -6,25 +6,25 @@
       <h5 class="card-title">Add money</h5>
       <p class="card-text mt-5">When wallet balance goes below</p>
       <div >
-        <select class="input-group-prepend " ng-model="genders" ng-click="gender1()" style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" aria-label="Default select example">
-            <option value="" selected disabled hidden >Gender</option>                               
+        <select class="input-group-prepend " ng-model="wallet_balance" style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" aria-label="Default select example">
+            <option value="" selected disabled hidden >Choose Amount</option>                               
             <option value="100" >100</option>
-            <option value="100" >200</option>
-            <option value="100" >300</option>
-            <option value="100" >400</option>
-            <option value="100" >500</option>
+            <option value="200" >200</option>
+            <option value="300" >300</option>
+            <option value="400" >400</option>
+            <option value="500" >500</option>
 
         </select>                  
     </div>
     <p class="card-text mt-lg-5">Automatically Add</p>
     <div >
-        <select class="input-group-prepend " ng-model="genders" ng-click="gender1()" style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" aria-label="Default select example">
-            <option value="" selected disabled hidden >Gender</option>                               
+        <select class="input-group-prepend " ng-model="add"  style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" aria-label="Default select example">
+            <option value="" selected disabled hidden >Add Amount</option>                               
             <option value="100" >100</option>
-            <option value="100" >200</option>
-            <option value="100" >300</option>
-            <option value="100" >400</option>
-            <option value="100" >500</option>
+            <option value="200" >200</option>
+            <option value="300" >300</option>
+            <option value="400" >400</option>
+            <option value="500" >500</option>
 
         </select>                  
     </div>
@@ -32,6 +32,6 @@
     <p style="margin-top: 5%; font-size: 10px; font-weight: light;">By proceeding you agree to the Terms and Condition</p>
 </div>
     <div class="card-footer text-muted" style="height: 60px;">
-        <button class="btn btn-primary" style="width: 50%; margin-right:3%; font-size: 20px; height: 40px;">Proceed</button>
+        <button class="btn btn-primary" ng-click="proceed()" style="width: 50%; margin-right:3%; font-size: 20px; height: 40px;">Proceed</button>
     </div>
   </div>

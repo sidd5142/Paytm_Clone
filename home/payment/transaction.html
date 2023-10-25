@@ -54,6 +54,13 @@
             <label for="amount" class="form-label">Amount:</label>
             <input type="text" class="form-control" placeholder="Enter Amount" ng-model="amount" name="amount" style="height: 40px; font-size: 15px;">
           </div>
+          <div class="input-group col-lg-6 mb-4 mt-lg-4" >
+            <select class="input-group-prepend " ng-model="option" style="width: 100%; padding: 2.0rem; font-size: 15px;" aria-label="Default select example" ng-show="payment_option">
+                <option value="" selected disabled hidden >Choose a Payment Option</option>                               
+              <option value="2" >Pay from Wallet</option>
+              <option value="1" >Pay from Bank Account</option>
+            </select>                  
+        </div>
           <div class="mb-3">
             <label for="pwd" class="form-label">PIN :</label>
             <input type="password" class="form-control" ng-model="pin" placeholder="Enter Your PIN" name="pswd" style="height: 40px; font-size: 15px;">
@@ -61,7 +68,7 @@
         </div>
   
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" ng-click="FinalPay()" style="font-size: 20px; width: fit-content;">Pay</button>
+          <button type="button" class="btn btn-danger" ng-click="FinalPay()" style="font-size: 20px; width: 20%; height: 30px;">Pay</button>
         </div>
   
       </div>
@@ -87,7 +94,7 @@
         </div>
   
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" ng-click="ContinuePhone()" data-bs-toggle="modal" data-bs-target="#FinalPhonePayment" style="width: fit-content; font-size: 20px;">Continue</button>
+          <button type="button" class="btn btn-danger" ng-click="ContinuePhone()" data-bs-toggle="modal" data-bs-target="#FinalPhonePayment" style="width: fit-content; font-size: 20px; height: 40px;">Continue</button>
         </div>
   
       </div>
@@ -110,10 +117,12 @@
             <input type="text" class="form-control" placeholder="Enter Amount" ng-model="amount" name="amount" style="height: 50px; font-size: 15px;">
           </div>
 
-          <div class="input-group col-lg-6 mb-4" >
-            <select class="input-group-prepend " ng-model="option" ng-click="method()" style="width: 100%; padding: 2.0rem; font-size: 15px;" aria-label="Default select example" ng-show="payment_option">
+          <div class="mt-lg-4 mb-4" ng-show="payment_option">
+            <label for="amount" class="form-label">Choose a Payment Method:</label>
+            <select class="input-group-prepend " ng-model="option" style="width: 100%; height: 50px; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px;" aria-label="Default select example" >
                 <option value="" selected disabled hidden >Choose a Payment Option</option>                               
-              <option value="{{name}}" ng-repeat="name in gender">{{name}}</option>
+              <option value="2" >Pay from Wallet</option>
+              <option value="1" >Pay from Bank Account</option>
             </select>                  
         </div>
     
