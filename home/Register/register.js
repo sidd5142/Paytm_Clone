@@ -45,7 +45,7 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
     })
   }
     
-  $scope.submit = function(){
+  $scope.Register = function(valid){
 
     var pass = $scope.password;
 		var confpass = $scope.confpassword;
@@ -62,6 +62,8 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
           confirmpassword: $scope.confpassword
         }
 
+        if(!valid)
+        {
         // if($scope.Register)
         // {
         // if($scope.Register)
@@ -103,17 +105,16 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
 				title: 'Oops...',
 				text: 'Incorrect password or invalid email'
 			  })
-      }
-        // }
-      // else{
-      //   Swal.fire({
-      //     icon: 'error',
-      //     title: 'Oops...',
-      //     text: 'Fiels are Empty'
-      //     })
-      // }
-    
+      }    
     }
+    else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Fiels are Empty'
+            })
+    }
+  }
       // else{
       //   console.log("FIll the fields")
       // } 
