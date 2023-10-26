@@ -1,5 +1,25 @@
 app.controller('HomeController',function($scope,$http,$window,$state){
 
+
+        $http.get(ip + 'dynamicpanel',{
+            withCredentials:true
+        })
+        .then(function(response){
+            console.log(response)
+            $scope.dashboards = response.data
+            // $scope.dashboards = response.data
+            console.log($scope.dashboards)
+        })
+        .catch(function(error){
+            console.log(error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Something went wrong',
+                text : error.data.message,
+                showConfirmButton: false,
+                timer: 2000
+            })
+        })
     // to generate the otp
 
     $scope.otp = function(){
@@ -247,8 +267,8 @@ app.controller('BillController',function($scope,$http,$state){
         console.log(number)
         console.log(earlier)
         console.log(value)
-        change_amount.push(value)
-        change_number.push(number)
+        // change_amount.push(value)
+        // change_number.push(number)
         if(value <= $scope.bankers.amount-earlier)
         {
            var equalValue = (parseFloat($scope.bankers.amount-earlier)-value)
@@ -256,6 +276,12 @@ app.controller('BillController',function($scope,$http,$state){
            console.log(divequal)
            $scope.bankerss = divequal
            divide_amount.push(divequal)
+           change_amount.push(value)
+        //    change_number.push(number)
+        //    change_number.push({
+        //     'numbers' : number,
+        //     'amount' : value
+        //    })
         }
         else{
             Swal.fire({
@@ -269,12 +295,21 @@ app.controller('BillController',function($scope,$http,$state){
 
 
     // Creating group 
-    $scope.paid = function(){
+    $scope.paid = function(number,bankers){
+
+        $scope.contacts = []
+        console.log(number)
+        console.log(bankers)
+
+        $scope.contacts = change_number.push({
+            'numbers' : number,
+            'amount' : bankers.eqaul
+           })
         var datas = {
-            UPI : [{
-                number : change_number,
-                equal : change_amount
-                }],
+            UPI : 
+                 $scope.contacts,
+                // equal : change_amount
+                
             amount : divide_amount
         }
         console.log(datas)
@@ -304,7 +339,7 @@ app.controller('BillController',function($scope,$http,$state){
   app.controller('DashboardController',function($scope,$http,$state){
 
     $scope.logout = function(){
-        $http.post(ip + 'logout1', {
+        $http.get(ip + 'logout1', {
             withCredentials : true
         })
         .then(function(response){
@@ -403,19 +438,6 @@ app.controller('BillController',function($scope,$http,$state){
             console.log(response)
             profiles.push(response.data)
             $state.go('Dashboard.Profile')
-        })
-        .catch(function(error){
-            console.log(error)
-        })
-      }
-
-      $scope.panel = function() {
-        $http.get(ip + 'dynamicpanel',{
-            withCredentials:true
-        })
-        .then(function(response){
-            console.log(response)
-            $scope.dashboard = response.data
         })
         .catch(function(error){
             console.log(error)

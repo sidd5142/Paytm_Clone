@@ -147,3 +147,64 @@ app.controller('WalletTransactionController',function($scope,$http,$window,$stat
 }
 })
 
+app.controller('PostpaidController',function($scope,$http,$window,$state){
+
+    $scope.confirm = function(){
+    console.log("confirm")
+    var data = {
+        pan : $scope.pan_number,
+        aadhar : $scope.aadhaar_number,
+        dob : $scope.dob,
+        email : $scope.email
+    }
+
+    // if($scope.myform)
+    // {
+    $http.post(ip + 'confirm', data,{
+        withCredentials: true
+    })
+    .then(async function(response){
+        console.log(response)
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title : "Added",
+            text : response.data.message,
+            showConfirmButton: false,
+            timer: 1500
+          }) 
+          const { value: otp } = await Swal.fire({
+            title: 'Enter OTP',
+            input: 'text',
+            inputLabel: 'Your OTP',
+            inputPlaceholder: 'Enter OTP'
+          })
+          
+          if (otp) {
+
+            var num = {
+                otp : otp
+            }
+
+            $http.get(ip + 'confirm_otp', { params : num ,
+            withCredentials:true 
+            })
+            .then(function(response)
+            {
+                console.log(response)
+            })
+    }
+})
+    .catch(function(error){
+        console.log(error)
+        Swal.fire({
+            position: 'centre',
+            icon: 'error',
+            title : 'Something went wrong',
+            text : error.data.message,
+            showConfirmButton: false,
+            timer: 1500
+          }) 
+    })
+   } 
+})

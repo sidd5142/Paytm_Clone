@@ -329,7 +329,7 @@ td:hover {
                   <td ng-click="profile()">View profile</td>
                 </tr>
                 <tr>
-                 <td ng-click="panel()">Your Orders</td>
+                 <td>Your Orders</td>
                 </tr>
                 <tr>
                   <td ng-click="hit()">Your Wallet</td>
@@ -351,21 +351,20 @@ td:hover {
     <div class="container-fluid" id="collapsebar">
         <div class="row flex-nowrap">
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 sidebar" id="sidebar">
-              <!-- <div class="sidebar" id='sidebar'>
+               <div class="sidebar" id='sidebar'>
                 <ul>
                   <li><a href="">Home</a></li>
                    <li><a href="">About</a></li>
                     <li><a href="">Contact</a></li>
                 </ul>
-              </div> -->
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" style="background-color: #dff2f8;">
-                  <!-- <button class="btn btn-close closebtn" data-bs-dismiss="sidebar"></button> -->
+              </div> 
+                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" style="background-color: #dff2f8;">
                     <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" >
                         <span class="" style="font-size: 25px; color: black;">DASHBOARD</span>
                     </a>
                     <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-lg-start" id="menu" style="font-size: 20px;">
                       
-                      <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 20%;" src="https://ui-avatars.com/api/?color=ff0000" alt="">
+                      <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 20%;" src="https://ui-avatars.com/api/?name=Siddharth+Yadav" alt="">
                       <h3 style="color: black; margin-left: 12%;">JOHN DOE</h3>
 
                       <div id="scan"></div>
@@ -407,65 +406,43 @@ td:hover {
                           <a  class="nav-link px-0 align-middle"
                               ui-sref="Dashboard.WalletHome" style="color: #0088f1; margin-top: 3%;"><i class=""></i>Paytm Wallet</a>
                         </li>
+                        <li>
+                          <a  class="nav-link px-0 align-middle"
+                              ui-sref="Dashboard.Postpaid" style="color: #0088f1; margin-top: 3%;"><i class=""></i>Postpaid</a>
+                        </li>
                         </div>
                         
                     </ul>
                     <hr>
                      
-                </div>
+                </div> 
 
 
 
-                <!-- 
-                  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" style="background-color: #dff2f8;">
+                
+                  <!-- <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" style="background-color: #ffffff;">
                   <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" >
                     <span class="" style="font-size: 25px; color: black;">DASHBOARD</span>
                 </a>
-                <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-lg-start" id="menu" style="font-size: 20px;" ng-repeat="dash in dashboard">
+                <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-lg-start" id="menu" style="font-size: 20px;">
                   
-                  <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 20%;" src="https://ui-avatars.com/api/?name={{dash.user.name}}" alt="">
+                   <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 20%;" src="https://ui-avatars.com/api/?name={{dash.user.name}}" alt=""> 
                   <h3 style="color: black; margin-left: 12%;">JOHN DOE</h3>
 
                   <div id="scan"></div>
-
-                    <li>
-                        <a  class="nav-link px-0 align-middle"
-                             ng-click="dash" ui-sref="{{dash.dashboard.state}}"><i class=""></i>{{dash.dashboard.panel}}</a>
-                    </li>
-                    <li >
-                        <a  class="nav-link px-0 align-middle"
-                             ng-click="dash" ui-sref="Dashboard.Transaction"><i class=""></i>Transaction</a>
-                    </li>
-                    <li>
-                        <a  class="nav-link px-0 align-middle"
-                             ng-click="dash" ui-sref="Dashboard.Transaction_History"><i class=""></i>History</a>
-                    </li>
-                    <li>
-                      <a  class="nav-link px-0 align-middle"
-                           ng-click="dash" ui-sref="Dashboard.Message"><i class=""></i>Message</a>
-                    </li>
-                    <li>
-                      <a  class="nav-link px-0 align-middle"
-                         ng-click="dash" ui-sref="Dashboard.SplitBill"><i class=""></i>Split Bill</a>
-                    </li>
-                    <li>
-                      <a  class="nav-link px-0 align-middle"
-                         ng-click="dash" ui-sref="Dashboard.Cashback"><i class=""></i>Cashback & Offers</a>
-                    </li>
-                    <li>
-                      <a  class="nav-link px-0 align-middle"
-                          ng-click="balance()" style="color: #0088f1;"><i class=""></i>Check Balance</a>
-                    </li>
-                    <li>
-                      <a  class="nav-link px-0 align-middle"
-                          ng-click="pin()" style="color: #0088f1;"><i class=""></i>Edit Pin</a>
+         
+                    <li ng-repeat="dash in dashboards">
+                        <div>
+                          <a  class="nav-link px-0 align-middle"
+                              ui-sref="{{dash}}"><i class=""></i>{{dashboards}}</a>
+                        </div>
                     </li>
                     
                 </ul>
                 <hr>
                  
-            </div>
-                 -->
+            </div> -->
+                
             <!-- </div> -->
             </div>
         

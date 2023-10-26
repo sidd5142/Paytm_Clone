@@ -56,7 +56,7 @@ select.form-control {
                                     <i class="fa fa-user text-muted" style="font-size: 15px;"></i>
                                 </span>
                             </div>
-                            <input id="firstName" type="text" name="firstname" ng-model="firstname" placeholder="First Name" style="font-size: 18px;" class="form-control bg-white border-left-0 border-md">
+                            <input id="firstName" type="text" name="firstname" ng-model="firstname" placeholder="First Name" style="font-size: 18px;" class="form-control bg-white border-left-0 border-md" required>
                         </div>
     
                         <!-- Last Name -->
@@ -66,7 +66,7 @@ select.form-control {
                                     <i class="fa fa-user text-muted" style="font-size: 15px;"></i>
                                 </span>
                             </div>
-                            <input id="lastName" type="text" name="lastname" ng-model="lastname" placeholder="Last Name" style="font-size: 18px;" class="form-control bg-white border-left-0 border-md">
+                            <input id="lastName" type="text" name="lastname" ng-model="lastname" placeholder="Last Name" style="font-size: 18px;" class="form-control bg-white border-left-0 border-md" required>
                         </div>
     
                         <div class="input-group col-lg-12 mb-4">
@@ -90,7 +90,7 @@ select.form-control {
                                     <i class="fa fa-user text-muted" style="font-size: 15px;"></i>
                                 </span>
                             </div>
-                            <input id="dob" type="date" name="dob" value="dob" ng-model="date" style="font-size: 18px;" placeholder="Date of Birth"  ng-change="updateDate()" class="form-control bg-white border-left-0 border-md">
+                            <input id="dob" type="date" name="dob" value="dob" ng-model="date" style="font-size: 18px;" placeholder="Date of Birth"  ng-change="updateDate()" class="form-control bg-white border-left-0 border-md" required>
                         </div>
     
                         <div class="input-group col-lg-6 mb-4">
@@ -99,7 +99,7 @@ select.form-control {
                                     <i class="fa fa-phone-square text-muted" style="font-size: 15px;"></i>
                                 </span>
                             </div>
-                            <input id="phoneNumber" type="tel" name="phone" value="phonenumber" pattern="[0-9]{10}" maxlength="10" ng-model="contact" style="font-size: 18px;" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3">
+                            <input id="phoneNumber" type="tel" name="phone" value="phonenumber" pattern="[0-9]{10}" maxlength="10" ng-model="contact" style="font-size: 18px;" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3" required>
                         </div>
 
 

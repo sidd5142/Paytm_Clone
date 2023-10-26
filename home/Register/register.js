@@ -18,7 +18,7 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
   };
 
   $scope.updateDate = function () {
-    var selectedDate = $scope.date;
+    var selectedDate = new Date($scope.date);
     if (selectedDate) {
         var year = selectedDate.getFullYear();
         var month = (selectedDate.getMonth() + 1).toString().padStart(2, '0');
@@ -44,7 +44,7 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
       console.log(error)
     })
   }
-  
+    
   $scope.submit = function(){
 
     var pass = $scope.password;
@@ -64,9 +64,11 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
 
         // if($scope.Register)
         // {
+        // if($scope.Register)
+        // {
         console.log(formdata)
 
-        if(pass == confpass && validemail){
+        if(pass === confpass && validemail){
 
         $http.post(ip + 'register', formdata,{
           withCredentials:true,
@@ -102,6 +104,15 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
 				text: 'Incorrect password or invalid email'
 			  })
       }
+        // }
+      // else{
+      //   Swal.fire({
+      //     icon: 'error',
+      //     title: 'Oops...',
+      //     text: 'Fiels are Empty'
+      //     })
+      // }
+    
     }
       // else{
       //   console.log("FIll the fields")

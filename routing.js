@@ -92,6 +92,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			templateUrl: '/home/wallet/wallet_trans.html',
 			controller: 'WalletTransactionController'
 		})
+		.state('Dashboard.Postpaid', {
+            url: '/postpaid',
+			templateUrl: '/home/wallet/postpaid.html',
+			controller: 'PostpaidController'
+		})
 		
 		$urlRouterProvider.otherwise('/home');
 }]);

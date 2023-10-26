@@ -96,7 +96,7 @@
             </div>
           </nav>
     </header>
-        <div class="card text-center" style="width: 40%; margin-left: 30%;">
+        <div class="card text-center" style="width: 30%; margin-left: 34%;">
             <div class="card-body">
                 <div style="margin:3%; float: left;" ng-repeat="data in detail">
                    <h4 style="float: left;">Amount</h4><br>
@@ -114,14 +114,17 @@
                     State Bank of India - 9216 
                   </p><br>
 
+                  <!-- <div ng-if="data.status === 'FAILED'">
+                    <p style="float: left;"><strong>Reason for Failure:</strong> {{data.reason}}</p>
+                  </div> <br> -->
                   <div ng-if="data.status === 'FAILED'">
-                    <p><strong>Reason for Failure:</strong> {{data.reason}}</p>
-                  </div> <br>
+                    <p style="float: left; font-size: 30px; color: red;">Failed</p><br>
+                  </div><br>
 
                   <div>
                     <button type="button" class="btn btn-outline-primary" style="float: left; font-size: 15px;" ui-sref="Dashboard.Transaction">Pay</button>
                     <button type="button" class="btn btn-outline-primary" style="margin-left: 8%; font-size: 15px;">View History</button>
-                  </div>
+                  </div><br>
 
                   <hr>
 
@@ -133,7 +136,7 @@
                   <p style="float: left;font-size: 13px; color: rgb(13, 166, 197);">Check Balance</p><br>
 
                   <div style="font-size: 13px;">
-                    <p style="float: left;">Received at 10:52 AM, 15 Oct 2023</p><br>
+                    <p style="float: left;">{{data.time}}, {{data.time}}</p><br>
 
                     <p style="float: left;">UPI Ref No: 32514545455456</p><br>
                   </div>
