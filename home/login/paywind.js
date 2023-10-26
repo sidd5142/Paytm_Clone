@@ -310,6 +310,13 @@ app.controller('BillController',function($scope,$http,$state){
         .then(function(response){
             console.log(response)
             $state.go('PayHome')
+            Swal.fire({
+                icon: 'success',
+                title: 'You are successfully logged out',
+                text : response.data.message,
+                showConfirmButton: false,
+                timer: 2000
+            })
         })
         .catch(function(error){
             console.log(error)
@@ -439,7 +446,24 @@ app.controller('BillController',function($scope,$http,$state){
         console.log(response)
         $scope.coupons = response.data
         console.log($scope.coupons)
-    })
+
+        $scope.view = function(offer){
+         var ids = {
+            id : offer.id
+         }
+         $http.get(ip + 'view_coupon', { params : ids, 
+         withCredentials:true
+         })
+         .then(function(response){
+            console.log(response)
+            $scope.details = response.data
+            console.log($scope.details)
+         })
+         .catch(function(error){
+            console.log(error)
+         })
+    }
+})
     .catch(function(error){
         console.log(error)
         Swal.fire({

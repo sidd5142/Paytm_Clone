@@ -182,7 +182,8 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
          Swal.fire({
              icon: 'success',
             //  title: 'Cashback Earned...',
-             title: $scope.cashbacks.cashback
+             title: 'Cashback Received : ' + response.data[0].cashback,
+            //  text: 'Cashback:' + response.data
           } )
           $state.reload('Dashboard.Transaction')
          })

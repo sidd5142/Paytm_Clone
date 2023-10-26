@@ -57,7 +57,7 @@
                 <h4>{{offer.offer}}</h4> 
             </div> 
             <!-- <br> -->
-            <button class="btn btn-outline-primary" style="width: fit-content; float: right;" data-bs-toggle="modal" data-bs-target="#ViewOffer">VIEW</button>
+            <button class="btn btn-outline-primary" style="width: fit-content; float: right;" ng-click="view(offer)" data-bs-toggle="modal" data-bs-target="#ViewOffer">VIEW</button>
         </div>
         </div>
         </div>
@@ -75,17 +75,17 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
   
-        <div class="modal-body" ng-repeat="offers in coupons">
+        <div class="modal-body" ng-repeat="detail in details">
             <div style="text-align: center;">
-                <h1>Brand Name : <h1 style="color: blue;">{{offers.brand_name}}</h1></h1><br>
-                <h4 >Coupon Code : <h4 style="color: blue;">{{offers.coupon_code}}</h4></h4> <br>
-                <h2>Offer : <h2 style="color: blue;">{{offers.offer}}</h2></h2>
+                <h1>Brand Name : <h1 style="color: blue;">{{detail.brand_name}}</h1></h1><br>
+                <h4 >Coupon Code : <h4 style="color: blue;">{{detail.coupon_code}}</h4></h4> <br>
+                <h2>Offer : <h2 style="color: blue;">{{detail.offer}}</h2></h2>
             </div>
             <hr>
         </div>
   
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" >Close</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="width: 20%;" >Close</button>
         </div>
   
       </div>
