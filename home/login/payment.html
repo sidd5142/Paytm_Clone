@@ -117,7 +117,10 @@
         <td>{{number}}</td>
         <td>
           <input type="text" ng-model="bankerss" placeholder="{{bankers.equal}}" style="width: 15%; border: 0px;">
-          <button class="btn btn-lg" style="font-size: 20px; width: fit-content;" ng-click="updateData(number, bankerss,$index)">&#x20b9 Update</button>
+          <button class="btn btn-lg" style="font-size: 20px; width: fit-content;" ng-click="updateData(number, bankerss[4index],$index)">&#x20b9 Update</button>
+          <!-- <button type="submit" class="btn-lg btn-primary" ng-click="paid(number,bankers[$index])" style="height: 55px; width: 20%; border-radius: 158px; font-size: 20px; margin-right: 4%;">Marks as Paid</button> -->
+          <button class="btn btn-lg" style="font-size: 20px; width: fit-content;" ng-click="addtopayment(number, bankerss[$index])">&#x20b9 Pay</button>
+
         </td>
       </tr>
     </table>
@@ -125,7 +128,7 @@
     </div> 
 
     <div class="card-footer text-muted" style="margin-top: 3%;">
-        <button type="submit" class="btn-lg btn-primary" ng-click="paid(number,bankers)" style="height: 55px; width: 20%; border-radius: 158px; font-size: 20px; margin-right: 4%;">Marks as Paid</button>
+        <button type="submit" class="btn-lg btn-primary" ng-click="paid(number,bankers[$index])" style="height: 55px; width: 20%; border-radius: 158px; font-size: 20px; margin-right: 4%;">Marks as Paid</button>
     </div>
     </div>
 </div>

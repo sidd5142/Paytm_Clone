@@ -1,14 +1,18 @@
 app.controller('HomeController',function($scope,$http,$window,$state){
 
+    $scope.dash = {
+        user : [],
+        dashboard : []
+    }
 
         $http.get(ip + 'dynamicpanel',{
             withCredentials:true
         })
         .then(function(response){
             console.log(response)
-            $scope.dashboards = response.data
-            // $scope.dashboards = response.data
-            console.log($scope.dashboards)
+            $scope.dash.user = response.data[0].user;
+            $scope.dash.dashboard = response.data[1].dashboard;
+            console.log($scope.dash)
         })
         .catch(function(error){
             console.log(error)
@@ -255,7 +259,7 @@ app.controller('BillController',function($scope,$http,$state){
   
   app.controller('PaymentController',function($scope,$http,$window,$state){
     $scope.bankers = [];
-    $scope.renew = [];
+    $scope.paymentlist = [];
     console.log(info)
     $scope.bankers = info
     console.log($scope.bankers)
@@ -278,10 +282,10 @@ app.controller('BillController',function($scope,$http,$state){
            divide_amount.push(divequal)
            change_amount.push(value)
         //    change_number.push(number)
-        //    change_number.push({
-        //     'numbers' : number,
-        //     'amount' : value
-        //    })
+           change_number.push({
+            'numbers' : number,
+            'amount' : value
+           })
         }
         else{
             Swal.fire({
@@ -293,28 +297,39 @@ app.controller('BillController',function($scope,$http,$state){
         }
     }
 
+    $scope.addtopayment = function(number,amount){
+        $scope.paymentlist.push({
+            'number' : number,
+            'amount' : amount
+        });
+        console.log("added :", number, amount)
+    }
+
 
     // Creating group 
-    $scope.paid = function(number,bankers){
+    $scope.paid = function(number,amount){
 
         $scope.contacts = []
         console.log(number)
         console.log(bankers)
 
-        $scope.contacts = change_number.push({
-            'numbers' : number,
-            'amount' : bankers.eqaul
-           })
+        // $scope.contacts = change_number.push({
+        //     'numbers' : number,
+        //     'amount' : bankers.eqaul
+        //    })
         var datas = {
-            UPI : 
-                 $scope.contacts,
-                // equal : change_amount
-                
-            amount : divide_amount
+            // UPI : {
+            //     //  $scope.contacts,
+            //     equal : change_number
+  
+            // },
+            // amount : divide_amount
+            'number':number,
+            'amount':amount,
         }
         console.log(datas)
         
-        $http.post(ip + 'split_bill', datas, { 
+        $http.post(ip + 'split_bill', datas, {  // $http.post(ip + 'split_bill', $scope.paymentlist)
             withCredentials: true
         })
         .then(function(response){

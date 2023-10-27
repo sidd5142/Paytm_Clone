@@ -90,7 +90,7 @@ select.form-control {
                                     <i class="fa fa-user text-muted" style="font-size: 15px;"></i>
                                 </span>
                             </div>
-                            <input id="dob" type="date" name="dob" value="dob" ng-model="date" style="font-size: 18px;" placeholder="Date of Birth"  ng-change="updateDate()" class="form-control bg-white border-left-0 border-md" required>
+                            <input id="dob" type="date" name="dob" value="dob" max="{{maxDate()}}" ng-model="date" style="font-size: 18px;" placeholder="Date of Birth"  ng-change="updateDate()" class="form-control bg-white border-left-0 border-md" required>
                         </div>
     
                         <div class="input-group col-lg-6 mb-4">

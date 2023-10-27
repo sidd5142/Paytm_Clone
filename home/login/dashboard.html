@@ -426,15 +426,17 @@ td:hover {
                 </a>
                 <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-lg-start" id="menu" style="font-size: 20px;">
                   
-                   <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 20%;" src="https://ui-avatars.com/api/?name={{dash.user.name}}" alt=""> 
-                  <h3 style="color: black; margin-left: 12%;">JOHN DOE</h3>
+                 <div ng-repeat="user in dash.user">
+                    <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 20%;" src="https://ui-avatars.com/api/?name={{user.name}}" alt=""> 
+                    <h3 style="color: black; margin-left: 12%;">{{user.name}}</h3>
+                  </div>
 
                   <div id="scan"></div>
          
-                    <li ng-repeat="dash in dashboards">
+                    <li ng-repeat="dash in dash.dashboard">
                         <div>
                           <a  class="nav-link px-0 align-middle"
-                              ui-sref="{{dash}}"><i class=""></i>{{dashboards}}</a>
+                              ui-sref="{{dash.state}}"><i class=""></i>{{dash.value}}</a>
                         </div>
                     </li>
                     

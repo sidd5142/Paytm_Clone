@@ -20,10 +20,19 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
   $scope.updateDate = function () {
     var selectedDate = new Date($scope.date);
     if (selectedDate) {
+      var minDate = new Date();
+      minDate.setFullYear(minDate.getFullYear() -18);
+      if(selectedDate < minDate)
+      {
         var year = selectedDate.getFullYear();
         var month = (selectedDate.getMonth() + 1).toString().padStart(2, '0');
         var day = selectedDate.getDate().toString().padStart(2, '0');
         $scope.date = year + '-' + month + '-' + day;
+      }
+      else{ 
+        $scope.date = null;
+      }
+        
     } else {
         $scope.date = null;
     }
