@@ -8,12 +8,15 @@ app.controller('HomePageController',function($scope,$http,$window,$state){
             var formdata = {
             phone:$scope.number
             }
+
+            $scope.loader = true;
        
             $http.post(ip + 'otp', formdata, {
             withCredentials:true
         })
         .then(function(response){
             console.log(response)
+            $scope.loader = false;
             Swal.fire({
                 position: 'centre',
                 icon: 'success',

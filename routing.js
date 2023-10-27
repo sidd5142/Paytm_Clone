@@ -72,6 +72,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			templateUrl: '/home/payment/transaction.html',
 			controller: 'TransactionController'
 		})
+		.state('Dashboard.Groups', {
+            url: '/groups',
+			templateUrl: '/home/payment/billgroups.html',
+			controller: 'GroupsController'
+		})
+		.state('Dashboard.BillPayment', {
+            url: '/billpayment',
+			templateUrl: '/home/payment/billpayment.html',
+			controller: 'GroupBillController'
+		})
 		.state('Dashboard.Cashback', {
             url: '/cashback',
 			templateUrl: '/home/login/cashback.html',
@@ -101,4 +111,4 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		$urlRouterProvider.otherwise('/home');
 }]);
 
-var ip = "https://10.21.86.205:8000/";
+var ip = "https://6adc-125-21-249-98.ngrok-free.app/";

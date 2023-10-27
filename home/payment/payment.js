@@ -198,4 +198,44 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
      }
  })
 
+ var billinfo = [];
+
+ app.controller('GroupsController',function($scope,$http,$window,$state){
+    $http.get(ip + 'splitbill_groups', {
+        withCredentials: true
+    })
+    .then(function(response){
+        console.log(response)
+        $scope.contact = response.data
+
+        $scope.send = function(data){
+            console.log(data.id)
+            var ids = {
+                id1 : data.id
+            }
+            $http.get(ip + 'individual_notification', {params : ids,
+                withCredentials: true
+            })
+            .then(function(response){
+                console.log(response)
+                billinfo = response.data
+                $state.go('Dashboard.BillPayment')
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+        }
+    })
+    .catch(function(error){
+        console.log(error)
+    })
+ })
+
+
+ app.controller('GroupBillController',function($scope,$http,$window,$state){
+
+    $scope.details = billinfo;
+    console.log($scope.details);
+ })
+
 

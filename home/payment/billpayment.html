@@ -1,0 +1,92 @@
+<style>
+    #loginimg{ 
+    }
+
+    .navcolor {
+    background-color: white;
+    /* position:fixed;
+    block-size:inherit; */
+}
+
+.navcolor a {
+    font-family: Arial, Helvetica, sans-serif !important;
+    margin-left: 10%;
+    color: black !important;
+    font-size: 15px !important;
+    font-weight: bolder;
+}
+
+#signin {
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 9px;
+}
+
+#loginimg {
+}
+
+#loginbutton:hover {
+    background-color: #002970 !important;
+}
+
+#loginimg:hover {
+  background-color:  #00baf2 !important;
+
+}
+
+.nav-item a:hover {
+    background-color: #f5f7fa;
+}
+
+.navbar-toggler {
+    color: black !important;
+}
+
+
+</style>
+
+<div class="text-center" ng-controller="DataController">
+    <div class="card w-50" style="margin-left: 23%; height: 20%; overflow: hidden;">
+    <div class="card-header">
+        <table style="width: 100%; font-size: 20px;">
+            <tr>
+                <td><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg" width="50" height="50">
+                </td>
+
+                <td>
+                   <div style="float: left;">
+                     Rishabh Gupta
+                   </div>
+                   
+                </td>
+
+                <td>
+                   <div>
+                     <p style="font-size: 20px; font-weight: light;">&#8942;</p>
+                   </div> 
+                </td>
+            </tr>                    
+        </table>
+        </div>
+        <!-- ng-class="{'direction': detail.status=='!', 'direction1': detail.status=='-'}" -->
+    <div class="card-body">
+      <div ng-repeat="detail in details">
+        <div class="card text-center" style="width: 50%; border-radius: 10px; padding: 10px; margin:3%;">
+            <h6 style="font-size: 60px; text-align: left; margin-top: 2%;" id="">{{detail.to}}</h6>
+            <h2 style="font-size: 60px; text-align: left; margin-top: 2%;" id="">&#x20b9 {{detail.amount}} &#10004</h2>
+            <h4 style="text-align: left;">Sent to Bank</h4>
+
+            <button class="btn btn-outline-primary" ui-sref="Dashboard.Transaction" style="width: fit-content;">Pay Again</button>
+        </div> 
+      </div>
+    </div>
+
+   
+    <div class="card-footer text-muted" style="margin-top: 3%;">
+        <button type="submit" class="btn-lg btn-primary" style="height: 55px; border-radius: 50px; font-size: 20px; width: 15%;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR70AHGrdz5SkhhtlWOAU4FmTrVfs3_HzRn5Q&usqp=CAU" alt="" width="20" height="20">       Pay</button>
+        <input type="text" style="height: 55px; border-radius: 158px; font-size: 20px; margin-left: 5%;" placeholder="+ Enter amount or message">
+
+    </div>
+    </div>
+</div>

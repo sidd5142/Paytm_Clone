@@ -353,10 +353,16 @@ app.controller('BillController',function($scope,$http,$state){
                 $scope.dash.user = response.data[0].user;
                 $scope.dash.dashboard = response.data[1].dashboard;
                 console.log($scope.dash.user.phone_no)
-                // admin = $scope.dash.user
-                // panels = $scope.dash.dashboard
-                // $scope.newdash = $scope.dash.dashboard
-                // console.log($scope.newdash)
+
+                $scope.number = '9569673877'
+     
+                var qrText = $scope.number
+            
+                    var qrcode = new QRCode(document.getElementById("scan"), {
+                    text: qrText,
+                    width: 130,
+                    height: 130
+                });
             })
             .catch(function(error){
                 console.log(error)
@@ -371,15 +377,7 @@ app.controller('BillController',function($scope,$http,$state){
 
     }
 
-    $scope.number = '9569673877'
-     
-    var qrText = $scope.number
-
-        var qrcode = new QRCode(document.getElementById("scan"), {
-        text: qrText,
-        width: 130,
-        height: 130
-    });
+   
 
     $scope.logout = function(){
         $http.get(ip + 'logout1', {

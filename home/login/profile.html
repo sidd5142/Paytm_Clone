@@ -58,7 +58,7 @@ body {
     <div class="card p-4"> 
         <div class=" image d-flex flex-column justify-content-center align-items-center" ng-repeat="detail in details">
             <button class="btn btn-outline-danger"> 
-                <img src="https://ui-avatars.com/api/?name=Elon+Musk" height="100" width="100" />
+                <img src="https://ui-avatars.com/api/?name={{detail.name}}" height="100" width="100" />
             </button>
              <span class="name mt-3">{{detail.name}}</span> 
              <span class="idd">{{detail.UPI_id}}</span>

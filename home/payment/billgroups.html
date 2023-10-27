@@ -52,8 +52,7 @@
                 <!-- <div  style="float: left;">
                    <i class="fa-solid fa-arrow-left"></i>
                 </div> -->
-              <a class="navbar-brand" id="nav" style="margin-right: 45%;">Messages</a>
-              <p style="float: right; color: rgb(8, 170, 239); font-size: 15px;">New Chat</p>
+              <a class="navbar-brand" id="nav" style="margin-right: 45%;">Split Bill Group Details</a>
             
             </div>
           </nav>
@@ -68,15 +67,15 @@
                 
                 <table style="width: 100%; font-size: 20px;">
 
-                  <tr ng-repeat="split in bills track by $index">
+                  <tr ng-repeat="split in contact | filter : search">
                     <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxsKrQ9cOtTxblWfXCVOBjHmBwLBI8tcjZQg&usqp=CAU" alt="" id="loginimg" width="50" height="50"></td>
                     <td>
                       <div style="float: left;">
-                        {{split}}<br>
-                        <p style="font-size: 12px; font-weight: light; float: left;" ng-click="send(split)">&#8377; {{split.amount}} to pay </p>
+                        {{split.key}}<br>
+                        <p style="font-size: 12px; font-weight: light; float: left;" ng-click="send(split)">&#8377; {{split.id}} to pay </p>
                       </div>
                    </td>                    
-                   <td>Split Payment</td>
+                   <td>Pay</td>
                   </tr>
 
                     <tr>
