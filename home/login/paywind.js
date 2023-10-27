@@ -1,29 +1,7 @@
+var admin = [];
+var panels = [];
+
 app.controller('HomeController',function($scope,$http,$window,$state){
-
-    $scope.dash = {
-        user : [],
-        dashboard : []
-    }
-
-        $http.get(ip + 'dynamicpanel',{
-            withCredentials:true
-        })
-        .then(function(response){
-            console.log(response)
-            $scope.dash.user = response.data[0].user;
-            $scope.dash.dashboard = response.data[1].dashboard;
-            console.log($scope.dash)
-        })
-        .catch(function(error){
-            console.log(error)
-            Swal.fire({
-                icon: 'error',
-                title: 'Something went wrong',
-                text : error.data.message,
-                showConfirmButton: false,
-                timer: 2000
-            })
-        })
     // to generate the otp
 
     $scope.otp = function(){
@@ -211,7 +189,7 @@ app.controller('BillController',function($scope,$http,$state){
     info = data
 
     $scope.Continue = function(){
-
+        console.log(data)
         $http.get(ip + 'show_data', { params : data,
             withCredentials: true
         })
@@ -297,35 +275,37 @@ app.controller('BillController',function($scope,$http,$state){
         }
     }
 
-    $scope.addtopayment = function(number,amount){
-        $scope.paymentlist.push({
-            'number' : number,
-            'amount' : amount
-        });
-        console.log("added :", number, amount)
-    }
+    // $scope.addtopayment = function(number,amount){
+    //     $scope.paymentlist.push({
+    //         'number' : number,
+    //         'amount' : amount
+    //     });
+    //     console.log("added :", number, amount)
+    // }
 
 
     // Creating group 
-    $scope.paid = function(number,amount){
+    // $scope.paid = function(number,amount){
+        $scope.paid = function(){
 
         $scope.contacts = []
-        console.log(number)
-        console.log(bankers)
+        // console.log(number)
+        // console.log(bankers)
 
         // $scope.contacts = change_number.push({
         //     'numbers' : number,
         //     'amount' : bankers.eqaul
         //    })
         var datas = {
-            // UPI : {
+            UPI :  change_number,
+            amount1  : amount
             //     //  $scope.contacts,
             //     equal : change_number
   
             // },
             // amount : divide_amount
-            'number':number,
-            'amount':amount,
+            // 'number':number,
+            // 'amount':amount,
         }
         console.log(datas)
         
@@ -351,7 +331,55 @@ app.controller('BillController',function($scope,$http,$state){
   })
 
   var profiles = [];
+
   app.controller('DashboardController',function($scope,$http,$state){
+     
+    $scope.dashuser = [];
+    $scope.dashpanel = [];
+     
+    $scope.click = function(){
+
+    
+        $scope.dash = {
+            user : [],
+            dashboard : []
+        }
+    
+            $http.get(ip + 'dynamicpanel',{
+                withCredentials:true
+            })
+            .then(function(response){
+                console.log(response)
+                $scope.dash.user = response.data[0].user;
+                $scope.dash.dashboard = response.data[1].dashboard;
+                console.log($scope.dash.user.phone_no)
+                // admin = $scope.dash.user
+                // panels = $scope.dash.dashboard
+                // $scope.newdash = $scope.dash.dashboard
+                // console.log($scope.newdash)
+            })
+            .catch(function(error){
+                console.log(error)
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Something went wrong',
+                    text : error.data.message,
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+            })
+
+    }
+
+    $scope.number = '9569673877'
+     
+    var qrText = $scope.number
+
+        var qrcode = new QRCode(document.getElementById("scan"), {
+        text: qrText,
+        width: 130,
+        height: 130
+    });
 
     $scope.logout = function(){
         $http.get(ip + 'logout1', {
@@ -373,15 +401,6 @@ app.controller('BillController',function($scope,$http,$state){
         })
     }
 
-    $scope.number = '9569673877'
-     
-    var qrText = $scope.number
-
-        var qrcode = new QRCode(document.getElementById("scan"), {
-        text: qrText,
-        width: 130,
-        height: 130
-    });
     // }
     $scope.balance = async function(){
         console.log('balance')

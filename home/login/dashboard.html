@@ -229,7 +229,7 @@ td:hover {
 
             <header class="header">
                 <div class="header_in">
-                  <button type="button" class="toggle" data-bs-toggle="collapse" data-bs-target="collapsebar" style="margin-left: 25px;" id="toggle" ng-model="toggle">
+                  <button type="button" class="toggle" ng-click="click()" data-bs-toggle="collapse" data-bs-target="collapsebar" style="margin-left: 25px;" id="toggle" ng-model="toggle">
                     <span></span>
                    </button>
                </div>
@@ -364,12 +364,15 @@ td:hover {
                     </a>
                     <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-lg-start" id="menu" style="font-size: 20px;">
                       
-                      <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 20%;" src="https://ui-avatars.com/api/?name=Siddharth+Yadav" alt="">
-                      <h3 style="color: black; margin-left: 12%;">JOHN DOE</h3>
-
+                      <div ng-repeat="admin in dash.user">
+                        <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 20%;" src="https://ui-avatars.com/api/?name={{admin.name}}" alt="">
+                      <h3 style="color: black; margin-left: 12%;">{{admin.name}}</h3>
+                      <!-- <input type="text" ng-model="{{admin.phone_no}}" > -->
+                      <!-- <span ng-model="{{admin.phone_no}}"></span> -->
+                      </div>
                       <div id="scan"></div>
 
-                        <li>
+                        <!-- <li>
                             <a  class="nav-link px-0 align-middle"
                                  ng-click="dash" ui-sref="Dashboard.PayWind"><i class=""></i> Home</a>
                         </li>
@@ -409,7 +412,13 @@ td:hover {
                         <li>
                           <a  class="nav-link px-0 align-middle"
                               ui-sref="Dashboard.Postpaid" style="color: #0088f1; margin-top: 3%;"><i class=""></i>Postpaid</a>
-                        </li>
+                        </li> -->
+                        <li ng-repeat="dash in dash.dashboard">
+                          <div>
+                            <a  class="nav-link px-0 align-middle"
+                                ui-sref="{{dash.state}}"><i class=""></i>{{dash.value}}</a>
+                          </div>
+                      </li>
                         </div>
                         
                     </ul>
@@ -433,12 +442,7 @@ td:hover {
 
                   <div id="scan"></div>
          
-                    <li ng-repeat="dash in dash.dashboard">
-                        <div>
-                          <a  class="nav-link px-0 align-middle"
-                              ui-sref="{{dash.state}}"><i class=""></i>{{dash.value}}</a>
-                        </div>
-                    </li>
+                   
                     
                 </ul>
                 <hr>
