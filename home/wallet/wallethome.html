@@ -5,6 +5,11 @@
       <div class="input-group col-lg-9  mb-4">
         <input type="text" class="form-control" id="number" ng-model="number" placeholder="Enter Mobile Number" name="number" style="font-size: 20px; width: 40%; text-align: center; margin-left: 30%; border-radius: 10px;">
         <button class="btn btn-outline-primary" style="width: max-content; border-radius: 8px; margin-left: 2%;" ng-click="otp()">Get OTP</button>
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border" role="status" ng-show="loader">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
       </div>
       <input type="text" class="form-control" id="otp" ng-model="otpverify" placeholder="Enter 4 digit OTP" name="number" style="font-size: 20px; width: 45%; text-align: center; margin-left: 23%; border-radius: 10px;" ng-show="showotp">
 

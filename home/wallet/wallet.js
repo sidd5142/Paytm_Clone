@@ -1,6 +1,9 @@
 app.controller('WalletController',function($scope,$http,$window,$state){
 
    $scope.otp = function(){
+
+    $scope.loader = true;
+
     if($scope.number)
     {
         var data = {
@@ -12,6 +15,7 @@ app.controller('WalletController',function($scope,$http,$window,$state){
     })
     .then(function(response){
         console.log(response)
+        $scope.loader = false;
         Swal.fire({
             position: 'centre',
             icon: 'success',
