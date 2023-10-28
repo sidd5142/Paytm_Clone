@@ -41,7 +41,11 @@
                     <tr ng-repeat="detail in details | orderBy: sortComment : true | filter:search">
                         <td><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg" width="50" height="50">
                         </td>
-
+                        <div class="d-flex justify-content-center">
+                          <div class="spinner-border" role="status" ng-show="loader">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                        </div>
                         <td>
                            <div style="float: left;">
                              {{detail.to}}<br>

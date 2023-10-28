@@ -98,7 +98,7 @@ app.controller('PinController',function($scope,$http,$window,$state){
 var detailed = [];
 
 app.controller('TransactionDetailController',function($scope,$http,$window,$state){
-
+    $scope.loader = true;
     $scope.details = [];
 
     console.log('TransactionControlle')
@@ -107,6 +107,7 @@ app.controller('TransactionDetailController',function($scope,$http,$window,$stat
     })
     .then(function(response) {
         console.log(response)
+        $scope.loader=false;
         $scope.details = response.data;
         console.log($scope.details)
 

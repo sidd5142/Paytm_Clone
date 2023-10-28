@@ -2,37 +2,46 @@
     <div class="card-header" style="font-size: 30px;">
         Postpaid
     </div>
-    <div class="card-body" style="font-size: 20px;">
+
     <form ng-submit="myform()">
+
+    <div class="card-body" style="font-size: 20px;">
       <!-- <h5 class="card-title"></h5> -->
       <p class="card-text mt-5">Enter a Pan Number</p>
       <div >
-        <input class="input-group-prepend" type="text" ng-model="pan_number" placeholder="Enter a Pan Number" style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
+        <input class="input-group-prepend" type="text" pattern="[0-9]{10}" ng-model="pan_number" maxlength="16" placeholder="Enter a Pan Number" style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
             
     </div>
     <p class="card-text mt-lg-5">Enter a Aadhaar Number</p>
     <div >
-        <input class="input-group-prepend" type="text" ng-model="aadhaar_number" placeholder="Enter a Aadhaar Number" style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
+        <input class="input-group-prepend" type="text" pattern="[0-9]{10}" ng-model="aadhaar_number" maxlength="16" placeholder="Enter a Aadhaar Number" style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
                         
     </div>
 
     <p class="card-text mt-lg-5">Enter DOB</p>
     <div >
-        <input class="input-group-prepend " type="date" ng-model="dob" placeholder="Enter DOB"  style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
+        <input class="input-group-prepend " type="date" ng-model="dob" max="{{maxDate()}}" placeholder="Enter DOB" ng-change="updateDate()" style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
                         
     </div>
 
     <p class="card-text mt-lg-5">Enter your Email</p>
     <div >
-        <input class="input-group-prepend " type="email" ng-model="email" placeholder="Enter Email ID" style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
-                        
+        <input class="input-group-prepend " type="email" ng-model="email" ng-change="validateEmail()" placeholder="Enter Email ID" style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
+        <div ng-show="email == '' && !emailIsValid">
+            <p style="color: red;">Invalid email format</p>
+        </div>
+        <div ng-show="emailIsValid">
+            <p style="color: green;">Valid email format</p>
+        </div>          
     </div>
-    </form>
+    
 
     <p style="margin-top: 5%; font-size: 12px; font-weight: light;">By proceeding you agree to the <a href="">Terms and Condition</a></p>
 
 </div>
     <div class="card-footer text-muted" style="height: 60px;" >
-        <button class="btn btn-primary" ng-click="confirm()" style="width: 30%; margin-right:3%; font-size: 20px; height: 40px; border-radius: 10px;">Proceed</button>
+        <button type="submit" class="btn btn-primary" ng-click="confirm()" style="width: 30%; margin-right:3%; font-size: 20px; height: 40px; border-radius: 10px;">Proceed</button>
     </div>
+    </form>
+   
   </div>

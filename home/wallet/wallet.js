@@ -153,7 +153,41 @@ app.controller('WalletTransactionController',function($scope,$http,$window,$stat
 
 app.controller('PostpaidController',function($scope,$http,$window,$state){
 
-    $scope.confirm = function(){
+    $scope.validateEmail = function () {
+        // Regular expression for email validation
+        var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    
+        if (emailPattern.test($scope.email)) {
+          $scope.emailIsValid = true;
+        } else {
+          $scope.emailIsValid = false;
+        }
+      };
+
+
+      $scope.updateDate = function () {
+        var selectedDate = new Date($scope.dob);
+        if (selectedDate) {
+          var minDate = new Date();
+          minDate.setFullYear(minDate.getFullYear() -18);
+          if(selectedDate < minDate)
+          {
+            var year = selectedDate.getFullYear();
+            var month = (selectedDate.getMonth() + 1).toString().padStart(2, '0');
+            var day = selectedDate.getDate().toString().padStart(2, '0');
+            $scope.dob = year + '-' + month + '-' + day;
+          }
+          else{ 
+            $scope.dob = null;
+          }
+            
+        } else {
+            $scope.dob = null;
+        }
+    };
+   
+   
+    $scope.myform = function(){
     console.log("confirm")
     var data = {
         pan : $scope.pan_number,

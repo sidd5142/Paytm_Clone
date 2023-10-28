@@ -77,16 +77,55 @@
             <h2 style="font-size: 60px; text-align: left; margin-top: 2%;" id="">&#x20b9 {{detail.amount}} &#10004</h2>
             <h4 style="text-align: left;">Sent to Bank</h4>
 
-            <button class="btn btn-outline-primary" ui-sref="Dashboard.Transaction" style="width: fit-content;">Pay Again</button>
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" ng-click="billamount(detail)"  style="width: fit-content;">Pay Again</button>
         </div> 
       </div>
     </div>
 
    
-    <div class="card-footer text-muted" style="margin-top: 3%;">
+    <!-- <div class="card-footer text-muted" style="margin-top: 3%;">
         <button type="submit" class="btn-lg btn-primary" style="height: 55px; border-radius: 50px; font-size: 20px; width: 15%;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR70AHGrdz5SkhhtlWOAU4FmTrVfs3_HzRn5Q&usqp=CAU" alt="" width="20" height="20">       Pay</button>
         <input type="text" style="height: 55px; border-radius: 158px; font-size: 20px; margin-left: 5%;" placeholder="+ Enter amount or message">
-
-    </div>
+    </div> -->
     </div>
 </div>
+
+<div class="modal" id="exampleModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                    <!-- <label for="number" class="col-form-label" style="font-size: 15px;">Number : {{amount.to}}</label><br>
+                    <label for="number" class="col-form-label" style="font-size: 15px;">Amount : {{amount.amount}}</label><br> -->
+                  <label for="pin" class="col-form-label" style="font-size: 18px;">PIN :</label>
+                  <input type="password" ng-model="pin_number" maxlength="4" style="height: 40px;" class="form-control" id="pin">
+                </div><br>
+                <!-- <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Message:</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div> -->
+              </form>
+              <button type="submit" class="btn btn-success" style="width: fit-content;" data-bs-dismiss="modal" ng-click="pay_again()">Pay Amount</button>
+            </div>
+  
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div> -->
+  
+      </div>
+    </div>
+  </div>
+
+
+
+
+<!--  -->

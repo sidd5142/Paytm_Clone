@@ -1,11 +1,13 @@
 var message = [];
 app.controller('MessageController',function($scope,$http,$window,$state){
+    $scope.loader  = true;
     $scope.bills = {};
     $http.get(ip + 'messages', {
         withCredentials:true,
     })
     .then(function(response){
         console.log(response)
+        $scope.loader = false;
         $scope.bills = response.data;
 
         $scope.send = function(split){
@@ -236,6 +238,37 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
 
     $scope.details = billinfo;
     console.log($scope.details);
+    $scope.data = billinfo;
+
+    var ids = {}
+    $scope.billamount = function(amount){
+        ids = amount.id;
+    }
+
+    $scope.pay_again = function(){
+        var data = {
+            id : ids,
+            pin : $scope.pin_number
+        }
+        console.log(data)
+        $http.post(ip + 'pay_splitbill' ,data, {
+            withCredentials:true
+        })
+        .then(function(response){
+            console.log(response)
+            Swal.fire({
+                position: 'centre',
+                icon: 'success',
+                title : 'Payment Completed',
+                text : response.data.message,
+                showConfirmButton: false,
+                timer: 1500
+              })
+        })
+        .then(function(error){
+            console.log(error)
+        })
+    }
  })
 
 

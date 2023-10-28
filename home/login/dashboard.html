@@ -238,12 +238,8 @@ td:hover {
             <a class="" ui-sref="PayHome">
               <img src="https://assetscdn1.paytm.com/images/catalog/category/5165/paytm_logo.png" width="180"  alt="">
             </a>
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-              aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button> -->
+           
             <div class="collapse navbar-collapse">
-              <!-- <div class="" style="width: 40%;"> -->
               <td class="navbar-nav">
                 <tr class="nav-item">
                 <div class="dropdown" style="margin-bottom: 20px; font-family:Arial, Helvetica, sans-serif;">
@@ -293,7 +289,7 @@ td:hover {
     
                 <button
                   style="background-color: #00baf2; border-style: none; border-radius:20px; height:3%; width: 12%; margin-left: 10%; margin-top: 2%; "
-                  id="loginbutton" ng-click="signin()" data-bs-toggle="modal" data-bs-target="#myModal">
+                  id="loginbutton" ng-click="signin()" data-bs-toggle="modal" data-bs-target="#my-Modal">
                   <span id="signin">Sign In</span>
                   <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg">
                 </button>
@@ -305,7 +301,7 @@ td:hover {
         </nav>
       </section>
 
-      <div class="modal" id="myModal">
+      <div class="modal" id="my-Modal">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
       
@@ -346,7 +342,6 @@ td:hover {
         </div>
       </div>
     
-    
 
     <div class="container-fluid" id="collapsebar">
         <div class="row flex-nowrap">
@@ -359,7 +354,7 @@ td:hover {
                 </ul>
               </div> 
                  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" style="background-color: #dff2f8;">
-                  <!-- <button class="btn btn-close" id="sidebar"></button> -->
+                  <!-- <button type="button" class="btn btn-close toggle" data-bs-toggle="collapse" data-bs-target="collapsebar" id="toggle"></button> -->
                     <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" >
                         <span class="" style="font-size: 25px; color: black;">DASHBOARD</span>
                     </a>
@@ -373,7 +368,7 @@ td:hover {
                       </div>
                       <div id="scan"></div>
 
-                        <li>
+                        <!-- <li>
                             <a  class="nav-link px-0 align-middle"
                                  ng-click="dash" ui-sref="Dashboard.PayWind"><i class=""></i> Home</a>
                         </li>
@@ -413,13 +408,13 @@ td:hover {
                         <li>
                           <a  class="nav-link px-0 align-middle"
                               ui-sref="Dashboard.Postpaid" style="color: #0088f1; margin-top: 3%;"><i class=""></i>Postpaid</a>
-                        </li>
-                        <!-- <li ng-repeat="dash in dash.dashboard">
+                        </li> -->
+                        <li ng-repeat="dash in dash.dashboard">
                           <div>
                             <a  class="nav-link px-0 align-middle"
                                 ui-sref="{{dash.state}}"><i class=""></i>{{dash.value}}</a>
                           </div>
-                      </li> -->
+                      </li>
                         </div>
                         
                     </ul>

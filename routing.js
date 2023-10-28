@@ -111,4 +111,4 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		$urlRouterProvider.otherwise('/home');
 }]);
 
-var ip = "https://6adc-125-21-249-98.ngrok-free.app/";
+var ip = "https://10.21.86.205:8000/";

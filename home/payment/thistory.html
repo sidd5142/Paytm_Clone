@@ -76,7 +76,7 @@
                         <p style="font-size: 12px; font-weight: light; float: left;" ng-click="send(split)">&#8377; {{split.amount}} to pay </p>
                       </div>
                    </td>                    
-                   <td>Split Payment</td>
+                   <td>Payment</td>
                   </tr>
 
                     <tr>
@@ -117,6 +117,11 @@
                          </td>
                     </tr>                    
                 </table>
+                <div class="d-flex justify-content-center">
+                  <div class="spinner-border" role="status" ng-show="loader">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
             </div>
           </div>
 </div>
