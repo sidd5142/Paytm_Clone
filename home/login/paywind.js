@@ -473,6 +473,13 @@ app.controller('BillController',function($scope,$http,$state){
         })
         .catch(function(error){
             console.log(error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Something went wrong',
+                // text : error.data.message,
+                showConfirmButton: false,
+                timer: 2000
+            })
         })
       }
 

@@ -1,4 +1,5 @@
 var message = [];
+var contact = []
 app.controller('MessageController',function($scope,$http,$window,$state){
     $scope.loader  = true;
     $scope.bills = {};
@@ -14,6 +15,7 @@ app.controller('MessageController',function($scope,$http,$window,$state){
             var msg = {
                pers : split
             }
+            contact = split;
         $http.get(ip + 'individual_messages', { params : msg,
             withCredentials:true
         })
@@ -37,8 +39,9 @@ var outcome = [];
 app.controller('DataController',function($scope,$http,$window,$state){
 
     $scope.outcome = message
+    $scope.contacts = contact
     console.log($scope.outcome)
-
+    console.log($scope.contacts)
     
 })
 
@@ -267,6 +270,14 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
         })
         .then(function(error){
             console.log(error)
+            Swal.fire({
+                position: 'centre',
+                icon: 'error',
+                title : 'Something went wrong',
+                text : error.data.message,
+                showConfirmButton: false,
+                timer: 1500
+              })
         })
     }
  })

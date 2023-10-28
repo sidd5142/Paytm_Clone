@@ -355,18 +355,18 @@ td:hover {
               </div> 
                  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" style="background-color: #dff2f8;">
                   <!-- <button type="button" class="btn btn-close toggle" data-bs-toggle="collapse" data-bs-target="collapsebar" id="toggle"></button> -->
-                    <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" >
+                    <!-- <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" >
                         <span class="" style="font-size: 25px; color: black;">DASHBOARD</span>
-                    </a>
+                    </a> -->
                     <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-lg-start" id="menu" style="font-size: 20px;">
                       
                       <div ng-repeat="admin in dash.user">
-                        <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 20%;" src="https://ui-avatars.com/api/?name={{admin.name}}" alt="">
-                      <h3 style="color: black; margin-left: 12%;">{{admin.name}}</h3>
+                        <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 30%; margin-top: 10px;" src="https://ui-avatars.com/api/?name={{admin.name}}" alt="">
+                      <h1 style="color: black; text-align: center; margin-top: 5%; margin-bottom: 8%;">{{admin.name}}</h1>
                       <!-- <input type="text" ng-model="numberss" placeholder="{{admin.phone_no}}" > -->
                       <!-- <span ng-model="{{admin.phone_no}}"></span> -->
                       </div>
-                      <div id="scan"></div>
+                      <div id="scan" style="margin-left: 10%; margin-top: 4%; margin-bottom: 5%;"></div>
 
                         <!-- <li>
                             <a  class="nav-link px-0 align-middle"
@@ -412,40 +412,20 @@ td:hover {
                         <li ng-repeat="dash in dash.dashboard">
                           <div>
                             <a  class="nav-link px-0 align-middle"
-                                ui-sref="{{dash.state}}"><i class=""></i>{{dash.value}}</a>
+                                ui-sref="{{dash.state}}" ng-click="(dash.pop_up())"><i class=""></i>{{dash.value}}</a>
                           </div>
-                      </li>
+
+                          <!-- <div ng-if="dash.state === 'NULL'">
+                            <a  class="nav-link px-0 align-middle"
+                            ng-click="{{dash.pop_up}}" style="color: #356ec4;"><i class=""></i>{{dash.value}}</a>     
+                          </div><br> -->
+
+                        </li>
                         </div>
-                        
                     </ul>
                     <hr>
-                     
                 </div> 
 
-
-
-                
-                  <!-- <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" style="background-color: #ffffff;">
-                  <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" >
-                    <span class="" style="font-size: 25px; color: black;">DASHBOARD</span>
-                </a>
-                <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-lg-start" id="menu" style="font-size: 20px;">
-                  
-                 <div ng-repeat="user in dash.user">
-                    <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 20%;" src="https://ui-avatars.com/api/?name={{user.name}}" alt=""> 
-                    <h3 style="color: black; margin-left: 12%;">{{user.name}}</h3>
-                  </div>
-
-                  <div id="scan"></div>
-         
-                   
-                    
-                </ul>
-                <hr>
-                 
-            </div> -->
-                
-            <!-- </div> -->
             </div>
         
             <!-- </div> -->

@@ -19,7 +19,7 @@ app.controller('WalletController',function($scope,$http,$window,$state){
         Swal.fire({
             position: 'centre',
             icon: 'success',
-            title : 'Activated',
+            title : 'OTP Sent',
             text: response.data.message,
             showConfirmButton: false,
             timer: 1500
@@ -59,6 +59,8 @@ $scope.submit = function(){
 
     console.log(number)
 
+    if($scope.otpverify){
+
     $http.post(ip + 'confirmotp_wallet', number , {
         withCredentials: true
     })
@@ -87,7 +89,7 @@ $scope.submit = function(){
                     position: 'centre',
                     icon: 'success',
                     // title: error.data.message,
-                    title : 'response.data.message',
+                    title : 'Wallet Activated',
                     showConfirmButton: false,
                     timer: 1500
                   }) 
@@ -106,6 +108,17 @@ $scope.submit = function(){
             timer: 1500
           })  
     })
+   }
+   else {
+    Swal.fire({
+        position: 'centre',
+        icon: 'error',
+        // title: error.data.message,
+        title : 'Enter OTP',
+        showConfirmButton: false,
+        timer: 1500
+      })  
+   }
 }
 
 })
@@ -198,7 +211,7 @@ app.controller('PostpaidController',function($scope,$http,$window,$state){
 
     // if($scope.myform)
     // {
-    $http.post(ip + 'confirm', data,{
+    $http.post(ip + 'activate_postpaid', data,{
         withCredentials: true
     })
     .then(async function(response){
@@ -221,10 +234,14 @@ app.controller('PostpaidController',function($scope,$http,$window,$state){
           if (otp) {
 
             var num = {
-                otp : otp
+                otp : otp,
+                pan : $scope.pan_number,
+                aadhar : $scope.aadhaar_number,
+                dob : $scope.dob,
+                email : $scope.email
             }
 
-            $http.get(ip + 'confirm_otp', { params : num ,
+            $http.post(ip + 'confirmotp_postpaid', { params : num ,
             withCredentials:true 
             })
             .then(function(response)

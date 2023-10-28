@@ -58,29 +58,52 @@ app.controller('BankController',function($scope,$http,$window,$state)
 
     console.log(info)
 
-        // $http.post(ip + 'link_account', info,{
-        //     withCredentials:true
-        // } )
-        // .then(function(response) {
-        //     console.log(response)
-        //     $state.go('CreatePin')
-        // })
-        // .catch(function(error) {
-        //     console.log(error)
-        // })    
+        $http.post(ip + 'link_account', info,{
+            withCredentials:true
+        } )
+        .then(function(response) {
+            console.log(response)
+            Swal.fire({
+                icon: 'success',
+                title: 'Details Added',
+                text : response.data.message,
+                showConfirmButton: false,
+                timer: 2000
+            })
+            $state.go('CreatePin')
+        })
+        .catch(function(error) {
+            console.log(error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Something went wrong',
+                text : error.data.message,
+                showConfirmButton: false,
+                timer: 2000
+            })
+        })    
     }
 });
 
 app.controller('PinController',function($scope,$http,$window,$state){
 
     $scope.setpin = function(){
+
+    if($scope.pin === $scope.confpin){    
     
     $http.post(ip + 'pin', {pin : $scope.pin}, {
         withCredentials:true
     })
     .then(function(response) {
         console.log(response)
-        $state.go('PayWind')
+        Swal.fire({
+            icon: 'success',
+            title: 'Pin Created Successfully',
+            text : response.data.message,
+            showConfirmButton: false,
+            timer: 2000
+        })
+        $state.go('Dashboard.PayWind')
     })
     .catch(function(error) {
         console.log(error)
@@ -92,7 +115,18 @@ app.controller('PinController',function($scope,$http,$window,$state){
             timer: 2000
         })
     })
- }
+    }
+    else{
+        Swal.fire({
+            icon: 'error',
+            title: 'Pin not same',
+            // text : error.data.message,
+            showConfirmButton: false,
+            timer: 2000
+        })
+    }
+
+}
 })
 
 var detailed = [];

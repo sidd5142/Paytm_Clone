@@ -47,13 +47,13 @@
         <div class="col"  ng-repeat="offer in coupons">
 
         <div class="card" style="border-color: brown;">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLkBdBQzSwlPH9LNqghu3qxOHCvFGXliwNnA&usqp=CAU" class="card-img-top" alt="...">
+            <img src="https://offercdn.paytm.com/blog/2019/12/growth-offer-app-bnr.jpg" class="card-img-top" alt="...">
 
         <div class="card-body" style="font-size: 25px;" >
             <div style="flex-direction: column;">
                
                 <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLkBdBQzSwlPH9LNqghu3qxOHCvFGXliwNnA&usqp=CAU" alt="" width="80" height="60"> -->
-                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">{{offer.brand_name}}</p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold; text-align: center;">{{offer.brand_name}}</p>
                 <h4>{{offer.offer}}</h4> 
             </div> 
             <!-- <br> -->
@@ -67,7 +67,7 @@
   </div>
 
   <div class="modal" id="ViewOffer">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog ">
       <div class="modal-content">
   
         <div class="modal-header">
@@ -77,9 +77,9 @@
   
         <div class="modal-body" ng-repeat="detail in details">
             <div style="text-align: center;">
-                <h1>Brand Name : <h1 style="color: blue;">{{detail.brand_name}}</h1></h1><br>
-                <h4 >Coupon Code : <h4 style="color: blue;">{{detail.coupon_code}}</h4></h4> <br>
-                <h2>Offer : <h2 style="color: blue;">{{detail.offer}}</h2></h2>
+                <h1>Brand Name : <h1 style="color: rgb(37, 185, 230);">{{detail.brand_name}}</h1></h1><br>
+                <h4 >Coupon Code : <h4 style="color:  rgb(50, 205, 252);">{{detail.coupon_code}}</h4></h4> <br>
+                <h2>Offer : <h2 style="color:  rgb(50, 205, 252);">{{detail.offer}}</h2></h2>
             </div>
             <hr>
         </div>

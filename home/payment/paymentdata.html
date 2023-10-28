@@ -103,14 +103,11 @@
             <tr>
                 <td><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg" width="50" height="50">
                 </td>
-
                 <td>
                    <div style="float: left;">
-                     Rishabh Gupta
+                     {{contacts}}
                    </div>
-                   
                 </td>
-
                 <td>
                    <div>
                      <p style="font-size: 20px; font-weight: light;">&#8942;</p>
@@ -124,7 +121,6 @@
         <div class="card text-center" style="width: 40%; border-radius: 10px; padding: 10px; margin:3%;"  ng-class="{'direction': detail.status=='!', 'direction1': detail.status=='-'}" >
             <h2 style="font-size: 60px; text-align: left; margin-top: 2%;" id="">&#x20b9 {{detail.amount}} &#10004</h2>
             <h4 style="text-align: left;">Sent to Bank</h4>
-
             <button class="btn btn-outline-primary" style="width: fit-content;">Pay Again</button>
         </div> 
       </div>
