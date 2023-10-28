@@ -201,6 +201,9 @@ app.controller('PostpaidController',function($scope,$http,$window,$state){
    
    
     $scope.myform = function(){
+
+        $scope.loader = true;
+
     console.log("confirm")
     var data = {
         pan : $scope.pan_number,
@@ -216,6 +219,7 @@ app.controller('PostpaidController',function($scope,$http,$window,$state){
     })
     .then(async function(response){
         console.log(response)
+        $scope.loader = false;
         Swal.fire({
             position: 'center',
             icon: 'success',
@@ -241,12 +245,23 @@ app.controller('PostpaidController',function($scope,$http,$window,$state){
                 email : $scope.email
             }
 
-            $http.post(ip + 'confirmotp_postpaid', { params : num ,
+            $http.post(ip + 'confirmotp_postpaid', num, { 
             withCredentials:true 
             })
             .then(function(response)
             {
                 console.log(response)
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title : "Activated",
+                    text : response.data.message,
+                    showConfirmButton: false,
+                    timer: 1500
+                  }) 
+            })
+            .catch(function(error){
+                console.log(error)
             })
     }
 })
@@ -262,4 +277,17 @@ app.controller('PostpaidController',function($scope,$http,$window,$state){
           }) 
     })
    } 
+})
+
+app.controller('CibilController',function($scope,$http,$window,$state){
+    $http.get(ip + 'cibil_score', {
+        withCredentials:true
+    })
+    .then(function(response){
+        console.log(response)
+        $scope.data = response.data
+    })
+    .catch(function(error){
+        console.log(error)
+    })
 })

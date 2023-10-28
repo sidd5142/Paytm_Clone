@@ -1,3 +1,52 @@
+<style>
+
+.wrap{
+  height: 150px;
+  width: 150px;
+  display: flex;
+  margin-left: 36%;
+  justify-content: center;
+  align-items: center;
+}
+
+.one, .two, .four, .five{
+  border-radius: 100%;
+  margin: 1vw;
+  animation: animate 1s infinite alternate;
+}
+
+@keyframes animate{
+  0%{
+      transform: scale(0.5);
+  }
+  
+  100%{
+      transform: scale(1.2);
+  }
+}
+
+.one{
+  animation-delay: .2s;
+  border: 10px solid #00f;
+}
+.two{
+  animation-delay: .4s;
+  border: 10px solid #00f;
+}
+/* .three{
+  animation-delay: .6s;
+  border: 10px solid #00f;
+} */
+.four{
+  animation-delay: .8s;
+  border: 10px solid #0ff;
+}
+.five{
+  animation-delay: 1s;
+  border: 10px solid #0ff;
+}
+ 
+</style>
 <div class="card text-center w-50" style="margin-left: 25%; border: solid rgb(204, 237, 248);">
     <div class="card-header" style="font-size: 30px;">
         Postpaid
@@ -9,24 +58,24 @@
       <!-- <h5 class="card-title"></h5> -->
       <p class="card-text mt-5">Enter a Pan Number</p>
       <div >
-        <input class="input-group-prepend" type="text"  ng-model="pan_number" maxlength="16" placeholder="Enter a Pan Number" style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
+        <input class="input-group-prepend" type="text"  ng-model="pan_number" maxlength="16" placeholder="Enter a Pan Number" style="width: 50%; padding: 1.5rem; font-size: 18px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
             
     </div>
     <p class="card-text mt-lg-5">Enter a Aadhaar Number</p>
     <div >
-        <input class="input-group-prepend" type="text"  ng-model="aadhaar_number" maxlength="16" placeholder="Enter a Aadhaar Number" style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
+        <input class="input-group-prepend" type="text"  ng-model="aadhaar_number" maxlength="16" placeholder="Enter a Aadhaar Number" style="width: 50%; padding: 1.5rem; font-size: 18px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
                         
     </div>
 
     <p class="card-text mt-lg-5">Enter DOB</p>
     <div >
-        <input class="input-group-prepend " type="date" ng-model="dob" max="{{maxDate()}}" placeholder="Enter DOB" ng-change="updateDate()" style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
+        <input class="input-group-prepend " type="date" ng-model="dob" max="{{maxDate()}}" placeholder="Enter DOB" ng-change="updateDate()" style="width: 50%; padding: 1.5rem; font-size: 18px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
                         
     </div>
 
     <p class="card-text mt-lg-5">Enter your Email</p>
     <div >
-        <input class="input-group-prepend " type="email" ng-model="email" ng-change="validateEmail()" placeholder="Enter Email ID" style="width: 50%; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
+        <input class="input-group-prepend " type="email" ng-model="email" ng-change="validateEmail()" placeholder="Enter Email ID" style="width: 50%; padding: 1.5rem; font-size: 18px; background-color: white; border-radius: 10px; margin-left: 23%;" required>
         <div ng-show="email == '' && !emailIsValid">
             <p style="color: red;">Invalid email format</p>
         </div>
@@ -34,6 +83,15 @@
             <p style="color: green;">Valid email format</p>
         </div>          
     </div>
+
+
+    <div class="wrap" ng-show="loader">
+        <div class="one"></div>
+        <div class="two"></div>
+        <!-- <div class="three"></div> -->
+        <div class="four"></div>
+        <div class="five"></div>
+      </div>
     
 
     <p style="margin-top: 5%; font-size: 12px; font-weight: light;">By proceeding you agree to the <a href="">Terms and Condition</a></p>

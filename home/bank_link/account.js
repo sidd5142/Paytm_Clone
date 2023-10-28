@@ -103,7 +103,7 @@ app.controller('PinController',function($scope,$http,$window,$state){
             showConfirmButton: false,
             timer: 2000
         })
-        $state.go('Dashboard.PayWind')
+        $state.go('PayHome')
     })
     .catch(function(error) {
         console.log(error)

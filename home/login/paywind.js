@@ -411,6 +411,10 @@ app.controller('BillController',function($scope,$http,$state){
           
           if (pass) {
             // Swal.fire(`Entered email: ${email}`)
+            swal.fire("You have exceeded 4 characters!");
+            return false;
+          }
+          else {
             var pins = {
                 pin : pass
             }
@@ -422,7 +426,7 @@ app.controller('BillController',function($scope,$http,$state){
                 console.log(response)
                 $scope.money = response.data
                 console.log($scope.money)
-                Swal.fire(`Your Account Balance is _____: &#x20b9; ${$scope.money}`)
+                Swal.fire(`Your Total Account Balance is : &#x20b9; ${$scope.money}`)
             })
             .then(function(error){
                 console.log(error)
@@ -445,8 +449,11 @@ app.controller('BillController',function($scope,$http,$state){
             inputPlaceholder: 'Enter your UPI PIN'
           })
           
-          if (password) {
-
+          if (password.length > 4) {
+            swal.fire("You have exceeded 4 characters!");
+            return false;
+          }
+          else{
             var num = {
                 pin : password
             }
@@ -480,18 +487,6 @@ app.controller('BillController',function($scope,$http,$state){
                 showConfirmButton: false,
                 timer: 2000
             })
-        })
-      }
-
-      $scope.hit = function() {
-        $http.get(ip + 'notification_splitbill',{
-            withCredentials:true
-        })
-        .then(function(response){
-            console.log(response)
-        })
-        .catch(function(error){
-            console.log(error)
         })
       }
   })
@@ -539,5 +534,25 @@ app.controller('BillController',function($scope,$http,$state){
 
   app.controller('ProfileController',function($scope,$http,$window,$state){
     $scope.details = profiles
-    console.log($scope.details)
+
+    // $http.get(ip + 'profile',{
+    //     withCredentials:true
+    // })
+    // .then(function(response){
+    //     console.log(response)
+    //     // profiles.push(response.data)
+    //     $scope.details = response.data
+
+    //     // $state.go('Dashboard.Profile')
+    // })
+    // .catch(function(error){
+    //     console.log(error)
+    //     Swal.fire({
+    //         icon: 'error',
+    //         title: 'Something went wrong',
+    //         // text : error.data.message,
+    //         showConfirmButton: false,
+    //         timer: 2000
+    //     })
+    // })
   })

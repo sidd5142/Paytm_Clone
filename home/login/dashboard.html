@@ -322,13 +322,13 @@ td:hover {
             <div class="modal-body">
               <table style="font-size: 15px;">
                 <tr>
-                  <td ng-click="profile()">View profile</td>
+                  <td ng-click="profile()" data-bs-dismiss="modal">View profile</td>
                 </tr>
                 <tr>
-                 <td>Your Orders</td>
+                 <td ng-click="balance()">Your Balance</td>
                 </tr>
                 <tr>
-                  <td ng-click="hit()">Your Wallet</td>
+                  <td ng-click="pin()">Pin Change</td>
                  </tr>
                  <tr>
                   <td>Your Offer</td>
@@ -366,7 +366,7 @@ td:hover {
                       <!-- <input type="text" ng-model="numberss" placeholder="{{admin.phone_no}}" > -->
                       <!-- <span ng-model="{{admin.phone_no}}"></span> -->
                       </div>
-                      <div id="scan" style="margin-left: 10%; margin-top: 4%; margin-bottom: 5%;"></div>
+                      <div id="scan" style="margin-left: 10%; margin-top: 4%; margin-bottom: 8%;"></div>
 
                         <!-- <li>
                             <a  class="nav-link px-0 align-middle"
@@ -412,7 +412,7 @@ td:hover {
                         <li ng-repeat="dash in dash.dashboard">
                           <div>
                             <a  class="nav-link px-0 align-middle"
-                                ui-sref="{{dash.state}}" ng-click="(dash.pop_up())"><i class=""></i>{{dash.value}}</a>
+                                ui-sref="{{dash.state}}"><i class=""></i>{{dash.value}}</a>
                           </div>
 
                           <!-- <div ng-if="dash.state === 'NULL'">

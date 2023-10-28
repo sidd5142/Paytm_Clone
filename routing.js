@@ -107,6 +107,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			templateUrl: '/home/wallet/postpaid.html',
 			controller: 'PostpaidController'
 		})
+		.state('Dashboard.Cibil', {
+            url: '/cibil',
+			templateUrl: '/home/wallet/cibil.html',
+			controller: 'CibilController'
+		})
 		
 		$urlRouterProvider.otherwise('/home');
 }]);

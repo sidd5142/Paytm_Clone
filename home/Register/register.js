@@ -194,7 +194,7 @@ app.controller('AccountController',function($scope,$http,$window,$state){
           showConfirmButton: false,
           timer: 1500
         })
-        $state.go('Dashboard.PayWind')
+        $state.go('CreatePin')
   })
   .catch(function(error){
       console.log(error)
