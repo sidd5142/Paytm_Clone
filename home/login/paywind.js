@@ -265,7 +265,7 @@ app.controller('BillController',function($scope,$http,$state){
 
     // Creating group 
     // $scope.paid = function(number,amount){
-        $scope.paid = function(){
+        $scope.paid = function(number, value){
 
         $scope.contacts = []
         // console.log(number)
@@ -276,15 +276,11 @@ app.controller('BillController',function($scope,$http,$state){
         //     'amount' : bankers.eqaul
         //    })
         var datas = {
-            UPI :  change_number,
-            amount1  : amount
-            //     //  $scope.contacts,
-            //     equal : change_number
-  
-            // },
-            // amount : divide_amount
-            // 'number':number,
-            // 'amount':amount,
+            // UPI :  change_number,
+            // amount1  : amount
+             UPI : number,
+             amount : value
+    
         }
         console.log(datas)
         

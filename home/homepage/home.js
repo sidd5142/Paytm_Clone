@@ -21,7 +21,7 @@ app.controller('LogInController',function($scope,$http,$window,$state){
     })
     .catch(function(error){
         console.log(error)
-        $state.go('Dashboard.PayWind')
+        // $state.go('Dashboard.PayWind')
     })
 
     $scope.otp = function(){

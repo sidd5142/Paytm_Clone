@@ -87,7 +87,7 @@
     </nav>
 </section>
 
-<div class="card text-center">
+<div class="text-center">
     <div class="card w-50" style="margin-left: 23%; margin-top: 5%;">
     <div class="card-header">
       <h4 style="font-weight: bolder; font-size: 20px;">Split Payment Detail</h4>
@@ -99,7 +99,6 @@
             <!-- <iframe class="card-text" frameborder="0" title="Ruppees"></iframe> -->
             <span style="height: 150px; font-size: 60px; text-align: center; margin-top: 5%; background-color: rgb(255, 246, 246);" ng-repeat="money in amounts"  id="">&#x20b9 {{money.amount}} &#10004</span>
             <span  style="height: 60px; border-radius: 10px; font-size: large;  text-align: center;">Coffee</span>
-                  <!-- </div> -->
         </div>
        </div>
 
@@ -121,16 +120,12 @@
           <!-- <button type="submit" class="btn-lg btn-primary" ng-click="paid(number,bankers[$index])" style="height: 55px; width: 20%; border-radius: 158px; font-size: 20px; margin-right: 4%;">Marks as Paid</button> -->
           <!-- <button class="btn btn-lg" style="font-size: 20px; width: fit-content;" ng-click="addtopayment(number, bankerss[$index])">&#x20b9 Pay</button> -->
         </td>
+        <button type="submit" class="btn-lg btn-primary" ng-click="paid(number, bankers[$index])" style=" width: 20%; border-radius: 158px; font-size: 20px; margin-right: 4%;">Create a Group</button>
       </tr>
     </table>
    </div>    
-  </div> 
 
-    <div class="card-footer text-muted" style="margin-top: 3%;">
-        <button type="submit" class="btn-lg btn-primary" ng-click="paid()" style="height: 55px; width: 20%; border-radius: 158px; font-size: 20px; margin-right: 4%;">Create a Group</button>
-    </div>
+    <!-- <div class="card-footer text-muted" style="margin-top: 3%;"> -->
+    <!-- </div> -->
 </div>
 </div>
- <!-- <td><input type="checkbox" ng-model="completed" ng-change="done($index,completed)">
-          <button type="button" class="btn btn-close removeField" ng-click="removeContactField($index)"></button>
-          <span ng-if="completed" style="font-size: 18px;">Payment Completed</span></td> -->

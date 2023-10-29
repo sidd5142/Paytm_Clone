@@ -142,11 +142,11 @@ button {
   /* background:#fff; */
   width:215px;
   position:fixed;
-  top:0;
+  top: 0px;;
   left:-235px;
   height:100%;
   /* box-shadow:0 2px 8px rgba(0,0,0,0.2); */
-  padding-top:90px;
+  padding-top:80px;
   transition:all 0.3s ease-out;
   z-index: 1;
 }
@@ -195,7 +195,8 @@ td:hover {
   background-color: #ffffff;
   min-width: 180px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  font-weight: lighter;  
+  font-weight: lighter; 
+  overflow: scroll; 
   z-index: 1;
 }
 
@@ -344,19 +345,19 @@ td:hover {
     <div class="container-fluid" id="collapsebar">
         <div class="row flex-nowrap">
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 sidebar" id="sidebar">
-               <div class="sidebar" id='sidebar'>
+              
+               <!-- <div class="sidebar" id='sidebar'>
                 <ul>
                   <li><a href="">Home</a></li>
                    <li><a href="">About</a></li>
                     <li><a href="">Contact</a></li>
                 </ul>
-              </div> 
+              </div>  -->
                  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" style="background-color:#daf1f9;">
-                  <!-- <button type="button" class="btn btn-close toggle" data-bs-toggle="collapse" data-bs-target="collapsebar" id="toggle"></button> -->
-                    <!-- <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" >
-                        <span class="" style="font-size: 25px; color: black;">DASHBOARD</span>
-                    </a> -->
+                  
                     <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-lg-start" id="menu" style="font-size: 20px;">
+
+                      <img src="https://media.licdn.com/dms/image/C4E16AQFVMuYxgHxy2g/profile-displaybackgroundimage-shrink_200_800/0/1628193271126?e=2147483647&v=beta&t=5uA8pw85vMgdm-R546N7JZaSEAY-jG7Em4IoMxkMULs" alt="" style="width: 100%; height: 30%;">
                       
                       <div ng-repeat="admin in dash.user">
                         <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 30%; margin-top: 10px;" src="https://ui-avatars.com/api/?name={{admin.name}}" alt="">
@@ -366,8 +367,8 @@ td:hover {
                       <!-- <input type="text" ng-model="num(admin.pho)" id="scannum" placeholder="{{admin.phone_no}}" ng-show="text"> -->
                       <!-- <span ng-model="{{admin.phone_no}}"></span> -->
                       </div>
-                      <div id="scan" style="margin-left: 10%; margin-top: 4%; margin-bottom: 8%;"></div>
-<!-- 
+                       <div id="scan" style="margin-left: 10%; margin-top: 4%; margin-bottom: 8%;"></div>
+                        <!-- 
                         <li>
                             <a  class="nav-link px-0 align-middle"
                                  ng-click="dash" ui-sref="Dashboard.PayWind"><i class=""></i> Home</a>
@@ -410,30 +411,21 @@ td:hover {
                               ui-sref="Dashboard.Postpaid" style="color: #0088f1; margin-top: 3%;"><i class=""></i>Postpaid</a>
                         </li> -->
                         <li ng-repeat="dash in dash.dashboard">
-                          <div style="padding: 0.5rem;">
+                          <div style="padding: 0.3rem;">
                             <a  class="nav-link px-0 align-middle"
                                 ui-sref="{{dash.state}}"><i class="{{dash.icon}}"></i>&nbsp;&nbsp;{{dash.value}}</a>
                           </div>
-
-                          <!-- <div ng-if="dash.state === 'NULL'">
-                            <a  class="nav-link px-0 align-middle"
-                            ng-click="{{dash.pop_up}}" style="color: #356ec4;"><i class=""></i>{{dash.value}}</a>     
-                          </div><br> -->
-
                         </li>
-                        </div>
                     </ul>
-                    <hr>
-                </div> 
-
-            </div>
+            </div> 
+          </div>
         
             <!-- </div> -->
             <div class="col mt-lg-5">
                <div class="container-fluid" ui-view="">
             </div>
           </div>
-            </div>
+          </div>
  
          </div>
     

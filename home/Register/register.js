@@ -37,6 +37,22 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
         $scope.date = null;
     }
 };
+
+$scope.title1 = function(){
+  var data = {
+    value : 'Prefix'
+  }
+  $http.get(ip + 'dropdown' , { params : data,
+    withCredentials: true
+  })
+  .then(function(response){
+    console.log(response)
+    $scope.prefix = response.data
+  })
+  .catch(function(error){
+    console.log(error)
+  })
+}
  
   $scope.gender1 = function(){
     var data = {

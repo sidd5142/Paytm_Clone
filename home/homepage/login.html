@@ -9,9 +9,10 @@
   align-items: center;
 }
 
+/* .one, .two, .four, .five, .six, .seven, .eight, .nine{ */
 .one, .two, .four, .five{
-  border-radius: 100%;
-  margin: 1vw;
+  border-radius: 80%;
+  margin: 2vb;
   animation: animate 1s infinite alternate;
 }
 
@@ -27,11 +28,11 @@
 
 .one{
   animation-delay: .2s;
-  border: 10px solid #00f;
+  border: 10px solid rgb(0, 128, 255);
 }
 .two{
   animation-delay: .4s;
-  border: 10px solid #00f;
+  border: 10px solid rgb(61, 142, 240);
 }
 /* .three{
   animation-delay: .6s;
@@ -39,12 +40,24 @@
 } */
 .four{
   animation-delay: .8s;
-  border: 10px solid #0ff;
+  border: 10px solid rgb(120, 224, 255);
 }
 .five{
   animation-delay: 1s;
-  border: 10px solid #0ff;
-}        
+  border: 10px solid rgb(188, 239, 255);
+} 
+/* .six{
+  animation-delay: 1s;
+  border: 10px solid rgb(66, 148, 174);
+}  
+.seven{
+  animation-delay: 1s;
+  border: 10px solid rgb(66, 148, 174);
+}  
+.eight{
+  animation-delay: 1s;
+  border: 10px solid rgb(66, 148, 174);
+}          */
 
 </style>
 
@@ -104,6 +117,9 @@
             <div class="two"></div>
             <div class="four"></div>
             <div class="five"></div>
+            <!-- <div class="six">I</div>
+            <div class="seven">N</div>
+            <div class="eight">D</div> -->
         </div>
           <!-- <input type="text" class="form-control" id="otp" ng-model="otpverify" placeholder="Enter 4 digit OTP" name="number" style="font-size: 20px;" ng-show="showotp"> -->
           <input class="input-group-prepend" type="password"  ng-model="otpverify" maxlength="4" placeholder="Enter 4 digit OTP" style="width: 50%; padding: 0.5rem; font-size: 20px; background-color: white; border-radius: 10px; margin-left: 23%; margin-top: 2%; text-align: center;"  ng-show="showotp"  required>
