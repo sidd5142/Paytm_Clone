@@ -46,7 +46,7 @@ app.controller('BankController',function($scope,$http,$window,$state)
     // } 
     
 
-    $scope.Add = function(){
+    $scope.details = function(){
     var info = {
         UPI_number : $scope.number,
         bank_name : $scope.banks,

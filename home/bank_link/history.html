@@ -73,7 +73,7 @@
 
           <button
             style="background-color: #00baf2; border-style: none; border-radius:20px; height:3%; width: 19%; margin-left: 10%; margin-top: 2%; "
-            id="loginbutton" class="iiii" ng-click="signin()" data-bs-toggle="modal" data-bs-target="#myModal">
+            id="loginbutton">
             <span id="signin">Sign In</span>
             <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg">
           </button>
@@ -114,15 +114,12 @@
                     State Bank of India - 9216 
                   </p><br>
 
-                  <!-- <div ng-if="data.status === 'FAILED'">
-                    <p style="float: left;"><strong>Reason for Failure:</strong> {{data.reason}}</p>
-                  </div> <br> -->
                   <div ng-if="data.status === 'FAILED'">
                     <p style="float: left; font-size: 30px; color: red;">Failed</p><br>
                   </div><br>
 
                   <div>
-                    <button type="button" class="btn btn-outline-primary" style="float: left; font-size: 15px;" ui-sref="Dashboard.Transaction">Pay</button>
+                    <button type="button" class="btn btn-outline-primary" style="float: left; margin-left: 4%; font-size: 15px;" ui-sref="Dashboard.Transaction">Pay</button>
                     <button type="button" class="btn btn-outline-primary" style="margin-left: 8%; font-size: 15px;">View History</button>
                   </div><br>
 

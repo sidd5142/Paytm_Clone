@@ -45,38 +45,31 @@
       <h4 style="font-weight: bolder; font-size: 20px;">Link Bank Account</h4>
        <p class="font-weight-light" style="font-size: 14px;">Account should be registered with given mobile number</p>
     </div>
-
+    <form ng-submit="details()">
     <div style="margin-left: 5%;" >
         
-            <form ng-submit="details">
 
-            <input id="dob" type="text" name="dob" value="dob" ng-model="number" pattern="[0-9]{10}" maxlength="10" placeholder="Enter Registered Mobile Number" class="form-control bg-white border-left-0 border-md" style="height: 40px; margin-top:5%; border-radius: 8px; width: 60%; margin-left: 17%; font-size: 15px;">
+            <input id="dob" type="text" name="num" value="num" ng-model="number" maxlength="10" placeholder="Enter Registered Mobile Number" class="form-control bg-white border-left-0 border-md" style="height: 40px; margin-top:5%; border-radius: 8px; width: 60%; margin-left: 17%; font-size: 15px;" required>
 
-            <select class="input-group-prepend " ng-model="banks"  style="width: 50%; padding: 1.0rem; font-size: 15px; margin-left: 17%;  width: 60%; margin-top: 2%; background-color:white; border-radius: 8px;" aria-label="Default select example">
+            <select class="input-group-prepend " ng-model="banks"  style="width: 50%; padding: 1.0rem; font-size: 15px; margin-left: 17%;  width: 60%; margin-top: 2%; background-color:white; border-radius: 8px;" aria-label="Default select example" required>
               <option value="" selected disabled hidden >Bank Name</option>                               
               <option value="{{banks}}" ng-repeat="banks in account" ng-click="bank(banks)">{{banks}}</option>                             
             </select> 
 
-            <select class="input-group-prepend " ng-model="branches" style="width: 50%; padding: 1.0rem; font-size: 15px; margin-left: 17%;  width: 60%; margin-top: 2%; background-color:white; border-radius: 8px;" aria-label="Default select example">
+            <select class="input-group-prepend " ng-model="branches" style="width: 50%; padding: 1.0rem; font-size: 15px; margin-left: 17%;  width: 60%; margin-top: 2%; background-color:white; border-radius: 8px;" aria-label="Default select example" required>
               <option value="" selected disabled hidden >Branch Name</option>                               
               <option value="{{name}}" ng-repeat="name in saakha" ng-click="branch(name)">{{name}}</option>                             
-            </select> 
+            </select>        
 
-            
-            <!-- <input id="phoneNumber" type="text" name="phone" value="phonenumber" ng-model="branch" placeholder="Enter Branch Name" class="form-control bg-white border-md border-left-0 pl-3" style="height: 40px; margin-top:3%; border-radius: 8px; width: 60%; margin-left: 17%; font-size: 15px;"> -->
-        
+            <input id="dob" type="text" name="dob" value="do" ng-model="account_number" maxlength="11" placeholder="Account Number" class="form-control bg-white border-left-0 border-md" style="height: 40px; margin-top:3%; border-radius: 8px; width: 60%; margin-left: 17%; font-size: 15px;" required>
 
-            <input id="dob" type="text" name="dob" value="do" ng-model="account_number" maxlength="11" placeholder="Account Number" class="form-control bg-white border-left-0 border-md" style="height: 40px; margin-top:3%; border-radius: 8px; width: 60%; margin-left: 17%; font-size: 15px;">
-        
-
-            <select class="input-group-prepend" ng-model="type" style="width: 50%; padding: 1.0rem; font-size: 15px; margin-left: 17%;  width: 60%; margin-top: 2%; background-color:white; border-radius: 8px;" aria-label="Default select example">
+            <select class="input-group-prepend" ng-model="type" style="width: 50%; padding: 1.0rem; font-size: 15px; margin-left: 17%;  width: 60%; margin-top: 2%; background-color:white; border-radius: 8px;" aria-label="Default select example" required>
               <option value="" selected disabled hidden >Type</option>                               
               <option value="current">Current</option> 
               <option value="savings">Savings</option>                                                         
             </select> 
 
-            <input id="dob" type="text" name="dob" value="dob" ng-model="ifsc" placeholder="IFSC Code" class="form-control bg-white border-left-0 border-md" style="height: 40px; margin-top:3%; border-radius: 8px; width: 60%; margin-bottom: 5%; margin-left: 17%; font-size: 15px;">
-            </form>
+            <input id="dob" type="text" name="dob" value="dob" ng-model="ifsc" maxlength="11" placeholder="IFSC Code" class="form-control bg-white border-left-0 border-md" style="height: 40px; margin-top:3%; border-radius: 8px; width: 60%; margin-bottom: 5%; margin-left: 17%; font-size: 15px;" required>
     </div>
     
 
@@ -84,5 +77,6 @@
         <button type="submit" class="btn-lg btn-outline-danger" ng-click="Add()" style="height: 55px; width: 40%; border-radius: 158px; margin-bottom: 2%; font-size:20px;">Add Bank Account</button>
         <h4>Alread added? Go to <a ui-sref="Dashboard.PayWind">paywind</a></h4>
     </div>
+  </form>
     </div>
 </div>

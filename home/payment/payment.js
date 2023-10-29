@@ -276,7 +276,7 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
                 position: 'centre',
                 icon: 'error',
                 title : 'Something went wrong',
-                text : error.data.message,
+                // text : error.data.message,
                 showConfirmButton: false,
                 timer: 1500
               })

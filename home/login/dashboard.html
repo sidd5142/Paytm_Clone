@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
     
     <title>DASHBOARD</title>
@@ -367,7 +366,7 @@ td:hover {
                       <!-- <span ng-model="{{admin.phone_no}}"></span> -->
                       </div>
                       <div id="scan" style="margin-left: 10%; margin-top: 4%; margin-bottom: 8%;"></div>
-
+<!-- 
                         <li>
                             <a  class="nav-link px-0 align-middle"
                                  ng-click="dash" ui-sref="Dashboard.PayWind"><i class=""></i> Home</a>
@@ -408,19 +407,19 @@ td:hover {
                         <li>
                           <a  class="nav-link px-0 align-middle"
                               ui-sref="Dashboard.Postpaid" style="color: #0088f1; margin-top: 3%;"><i class=""></i>Postpaid</a>
-                        </li>
-                        <!-- <li ng-repeat="dash in dash.dashboard">
+                        </li> -->
+                        <li ng-repeat="dash in dash.dashboard">
                           <div>
                             <a  class="nav-link px-0 align-middle"
-                                ui-sref="{{dash.state}}"><i class=""></i>{{dash.value}}</a>
-                          </div> -->
+                                ui-sref="{{dash.state}}"><i class="{{dash.icon}}"></i>{{dash.value}}</a>
+                          </div>
 
                           <!-- <div ng-if="dash.state === 'NULL'">
                             <a  class="nav-link px-0 align-middle"
                             ng-click="{{dash.pop_up}}" style="color: #356ec4;"><i class=""></i>{{dash.value}}</a>     
                           </div><br> -->
 
-                        <!-- </li> -->
+                        </li>
                         </div>
                     </ul>
                     <hr>

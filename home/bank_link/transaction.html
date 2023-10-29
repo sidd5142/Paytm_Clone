@@ -17,6 +17,53 @@
 .blueColor {
   color: rgb(0, 0, 0);
 }
+
+.wrap{
+  height: 150px;
+  width: 150px;
+  display: flex;
+  margin-left: 36%;
+  justify-content: center;
+  align-items: center;
+}
+
+.one, .two, .four, .five{
+  border-radius: 100%;
+  margin: 1vw;
+  animation: animate 1s infinite alternate;
+}
+
+@keyframes animate{
+  0%{
+      transform: scale(0.5);
+  }
+  
+  100%{
+      transform: scale(1.2);
+  }
+}
+
+.one{
+  animation-delay: .2s;
+  border: 10px solid #00f;
+}
+.two{
+  animation-delay: .4s;
+  border: 10px solid #00f;
+}
+/* .three{
+  animation-delay: .6s;
+  border: 10px solid #00f;
+} */
+.four{
+  animation-delay: .8s;
+  border: 10px solid #0ff;
+}
+.five{
+  animation-delay: 1s;
+  border: 10px solid #0ff;
+}
+
 </style>
 
 <div ng-controller="TransactionDetailController">
@@ -41,15 +88,17 @@
                     <tr ng-repeat="detail in details | orderBy: sortComment : true | filter:search">
                         <td><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg" width="50" height="50">
                         </td>
-                        <div class="d-flex justify-content-center">
-                          <div class="spinner-border" role="status" ng-show="loader">
-                            <span class="visually-hidden">Loading...</span>
-                          </div>
+                        <div class="wrap" ng-show="loader">
+                          <div class="one"></div>
+                          <div class="two"></div>
+                          <!-- <div class="three"></div> -->
+                          <div class="four"></div>
+                          <div class="five"></div>
                         </div>
                         <td>
-                           <div style="float: left;">
+                           <div style="float: left;" ng-click="redirect(detail)">
                              {{detail.to}}<br>
-                             <p style="font-size: 12px; font-weight: light; float: left;" ng-click="redirect(detail)">Paid on {{detail.date|date}} at {{detail.time}}</p>
+                             <p style="font-size: 12px; font-weight: light; float: left;" >Paid on {{detail.date|date}} at {{detail.time}}</p>
                            </div>
                            
                         </td>
