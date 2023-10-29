@@ -204,8 +204,9 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
  })
 
  var billinfo = [];
-
+ var num = [];
  app.controller('GroupsController',function($scope,$http,$window,$state){
+    $scope.contact = [];
     $http.get(ip + 'splitbill_groups', {
         withCredentials: true
     })
@@ -218,6 +219,7 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
             var ids = {
                 id1 : data.id
             }
+            num = data.to;
             $http.get(ip + 'individual_notification', {params : ids,
                 withCredentials: true
             })
@@ -242,7 +244,7 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
     $scope.details = billinfo;
     console.log($scope.details);
     $scope.data = billinfo;
-
+    $scope.recepnum = num;
     var ids = {}
     $scope.billamount = function(amount){
         ids = amount.id;

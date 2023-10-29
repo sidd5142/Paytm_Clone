@@ -69,37 +69,6 @@ app.controller('HomeController',function($scope,$http,$window,$state){
     // to scan a qr code
     var scan_number = {};
 
-    // to pay the amount 
-    // $scope.pin = function () {
-    //     console.log($scope.amount)
-
-    //     var amt = {
-    //         'amount' : $scope.amount,
-    //         'to' : scan_number
-    //     }
-        
-    //     $http.post(ip + 'valid_amount', amt, {
-    //         withCredentials: true
-    //     })
-    //     .then(function(response){
-    //                 console.log(response)
-    //             })
-    //     .catch(function(error){
-    //                 console.log(error)
-    //             })   
-        
-        // $http.post(ip + '', data , {
-        //     withCredentials: true
-        // })
-        // .then(function(response){
-        //             console.log(response)
-        //             $state.reload('Paywind')
-        //         })
-        // .catch(function(error){
-        //             console.log(error)
-        //         })       
-    // }
-
     $scope.FinalPay = function(){
        console.log($scope.pin)
        console.log($scope.amount)
@@ -108,8 +77,6 @@ app.controller('HomeController',function($scope,$http,$window,$state){
        var data = {
         pin : $scope.pin,
         amount : $scope.amount,
-        // 'date': 2023-10-15,
-        // 'time' : 9.30 ,
         to : scan_number
        }
 
@@ -354,15 +321,6 @@ app.controller('BillController',function($scope,$http,$state){
                 $scope.dash.dashboard = response.data[1].dashboard;
                 console.log($scope.dash.user.phone_no)
 
-                $scope.number = '9569673877'
-     
-                var qrText = $scope.number
-            
-                    var qrcode = new QRCode(document.getElementById("scan"), {
-                    text: qrText,
-                    width: 130,
-                    height: 130
-                });
             })
             .catch(function(error){
                 console.log(error)
@@ -377,7 +335,16 @@ app.controller('BillController',function($scope,$http,$state){
 
     }
 
-   
+    $scope.number = '9569673877'
+     
+    var qrText = $scope.number
+
+        var qrcode = new QRCode(document.getElementById("scan"), {
+        text: qrText,
+        width: 130,
+        height: 130
+    });
+
 
     $scope.logout = function(){
         $http.get(ip + 'logout1', {

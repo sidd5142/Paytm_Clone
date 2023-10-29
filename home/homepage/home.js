@@ -1,6 +1,12 @@
 // var ip = "https://10.21.81.234:8000/";
 
 app.controller('HomePageController',function($scope,$http,$window,$state){
+
+    // $scope.signin = function(){
+    //     console.log("Signing in...");
+    //     $('#myModal').modal('show');
+    // }
+
     $scope.otp = function(){
 
         if($scope.number)

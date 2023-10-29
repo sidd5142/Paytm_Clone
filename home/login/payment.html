@@ -52,12 +52,12 @@
         <a class="" ui-sref="PayWind">
           <img src="https://assetscdn1.paytm.com/images/catalog/category/5165/paytm_logo.png" width="180"  alt="">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse " id="navbarNavDropdown">
-          <ul class="navbar-nav">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarNavDropdown">
+            <ul class="navbar-nav">
             <li class="nav-item">
               <button class="nav-link active"  ng-click="payment()" style="font-size: 15px; margin-top: 5%; font-weight: bolder;" data-bs-toggle="modal" data-bs-target="#myPayment">Paytm for Consumer</button>
             </li>
@@ -80,19 +80,19 @@
               <span id="signin">Sign In</span>
               <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg">
             </button>
+            </ul>
           </div>
-          </ul>
         </div>
       </div>
     </nav>
-  </section>
+</section>
 
 <div class="card text-center">
     <div class="card w-50" style="margin-left: 23%; margin-top: 5%;">
     <div class="card-header">
       <h4 style="font-weight: bolder; font-size: 20px;">Split Payment Detail</h4>
     </div>
-    <div class="card-body">
+      <div class="card-body">
         <!-- <div class="card w-10"> -->
         <div class="card text-center" style="width: 50%; margin-left: 25%;background-color: rgb(255, 246, 246);"  >
             <h5 class="card-title font-weight-normal" style="font-size: 22px; margin-top: 5%;">Total Amount</h5>
@@ -101,9 +101,9 @@
             <span  style="height: 60px; border-radius: 10px; font-size: large;  text-align: center;">Coffee</span>
                   <!-- </div> -->
         </div>
-    </div>
+       </div>
 
-   <div>
+  <div>
     <table style="width: 100%; font-size: 20px;">
       <tr>
         <td><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="" id="loginimg" width="40" height="40"></td>
@@ -120,17 +120,16 @@
           <button class="btn btn-lg" style="font-size: 20px; width: fit-content;" ng-click="updateData(number, bankerss,$index)">&#x20b9 Update</button>
           <!-- <button type="submit" class="btn-lg btn-primary" ng-click="paid(number,bankers[$index])" style="height: 55px; width: 20%; border-radius: 158px; font-size: 20px; margin-right: 4%;">Marks as Paid</button> -->
           <!-- <button class="btn btn-lg" style="font-size: 20px; width: fit-content;" ng-click="addtopayment(number, bankerss[$index])">&#x20b9 Pay</button> -->
-
         </td>
       </tr>
     </table>
    </div>    
-    </div> 
+  </div> 
 
     <div class="card-footer text-muted" style="margin-top: 3%;">
-        <button type="submit" class="btn-lg btn-primary" ng-click="paid()" style="height: 55px; width: 20%; border-radius: 158px; font-size: 20px; margin-right: 4%;">Marks as Paid</button>
+        <button type="submit" class="btn-lg btn-primary" ng-click="paid()" style="height: 55px; width: 20%; border-radius: 158px; font-size: 20px; margin-right: 4%;">Create a Group</button>
     </div>
-    </div>
+</div>
 </div>
  <!-- <td><input type="checkbox" ng-model="completed" ng-change="done($index,completed)">
           <button type="button" class="btn btn-close removeField" ng-click="removeContactField($index)"></button>

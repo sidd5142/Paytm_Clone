@@ -52,11 +52,37 @@ body {
     font-weight: 500
 }
 
+.main {
+    margin-top: 2%;
+    margin-left: 29%;
+    font-size: 28px;
+    padding: 0 10px;
+    width: 58%;
+}
+
+.main .card {
+    background-color: #fff;
+    border-radius: 18px;
+    box-shadow: 1px 1px 8px 0 grey;
+    height: auto;
+    margin-bottom: 20px;
+    padding: 20px 0 20px 50px;
+}
+
+.main .card table {
+    border: none;
+    font-size: 16px;
+    height: 270px;
+    width: 80%;
+}
+/* ng-repeat="detail in details"  */
+
 </style>
 
-<div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
+<!-- <div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
     <div class="card p-4" > 
-        <div class=" image d-flex flex-column justify-content-center align-items-center" ng-repeat="detail in details">
+        <div class=" image d-flex flex-column justify-content-center align-items-center" >
+           
             <button class="btn btn-outline-danger"> 
                 <img src="https://ui-avatars.com/api/?name={{detail.name}}" height="100" width="100" />
             </button>
@@ -84,4 +110,56 @@ body {
 
           </div>
     </div>
-</div>
+</div> -->
+
+
+<div class="main">
+    <div class="card" ng-repeat="detail in details">
+        <div class="card-body">
+            <button class="btn btn-outline-primary" style="margin-left: 35%; margin-bottom: 3%;"> 
+                <img src="https://ui-avatars.com/api/?name={{detail.name}}" height="100" width="100" style="border-radius: 50%;" />
+            </button><br>
+            <span class="name mt-3" style="text-align: center; margin-left: 34%;">{{detail.name}}</span> 
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Gender</td>
+                        <td>:</td>
+                        <td>{{detail.gender}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>:</td>
+                        <td>{{detail.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Contact</td>
+                        <td>:</td>
+                        <td>{{detail.UPI_number}}</td>
+                    </tr>
+                    <tr>
+                        <td>UPI Id</td>
+                        <td>:</td>
+                        <td>{{detail.UPI_id}}</td>
+                    </tr>
+                    <tr>
+                        <td>Bank Name</td>
+                        <td>:</td>
+                        <td>{{detail.bank_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Bank Branch</td>
+                        <td>:</td>
+                        <td>{{detail.branch_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Account Number</td>
+                        <td>:</td>
+                        <td>{{detail.account_number}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
