@@ -6,6 +6,23 @@ app.controller('HomePageController',function($scope,$http,$window,$state){
     //     console.log("Signing in...");
     //     $('#myModal').modal('show');
     // }
+     // to submit otp
+
+})
+
+
+app.controller('LogInController',function($scope,$http,$window,$state){
+
+    $http.get(ip + 'login_page', {
+        withCredentials: true
+    })
+    .then(function(response){
+        console.log(response)
+    })
+    .catch(function(error){
+        console.log(error)
+        $state.go('Dashboard.PayWind')
+    })
 
     $scope.otp = function(){
 
@@ -14,15 +31,12 @@ app.controller('HomePageController',function($scope,$http,$window,$state){
             var formdata = {
             phone:$scope.number
             }
-
             $scope.loader = true;
-       
             $http.post(ip + 'otp', formdata, {
             withCredentials:true
         })
         .then(function(response){
             console.log(response)
-            $scope.loader = false;
             Swal.fire({
                 position: 'centre',
                 icon: 'success',
@@ -30,11 +44,20 @@ app.controller('HomePageController',function($scope,$http,$window,$state){
                 showConfirmButton: false,
                 timer: 1500
               })
+              $scope.loader = false;
               $scope.showotp = true
 
         })
         .catch(function(error){
             console.log(error)
+            Swal.fire({
+                position: 'centre',
+                icon: 'error',
+                title: error.data.message,
+                showConfirmButton: false,
+                timer: 1500
+              })
+              $scope.loader = false;
         })
         }
         else{
@@ -49,8 +72,6 @@ app.controller('HomePageController',function($scope,$http,$window,$state){
         }
     }
 
-     // to submit otp
-
     $scope.submit = function(){
 
         var number = {
@@ -59,6 +80,9 @@ app.controller('HomePageController',function($scope,$http,$window,$state){
         }
 
         console.log(number)
+
+        if($scope.otpverify)
+        { 
 
         $http.post(ip + 'confirm_otp', number , {
             withCredentials: true
@@ -79,4 +103,15 @@ app.controller('HomePageController',function($scope,$http,$window,$state){
               })  
         })
     }
+    else{
+        Swal.fire({
+            position: 'centre',
+            icon: 'error',
+            // title: error.data.message,
+            title : 'Fill the inputs first',
+            showConfirmButton: false,
+            timer: 1500
+          })
+      }
+  }
 })

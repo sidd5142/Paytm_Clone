@@ -13,7 +13,7 @@ body {
 }
 
 .form-control:not(select) {
-    padding: 2.5rem 0.5rem;
+    padding: 3.0rem 1.5rem;
 }
 
 select.form-control {
@@ -33,15 +33,17 @@ select.form-control {
       
     </style>
 <body >
-    
+    <div class="container mb-0 p-2 d-flex justify-content-center" style="margin-top: 1.5%;"> 
+        <div class="main">
+            <div class="card" >  
     <div class="container">
-        <h1 style="margin: 2%; margin-left: 24%; font-size: 50px;">Welcome to our Bank</h1>
-        <h4 style="margin-left: 39%; font-size: 30px;">Register</h4>
+        <h1 style="margin: 4%; margin-left: 26%; font-size:50px;">Welcome to PayWind</h1>
+        <!-- <h4 style="margin-left: 39%; font-size: 30px;">Register</h4> -->
 
-        <div class="row py-4 align-items-center ml-lg-5">
+        <div class="row py-4 align-items-center">
             <!-- For Demo ] -->
                 <!-- <h1 class="ml-lg-5">Create an Account</h1> -->
-                <img src="https://play-lh.googleusercontent.com/PLbX3nIRqh8EP52twKQs1cohdR7u6S3qLviqfCgK16ZvEkOQpS6dIUUk2f3TZWNSuiZA=w240-h480-rw" alt="" style="height: 450px; width: 450px;" class="img-fluid d-md-block">
+                <img src="https://play-lh.googleusercontent.com/PLbX3nIRqh8EP52twKQs1cohdR7u6S3qLviqfCgK16ZvEkOQpS6dIUUk2f3TZWNSuiZA=w240-h480-rw" alt="" style="height: 450px; width: 450px; margin-bottom: 15%;" class="img-fluid d-md-block">
             
     
             <!-- Registeration Form -->
@@ -60,7 +62,7 @@ select.form-control {
                         </div>
     
                         <!-- Last Name -->
-                        <div class="input-group col-lg-6 mb-4">
+                        <div class="input-group col-lg-6 mb-4" style="margin-left: 0%;">
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-white px-4 border-md border-right-0">
                                     <i class="fa fa-user text-muted" style="font-size: 15px;"></i>
@@ -77,10 +79,10 @@ select.form-control {
                             </div>
                             <input id="email" type="email" name="email" ng-model="email" ng-change="validateEmail()" style="font-size: 18px;" ng placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
                             <div ng-show="email == '' && !emailIsValid">
-                                <p style="color: red;">Invalid email format</p>
+                                <p style="color: red; font-size: 15px;">Invalid email format</p>
                             </div>
                             <div ng-show="emailIsValid">
-                                <p style="color: green;">Valid email format</p>
+                                <p style="color: green; font-size: 15px;">Valid email format</p>
                             </div>
                         </div>
     
@@ -104,7 +106,7 @@ select.form-control {
 
 
                         <div class="input-group col-lg-6 mb-4" >
-                            <select class="input-group-prepend " ng-model="genders" ng-click="gender1()" style="width: 100%; padding: 2.0rem; font-size: 15px;" aria-label="Default select example" required>
+                            <select class="input-group-prepend " ng-model="genders" ng-click="gender1()" style="width: 100%; padding: 2.0rem; font-size: 15px; background-color: white;" aria-label="Default select example" required>
                                 <option value="" selected disabled hidden >Gender</option>                               
                               <option value="{{name}}" ng-repeat="name in gender">{{name}}</option>
                             </select>                  
@@ -130,7 +132,7 @@ select.form-control {
                             <input id="passwordConfirmation" type="password" ng-model="confpassword" style="font-size: 18px;" name="passwordConfirmation" ng-change="validatePassword()" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md">
                             <div class="text-danger" ng-show="myForm.confpassword.$dirty && myForm.confpassword.$error.required">Confirm Password is Required</div>
                                  <div class="text-danger" ng-show="passwordMismatch">
-                                   Password do not match.
+                                  <p style="font-size: 15px;"> Password do not match.</p>
                                  </div>
                         </div>
 
@@ -145,7 +147,7 @@ select.form-control {
                         </div> -->
     
                         <div class="form-group col-lg-12 mx-auto mb-0">
-                            <button type="submit"  class="btn btn-primary btn-lg" style="margin-left: 37%; font-size: 20px; margin-bottom: 2%;" ng-click="submit()">Register Now</button>
+                            <button type="submit"  class="btn btn-primary btn-lg" style="margin-left: 37%; margin-top: 4%; font-size: 20px; margin-bottom: 2%;" ng-click="submit()">Register Now</button>
                             </div>
     
                        <div class="text-center w-100">
@@ -157,7 +159,14 @@ select.form-control {
                         </div>
     
                     </div>
+                    <p style="font-size: 15px; margin-top: 4%; text-align: center;">Powered by <br>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn6Y5DVqqrbBoi4HnB-G5YLf9TJHsMqKj-Pg&usqp=CAU" alt="" width="60" height="60">|
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTrzSeqb6V1ldaVC4drFb6axSZ0nZ_H70k4A&usqp=CAU" alt="" height="25"></p>
+                
                 </form>
+            </div>
+        </div>
+    </div>
             </div>
         </div>
     </div>

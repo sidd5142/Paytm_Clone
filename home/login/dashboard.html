@@ -234,7 +234,7 @@ td:hover {
                </div>
              </header>
             
-            <a class="" ui-sref="PayHome">
+            <a class="" >
               <img src="https://assetscdn1.paytm.com/images/catalog/category/5165/paytm_logo.png" width="180"  alt="">
             </a>
            
@@ -321,7 +321,7 @@ td:hover {
             <div class="modal-body">
               <table style="font-size: 15px;">
                 <tr>
-                  <td ng-click="profile()" data-bs-dismiss="modal">View profile</td>
+                  <td>View profile</td>
                 </tr>
                 <tr>
                  <td ng-click="balance()">Your Balance</td>
@@ -340,7 +340,6 @@ td:hover {
           </div>
         </div>
       </div>
-    
 
     <div class="container-fluid" id="collapsebar">
         <div class="row flex-nowrap">
@@ -352,7 +351,7 @@ td:hover {
                     <li><a href="">Contact</a></li>
                 </ul>
               </div> 
-                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" style="background-color: #dff2f8;">
+                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" style="background-color:#daf1f9;">
                   <!-- <button type="button" class="btn btn-close toggle" data-bs-toggle="collapse" data-bs-target="collapsebar" id="toggle"></button> -->
                     <!-- <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" >
                         <span class="" style="font-size: 25px; color: black;">DASHBOARD</span>
@@ -362,7 +361,9 @@ td:hover {
                       <div ng-repeat="admin in dash.user">
                         <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 30%; margin-top: 10px;" src="https://ui-avatars.com/api/?name={{admin.name}}" alt="">
                       <h1 style="color: black; text-align: center; margin-top: 5%; margin-bottom: 8%;">{{admin.name}}</h1>
-                      <!-- <input type="text" ng-model="numberss" placeholder="{{admin.phone_no}}" > -->
+                      <button type="button" class="btn btn-outline-info" ng-click="getotp(admin)" style="width: fit-content;" ng-hide="scanbtn">Get Scanner</button>
+                      <!-- <div id="scannum" ng-model="test">{{admin.phone_no}}</div> -->
+                      <!-- <input type="text" ng-model="num(admin.pho)" id="scannum" placeholder="{{admin.phone_no}}" ng-show="text"> -->
                       <!-- <span ng-model="{{admin.phone_no}}"></span> -->
                       </div>
                       <div id="scan" style="margin-left: 10%; margin-top: 4%; margin-bottom: 8%;"></div>
@@ -409,9 +410,9 @@ td:hover {
                               ui-sref="Dashboard.Postpaid" style="color: #0088f1; margin-top: 3%;"><i class=""></i>Postpaid</a>
                         </li> -->
                         <li ng-repeat="dash in dash.dashboard">
-                          <div>
+                          <div style="padding: 0.5rem;">
                             <a  class="nav-link px-0 align-middle"
-                                ui-sref="{{dash.state}}"><i class="{{dash.icon}}"></i>{{dash.value}}</a>
+                                ui-sref="{{dash.state}}"><i class="{{dash.icon}}"></i>&nbsp;&nbsp;{{dash.value}}</a>
                           </div>
 
                           <!-- <div ng-if="dash.state === 'NULL'">

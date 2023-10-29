@@ -3,6 +3,10 @@
 
 app.controller('BankController',function($scope,$http,$window,$state)
 {
+
+    $scope.$on('$locationChangeStart', function(event){
+        event.preventDefault();            
+    });
     // $scope.bank = function(){
         var na = {
             value : 'Bank Name'

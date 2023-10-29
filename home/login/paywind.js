@@ -4,6 +4,10 @@ var panels = [];
 app.controller('HomeController',function($scope,$http,$window,$state){
     // to generate the otp
 
+    // $scope.$on('$locationChangeStart', function(event){
+    //     event.preventDefault();            
+    // });
+
     $scope.otp = function(){
 
         if($scope.number)
@@ -129,16 +133,13 @@ app.controller('BillController',function($scope,$http,$state){
 
     $scope.number = "";
 
-    // if($scope.number)
-    // {
-        console.log("yes")
-        $scope.submit = function(){
+    $scope.submit = function(){
         // count++;
-        if($scope.number)
-        {
-        $scope.contacts.push(
-            $scope.number           
-        );
+    if($scope.number)
+    {
+    $scope.contacts.push(
+        $scope.number           
+    );
     count = $scope.contacts.length+1;
     amount = $scope.rupees
 
@@ -211,6 +212,8 @@ app.controller('BillController',function($scope,$http,$state){
     earlier = $scope.bankers.equal
     $scope.amounts = numbers  
 
+    
+
     $scope.updateData = function(number , value){
         console.log($scope.bankers.amount)
         console.log(number)
@@ -241,6 +244,15 @@ app.controller('BillController',function($scope,$http,$state){
             })
         }
     }
+// }
+// else{
+//     Swal.fire({
+//         icon: 'error',
+//         title: 'First Update the Amount',
+//         showConfirmButton: false,
+//         timer: 1500
+//     })
+// }
 
     // $scope.addtopayment = function(number,amount){
     //     $scope.paymentlist.push({
@@ -289,7 +301,7 @@ app.controller('BillController',function($scope,$http,$state){
                 timer: 1500
             })
             // console.log(info)
-            // $state.go('SplitBillPayment')
+            $state.go('Dashboard.SplitBill')
         })
         .catch(function(error){
             console.log(error)
@@ -298,6 +310,7 @@ app.controller('BillController',function($scope,$http,$state){
   })
 
   var profiles = [];
+//   var qr = "";
 
   app.controller('DashboardController',function($scope,$http,$state){
      
@@ -321,13 +334,24 @@ app.controller('BillController',function($scope,$http,$state){
                 $scope.dash.dashboard = response.data[1].dashboard;
                 console.log($scope.dash.user.phone_no)
 
+                $scope.getotp = function(admin){
+ 
+                    $scope.scanbtn = true;
+                    var qrText = admin.phone_no
+                    var qrcode = new QRCode(document.getElementById("scan"), {
+                    text: qrText,
+                    width: 130,
+                    height: 130
+
+                });
+                }
             })
             .catch(function(error){
                 console.log(error)
                 Swal.fire({
                     icon: 'error',
                     title: 'Something went wrong',
-                    text : error.data.message,
+                    // text : error.data.message,
                     showConfirmButton: false,
                     timer: 2000
                 })
@@ -335,16 +359,7 @@ app.controller('BillController',function($scope,$http,$state){
 
     }
 
-    $scope.number = '9569673877'
-     
-    var qrText = $scope.number
-
-        var qrcode = new QRCode(document.getElementById("scan"), {
-        text: qrText,
-        width: 130,
-        height: 130
-    });
-
+    // $scope.number = '9569673877'
 
     $scope.logout = function(){
         $http.get(ip + 'logout1', {
@@ -436,26 +451,26 @@ app.controller('BillController',function($scope,$http,$state){
           }
       }
 
-      $scope.profile = function() {
-        $http.get(ip + 'profile',{
-            withCredentials:true
-        })
-        .then(function(response){
-            console.log(response)
-            profiles.push(response.data)
-            $state.go('Dashboard.Profile')
-        })
-        .catch(function(error){
-            console.log(error)
-            Swal.fire({
-                icon: 'error',
-                title: 'Something went wrong',
-                // text : error.data.message,
-                showConfirmButton: false,
-                timer: 2000
-            })
-        })
-      }
+    //   $scope.profile = function() {
+    //     $http.get(ip + 'profile',{
+    //         withCredentials:true
+    //     })
+    //     .then(function(response){
+    //         console.log(response)
+    //         profiles.push(response.data)
+    //         $state.go('Dashboard.Profile')
+    //     })
+    //     .catch(function(error){
+    //         console.log(error)
+    //         Swal.fire({
+    //             icon: 'error',
+    //             title: 'Something went wrong',
+    //             // text : error.data.message,
+    //             showConfirmButton: false,
+    //             timer: 2000
+    //         })
+    //     })
+    //   }
   })
 
   app.controller('CashbackController',function($scope,$http,$window,$state){
@@ -500,26 +515,26 @@ app.controller('BillController',function($scope,$http,$state){
   })
 
   app.controller('ProfileController',function($scope,$http,$window,$state){
-    $scope.details = profiles
+    // $scope.details = profiles
 
-    // $http.get(ip + 'profile',{
-    //     withCredentials:true
-    // })
-    // .then(function(response){
-    //     console.log(response)
-    //     // profiles.push(response.data)
-    //     $scope.details = response.data
 
-    //     // $state.go('Dashboard.Profile')
-    // })
-    // .catch(function(error){
-    //     console.log(error)
-    //     Swal.fire({
-    //         icon: 'error',
-    //         title: 'Something went wrong',
-    //         // text : error.data.message,
-    //         showConfirmButton: false,
-    //         timer: 2000
-    //     })
-    // })
+    $http.get(ip + 'profile',{
+        withCredentials:true
+    })
+    .then(function(response){
+        console.log(response)
+        $scope.details = response.data
+        // profiles.push(response.data)
+        // $state.go('Dashboard.Profile')
+    })
+    .catch(function(error){
+        console.log(error)
+        Swal.fire({
+            icon: 'error',
+            title: 'Something went wrong',
+            // text : error.data.message,
+            showConfirmButton: false,
+            timer: 2000
+        })
+    })
   })

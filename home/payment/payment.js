@@ -91,6 +91,28 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
         })
     }
 
+    $scope.ScanPay = function(){
+        $http.get(ip + 'continue1' , {
+            withCredentials: true 
+           })
+          .then(function(response){
+            console.log(response.data)
+            if(response.data === '2')
+            {
+                console.log("mesg")
+                $scope.payment_option = true;
+            }
+            else {
+                console.log("else")
+                $scope.payment_option = false;
+                $scope.option = 1
+            }
+          })
+          .catch(function(error){
+            console.log(error)
+          }) 
+    }
+
     $scope.FinalPay = function(){
         console.log($scope.pin)
         console.log($scope.amount)
@@ -100,7 +122,8 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
         var data = {
          pin : $scope.pin,
          amount : $scope.amount,
-         to : scan_number
+         to : scan_number,
+         method : $scope.option
         }
         console.log(data)
 
@@ -116,7 +139,7 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
          Swal.fire({
              icon: 'success',
              title: 'Cashback Earned...',
-             text: response.data
+             text: 'Cashback Received : ' + response.data[0].cashback,
           } )
           $state.reload('Dashboard.PayWind')
          })

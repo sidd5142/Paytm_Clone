@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #afd3da
+    background-color: #e6f9ff;
 }
 
 .card {
@@ -21,10 +21,10 @@ body {
 }
 
 
-.btn {
+#profilebtn {
     height: 120px;
     width: 120px;
-    border-radius: 50%
+    border-radius: 50%; 
 }
 
 .name {
@@ -51,14 +51,14 @@ body {
     color: #545454;
     font-weight: 500
 }
-/* 
+
 .main {
     margin-top: 2%;
-    margin-left: 29%;
+    margin-left: 10%;
     font-size: 28px;
     padding: 0 10px;
     width: 58%;
-} */
+}
 
 .main .card {
     background-color: #fff;
@@ -114,9 +114,9 @@ body {
 
 <div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
 <div class="main">
-    <div class="card" ng-repeat="detail in details">
+    <div class="card" ng-repeat="detail in details track by $index">
         <div class="card-body">
-            <button class="btn btn-outline-primary" style="margin-left: 35%; margin-bottom: 3%;"> 
+            <button class="btn btn-outline-primary" id="profilebtn" style="margin-left: 35%; margin-bottom: 3%;"> 
                 <img src="https://ui-avatars.com/api/?name={{detail.name}}" height="100" width="100" style="border-radius: 50%;" />
             </button><br>
             <span class="name mt-3" style="text-align: center; margin-left: 34%;">{{detail.name}}</span> 
@@ -155,7 +155,7 @@ body {
                     </tr>
                     <tr>
                         <td>Account Number</td>
-                        <td>:</td>
+                        <td>:</td>&nbsp;
                         <td>{{detail.account_number}}</td>
                     </tr>
                 </tbody>
@@ -169,5 +169,4 @@ body {
               </div>
         </div>
     </div>
-</div>
 

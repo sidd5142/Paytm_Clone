@@ -34,7 +34,7 @@
         </div>
   
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" ng-click="Pay()" style="width: fit-content;" data-bs-toggle="modal" data-bs-target="#FinalPayment">Continue</button>
+          <button type="button" class="btn btn-danger" ng-click="ScanPay()" style="width: fit-content;" data-bs-toggle="modal" data-bs-target="#FinalPayment">Continue</button>
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@
             <input type="text" class="form-control" placeholder="Enter Amount" ng-model="amount" name="amount" style="height: 40px; font-size: 15px;">
           </div>
           <div class="input-group col-lg-6 mb-4 mt-lg-4" >
-            <select class="input-group-prepend " ng-model="option" style="width: 100%; padding: 2.0rem; font-size: 15px;" aria-label="Default select example" ng-show="payment_option">
+            <select class="input-group-prepend " ng-model="option" style="width: 100%; height: 50px; padding: 1.5rem; font-size: 15px; background-color: white; border-radius: 10px;" aria-label="Default select example" ng-show="payment_option">
                 <option value="" selected disabled hidden >Choose a Payment Option</option>                               
               <option value="2" >Pay from Wallet</option>
               <option value="1" >Pay from Bank Account</option>
@@ -63,7 +63,7 @@
         </div>
           <div class="mb-3">
             <label for="pwd" class="form-label">PIN :</label>
-            <input type="password" class="form-control" ng-model="pin" placeholder="Enter Your PIN" name="pswd" style="height: 40px; font-size: 15px;">
+            <input type="password" class="form-control" ng-model="pin" autocomplete="off" placeholder="Enter Your PIN" name="pswd" style="height: 40px; font-size: 15px;">
           </div>
         </div>
   
