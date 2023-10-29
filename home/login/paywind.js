@@ -186,7 +186,7 @@ app.controller('BillController',function($scope,$http,$state){
  else{
     Swal.fire({
         icon: 'error',
-        title: 'Some fiels are missing...',
+        title: 'Enter Valid Mobile Number...',
         showConfirmButton: false,
         timer: 1500
     })
