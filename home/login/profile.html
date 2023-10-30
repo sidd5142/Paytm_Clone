@@ -1,82 +1,80 @@
 <style>
-    * {
+  * {
     margin: 0;
-    padding: 0
-}
+    padding: 0;
+  }
 
-body {
+  body {
     background-color: #e6f9ff;
-}
+  }
 
-.card {
+  .card {
     width: 600px;
     background-color: #efefef;
     border: none;
     cursor: pointer;
     transition: all 0.5s;
-}
+  }
 
-.image img {
+  .image img {
     border-radius: 50%;
-}
+  }
 
-
-#profilebtn {
+  #profilebtn {
     height: 120px;
     width: 120px;
-    border-radius: 50%; 
-}
+    border-radius: 50%;
+  }
 
-.name {
+  .name {
     font-size: 22px;
-    font-weight: bold
-}
+    font-weight: bold;
+  }
 
-.idd {
+  .idd {
     font-size: 14px;
-    font-weight: 600
-}
+    font-weight: 600;
+  }
 
-.idd1 {
-    font-size: 12px
-}
+  .idd1 {
+    font-size: 12px;
+  }
 
-.number {
+  .number {
     font-size: 22px;
-    font-weight: bold
-}
+    font-weight: bold;
+  }
 
-.text span {
+  .text span {
     font-size: 13px;
     color: #545454;
-    font-weight: 500
-}
+    font-weight: 500;
+  }
 
-.main {
+  .main {
     margin-top: 2%;
     margin-left: 10%;
     font-size: 28px;
     padding: 0 10px;
     width: 58%;
-}
+  }
 
-.main .card {
+  .main .card {
     background-color: #fff;
     border-radius: 18px;
     box-shadow: 1px 1px 8px 0 grey;
     height: auto;
     margin-bottom: 20px;
     padding: 20px 0 20px 50px;
-}
+  }
 
-.main .card table {
+  .main .card table {
     border: none;
     font-size: 16px;
     height: 270px;
     width: 80%;
-}
-/* ng-repeat="detail in details"  */
-
+  }
+  /* ng-repeat="detail in details"  */
 </style>
 
 <!-- <div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
@@ -112,61 +110,83 @@ body {
     </div>
 </div> -->
 
-<div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
-<div class="main">
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+  <div class="main">
     <div class="card" ng-repeat="detail in details track by $index">
-        <div class="card-body">
-            <button class="btn btn-outline-primary" id="profilebtn" style="margin-left: 35%; margin-bottom: 3%;"> 
-                <img src="https://ui-avatars.com/api/?name={{detail.name}}" height="100" width="100" style="border-radius: 50%;" />
-            </button><br>
-            <span class="name mt-3" style="text-align: center; margin-left: 34%;">{{detail.name}}</span> 
+      <div class="card-body">
+        <button
+          class="btn btn-outline-primary"
+          id="profilebtn"
+          style="margin-left: 35%; margin-bottom: 3%"
+        >
+          <img
+            src="https://ui-avatars.com/api/?name={{detail.name}}"
+            height="100"
+            width="100"
+            style="border-radius: 50%"
+          /></button
+        ><br />
+        <span class="name mt-3" style="text-align: center; margin-left: 34%"
+          >{{detail.name}}</span
+        >
 
-            <table>
-                <tbody>
-                    <tr>
-                        <td>Gender</td>
-                        <td>:</td>
-                        <td>{{detail.gender}}</td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td>:</td>
-                        <td>{{detail.email}}</td>
-                    </tr>
-                    <tr>
-                        <td>Contact</td>
-                        <td>:</td>
-                        <td>{{detail.UPI_number}}</td>
-                    </tr>
-                    <tr>
-                        <td>UPI Id</td>
-                        <td>:</td>
-                        <td>{{detail.UPI_id}}</td>
-                    </tr>
-                    <tr>
-                        <td>Bank Name</td>
-                        <td>:</td>
-                        <td>{{detail.bank_name}}</td>
-                    </tr>
-                    <tr>
-                        <td>Bank Branch</td>
-                        <td>:</td>
-                        <td>{{detail.branch_name}}</td>
-                    </tr>
-                    <tr>
-                        <td>Account Number</td>
-                        <td>:</td>&nbsp;
-                        <td>{{detail.account_number}}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="text-center" style="margin-top: 2%; font-size: 15px;">
-
-                Powered by <br>
-                <p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn6Y5DVqqrbBoi4HnB-G5YLf9TJHsMqKj-Pg&usqp=CAU" alt="" width="30" height="30">|
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTrzSeqb6V1ldaVC4drFb6axSZ0nZ_H70k4A&usqp=CAU" alt="" height="15"></p>
-    
-              </div>
+        <table>
+          <tbody>
+            <tr>
+              <td>Gender</td>
+              <td>:</td>
+              <td>{{detail.gender}}</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>:</td>
+              <td>{{detail.email}}</td>
+            </tr>
+            <tr>
+              <td>Contact</td>
+              <td>:</td>
+              <td>{{detail.UPI_number}}</td>
+            </tr>
+            <tr>
+              <td>UPI Id</td>
+              <td>:</td>
+              <td>{{detail.UPI_id}}</td>
+            </tr>
+            <tr>
+              <td>Bank Name</td>
+              <td>:</td>
+              <td>{{detail.bank_name}}</td>
+            </tr>
+            <tr>
+              <td>Bank Branch</td>
+              <td>:</td>
+              <td>{{detail.branch_name}}</td>
+            </tr>
+            <tr>
+              <td>Account Number</td>
+              <td>:</td>
+              &nbsp;
+              <td>{{detail.account_number}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-center" style="margin-top: 2%; font-size: 15px">
+          Powered by <br />
+          <p>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn6Y5DVqqrbBoi4HnB-G5YLf9TJHsMqKj-Pg&usqp=CAU"
+              alt=""
+              width="30"
+              height="30"
+            />|
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTrzSeqb6V1ldaVC4drFb6axSZ0nZ_H70k4A&usqp=CAU"
+              alt=""
+              height="15"
+            />
+          </p>
         </div>
+      </div>
     </div>
-
+  </div>
+</div>

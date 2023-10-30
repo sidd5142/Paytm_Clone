@@ -1,23 +1,80 @@
 <div class="text-center" ng-controller="PinController">
-    <div class="card w-50" style="margin-left: 23%; margin-top: 5%;">
-    <div class="card-header" style="background-color: rgb(154, 220, 239);">
-      <h4 style="font-weight: bolder; font-size: 20px;">Pin Geneartion</h4>
-       <p class="font-weight-light" style="font-size: 14px;">Do not share with anyone</p>
+  <div class="card w-50" style="margin-left: 23%; margin-top: 5%">
+    <div class="card-header" style="background-color: rgb(154, 220, 239)">
+      <h4 style="font-weight: bolder; font-size: 20px">Pin Geneartion</h4>
+      <p class="font-weight-light" style="font-size: 14px">
+        Do not share with anyone
+      </p>
     </div>
 
     <div class="card-body">
-        <!-- <div class="card w-10"> -->
-        <div class="card text-center" style="width: 50%; margin-left: 25%;background-color: rgb(175, 211, 230); margin-top: 4%;"  >
-            <h5 class="card-title font-weight-normal" style="font-size: 22px; margin-top: 5%; margin-bottom: 8%;">PIN</h5>
-            <!-- <iframe class="card-text" frameborder="0" title="Ruppees"></iframe> -->
-            <input type="password"  placeholder="Enter a pin" ng-model="pin" maxlength="4" style="border-radius: 5px; height: 40px; font-size: 20px; text-align: center; background-color: rgb(255, 255, 255); width: 65%; margin-left: 18%;" id="">
-            <input type="text"  placeholder="Confirm pin" ng-model="confpin" maxlength="4" style="border-radius: 5px; height: 40px; font-size: 20px; text-align: center; background-color: rgb(255, 255, 255); width: 65%; margin-left: 18%; margin-top: 5%; margin-bottom: 10%;" id="">
-                  <!-- </div> -->
-        </div>
+      <!-- <div class="card w-10"> -->
+      <div
+        class="card text-center"
+        style="
+          width: 50%;
+          margin-left: 25%;
+          background-color: rgb(175, 211, 230);
+          margin-top: 4%;
+        "
+      >
+        <h5
+          class="card-title font-weight-normal"
+          style="font-size: 22px; margin-top: 5%; margin-bottom: 8%"
+        >
+          PIN
+        </h5>
+        <!-- <iframe class="card-text" frameborder="0" title="Ruppees"></iframe> -->
+        <input
+          type="password"
+          placeholder="Enter a pin"
+          ng-model="pin"
+          maxlength="4"
+          style="
+            border-radius: 5px;
+            height: 40px;
+            font-size: 20px;
+            text-align: center;
+            background-color: rgb(255, 255, 255);
+            width: 65%;
+            margin-left: 18%;
+          "
+          id=""
+        />
+        <input
+          type="text"
+          placeholder="Confirm pin"
+          ng-model="confpin"
+          maxlength="4"
+          style="
+            border-radius: 5px;
+            height: 40px;
+            font-size: 20px;
+            text-align: center;
+            background-color: rgb(255, 255, 255);
+            width: 65%;
+            margin-left: 18%;
+            margin-top: 5%;
+            margin-bottom: 10%;
+          "
+          id=""
+        />
+        <!-- </div> -->
+      </div>
     </div>
 
-    <div class="card-footer text-muted" style="background-color: rgb(154, 220, 239); margin-top: 4%;">
-        <button type="submit" class="btn-lg btn-danger" ng-click="setpin()" style="height: 45px; width: 30%; border-radius: 158px; font-size: 20px;">Set Pin</button>
+    <div
+      class="card-footer text-muted"
+      style="background-color: rgb(154, 220, 239); margin-top: 4%"
+    >
+      <button
+        type="submit"
+        class="btn-lg btn-danger"
+        ng-click="setpin()"
+        style="height: 45px; width: 30%; border-radius: 158px; font-size: 20px"
+      >
+        Set Pin
+      </button>
     </div>
-    </div>
+  </div>
 </div>

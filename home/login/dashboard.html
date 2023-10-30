@@ -144,9 +144,10 @@ button {
   position:fixed;
   top: 0px;;
   left:-235px;
-  height:100%;
+  margin-top: 7%;
+  height:90%;
   /* box-shadow:0 2px 8px rgba(0,0,0,0.2); */
-  padding-top:80px;
+  /* padding-top:80px; */
   transition:all 0.3s ease-out;
   z-index: 1;
 }
@@ -345,14 +346,7 @@ td:hover {
     <div class="container-fluid" id="collapsebar">
         <div class="row flex-nowrap">
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 sidebar" id="sidebar">
-              
-               <!-- <div class="sidebar" id='sidebar'>
-                <ul>
-                  <li><a href="">Home</a></li>
-                   <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
-                </ul>
-              </div>  -->
+            
                  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" style="background-color:#daf1f9;">
                   
                     <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-lg-start" id="menu" style="font-size: 20px;">
@@ -360,7 +354,7 @@ td:hover {
                       <img src="https://media.licdn.com/dms/image/C4E16AQFVMuYxgHxy2g/profile-displaybackgroundimage-shrink_200_800/0/1628193271126?e=2147483647&v=beta&t=5uA8pw85vMgdm-R546N7JZaSEAY-jG7Em4IoMxkMULs" alt="" style="width: 100%; height: 30%;">
                       
                       <div ng-repeat="admin in dash.user">
-                        <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 30%; margin-top: 10px;" src="https://ui-avatars.com/api/?name={{admin.name}}" alt="">
+                        <img class="text-center" style="border-radius: 50%; background-color: black; margin-left: 30%; margin-top: 10px;" src="https://ui-avatars.com/api/?name={{admin.name}}&color=ffff" alt="">
                       <h1 style="color: black; text-align: center; margin-top: 5%; margin-bottom: 8%;">{{admin.name}}</h1>
                       <button type="button" class="btn btn-outline-info" ng-click="getotp(admin)" style="width: fit-content;" ng-hide="scanbtn">Get Scanner</button>
                       <!-- <div id="scannum" ng-model="test">{{admin.phone_no}}</div> -->

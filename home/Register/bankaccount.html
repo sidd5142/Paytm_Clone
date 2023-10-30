@@ -1,167 +1,295 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+/>
 
-    <style>
+<style>
+  .border-md {
+    border-width: 2px;
+  }
 
-        .border-md {
-            border-width: 2px;
-        }
-        
-        body {
-            min-height: 100vh;
-        }
-        
-        .form-control:not(select) {
-            padding: 2.5rem 0.5rem;
-        }
-        
-        select.form-control {
-            height: 52px;
-            padding-left: 0.5rem;
-        }
-        
-        .form-control::placeholder {
-            color: #ccc;
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-        
-        .form-control:focus {
-            box-shadow: none;
-        }
-        
-              
-            </style>
-        <body>
-            
-            <div class="container" ng-controller="AccountController">
-                <h1 style="margin: 2%; margin-left: 29%; font-size: 50px;">Welcome to our Bank</h1>
-                <h4 style="margin-left: 38%; font-size: 30px;">Create Bank Account</h4>
-        
-                <div class="row py-4 align-items-center ml-5">
-                    <!-- For Demo ] -->
-                        <!-- <h1 class="ml-lg-5">Create an Account</h1> -->
-                        <img src="https://plus.unsplash.com/premium_photo-1681291882655-b798cc0882bb?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" style="height: 710px; width: 500px;" class="img-fluid d-md-block">
-                    
-            
-                    <div class="col-md-7 col-lg-6 ml-lg-5 mt-lg-5">
-                        <form ng-submit="AddAccount()">
-                            <div class="row">
-                    
-                                <div class="input-group col-lg-6 mb-4">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                            <i class="fa fa-phone-square text-muted" style="font-size: 15px;"></i>
-                                        </span>
-                                    </div>
-                                    <input id="number" type="tel" name="number" style="font-size: 18px;" ng-model="number" pattern="[0-9]{10}" maxlength="10" placeholder="Enter a Verified Number with Aadhar" class="form-control bg-white border-left-0 border-md" required>
-                                </div>
-            
-                              
-            
-                                <div class="input-group col-lg-6 mb-4">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                            <i class="fa fa-user text-muted" style="font-size: 15px;"></i>
-                                        </span>
-                                    </div>
-                                    <input id="dob" type="text" name="dob" ng-model="aadharnum" style="font-size: 18px;" pattern="[0-9]{16}" maxlength="16" placeholder="Aadhar Card Number" class="form-control bg-white border-left-0 border-md" required>
-                                </div>
-            
-                                <div class="input-group col-lg-6 mb-4">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                            <i class="fa fa-user text-muted" style="font-size: 15px;"></i>
-                                        </span>
-                                    </div>
-                                    <input id="phoneNumber" type="text" name="number" ng-model="pan_num" style="font-size: 18px;" maxlength="16" placeholder="Pan card Number" class="form-control bg-white border-md border-left-0 pl-3" required>
-                                </div>
-        
-        
-                                <div class="input-group col-lg-6 mb-4">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                            <i class="fa fa-user text-muted" style="font-size: 15px;"></i>
-                                        </span>
-                                    </div>
-                                    <input id="dob" type="text" name="name" ng-model="nominee"  placeholder="Nominee Name" style="font-size: 18px;" class="form-control bg-white border-left-0 border-md" required>
-                                </div>
-            
-                                <div class="input-group col-lg-6 mb-4">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                            <i class="fa fa-phone-square text-muted" style="font-size: 15px;"></i>
-                                        </span>
-                                    </div>
-                                    <input id="phoneNumber" type="tel" name="phone" ng-model="nomineenumber" style="font-size: 18px;" pattern="[0-9]{10}" maxlength="10" placeholder="Nominee Number" class="form-control bg-white border-md border-left-0 pl-3" required>
-                                </div>
-        
-                                <div style="margin-left: 3%; font-size: 18px;">
-                                    User Photo:
-                                </div>
-                                 <div class="input-group col-lg-12 mb-4">
-                                    <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                        <i class="fas fa-image text-muted" style="font-size: 15px;"></i>
-                                    </span>
-                                     <input id="Photo" type="file" name="photo"  file-upload ng-model="userimage"  placeholder="Photo" style="font-size: 18px;" class="form-control bg-white" required>
-                                 </div>
-            
-                               <div style="margin-left: 3%; font-size: 18px;">
-                                   Aadhar Card:
-                               </div>
-                                <div class="input-group col-lg-12 mb-4">
-                                    <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                        <i class="fas fa-file text-muted" style="font-size: 15px;"></i>
-                                    </span>
-                                    <input id="Aadhar" type="file" name="aadhar" file-upload ng-model="aadhaar" placeholder="Enter Aadhar" style="font-size: 18px;" class="form-control bg-white" required>
-                                </div>
-        
-                                <div style="margin-left: 3%; font-size: 18px;">
-                                    Pan Card:
-                                </div>                        
-                                <div class="input-group col-lg-12 mb-4">
-                                    <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                        <i class="fas fa-file text-muted" style="font-size: 15px;"></i>
-                                    </span>
-                                    <input id="Pan" type="file" name="pan"  file-upload ng-model="pan" placeholder="Enter Pan" style="font-size: 18px;" class="form-control bg-white" required>
-                                </div>
+  body {
+    min-height: 100vh;
+  }
 
-                                <div class="input-group col-lg-6 mb-4" >
-                                    <select class="input-group-prepend " ng-model="status" ng-click="marital()" style="width: 100%; padding: 2.0rem; font-size: 15px;" aria-label="Default select example" required>
-                                        <option value="" selected disabled hidden >Marital Status</option>                               
-                                      <option value="{{name}}" ng-repeat="name in status1">{{name}}</option>
-                                      <!-- <option value="Unmarried">Unmarried</option> -->
+  .form-control:not(select) {
+    padding: 2.5rem 0.5rem;
+  }
 
-                                      
-                                    </select>                  
-                                </div>
+  select.form-control {
+    height: 52px;
+    padding-left: 0.5rem;
+  }
 
-                                <div style="margin-left: 3%; font-size: 18px;">
-                                    Address:
-                                </div>                        
-                                <div class="input-group col-lg-12 mb-4">
-                                    <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                        <i class="fas fa-landmark text-muted" style="font-size: 15px;"></i>
-                                    </span>
-                                    <input id="address" type="text" name="address" pattern="[A-Z][a-z]{2,30}"  ng-model="address" style="font-size: 18px;" placeholder="Enter Address" class="form-control bg-white" required>
-                                </div>
-        
-                                <div class="form-group col-lg-12 mx-auto mb-0">
-                                    <button type="submit"  class="btn btn-primary btn-lg" style="margin-left: 40%; font-size: 15px;" >Add Account</button>
-                                    </div>
-            
-                                    <div class="text-center w-100 mt-lg-4">
-                                        <p class="text-muted font-weight-bold" style="font-size: 14px;">Already Added? <a  class="text-primary ml-2 " ui-sref="Register">Go Back</a></p>
-                                    </div>
-            
-                            </div>
-                        </form>
-                    </div>
-                </div>
+  .form-control::placeholder {
+    color: #ccc;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .form-control:focus {
+    box-shadow: none;
+  }
+</style>
+<body>
+  <div class="container" ng-controller="AccountController">
+    <h1 style="margin: 2%; margin-left: 29%; font-size: 50px">
+      Welcome to our Bank
+    </h1>
+    <h4 style="margin-left: 38%; font-size: 30px">Create Bank Account</h4>
+
+    <div class="row py-4 align-items-center ml-5">
+      <!-- For Demo ] -->
+      <!-- <h1 class="ml-lg-5">Create an Account</h1> -->
+      <img
+        src="https://plus.unsplash.com/premium_photo-1681291882655-b798cc0882bb?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+        style="height: 710px; width: 500px"
+        class="img-fluid d-md-block"
+      />
+
+      <div class="col-md-7 col-lg-6 ml-lg-5 mt-lg-5">
+        <form ng-submit="AddAccount()">
+          <div class="row">
+            <div class="input-group col-lg-6 mb-4">
+              <div class="input-group-prepend">
+                <span
+                  class="input-group-text bg-white px-4 border-md border-right-0"
+                >
+                  <i
+                    class="fa fa-phone-square text-muted"
+                    style="font-size: 15px"
+                  ></i>
+                </span>
+              </div>
+              <input
+                id="number"
+                type="tel"
+                name="number"
+                style="font-size: 18px"
+                ng-model="number"
+                pattern="[0-9]{10}"
+                maxlength="10"
+                placeholder="Enter a Verified Number with Aadhar"
+                class="form-control bg-white border-left-0 border-md"
+                required
+              />
             </div>
-        </body>
 
-        <!-- <script>
+            <div class="input-group col-lg-6 mb-4">
+              <div class="input-group-prepend">
+                <span
+                  class="input-group-text bg-white px-4 border-md border-right-0"
+                >
+                  <i class="fa fa-user text-muted" style="font-size: 15px"></i>
+                </span>
+              </div>
+              <input
+                id="dob"
+                type="text"
+                name="dob"
+                ng-model="aadharnum"
+                style="font-size: 18px"
+                pattern="[0-9]{16}"
+                maxlength="16"
+                placeholder="Aadhar Card Number"
+                class="form-control bg-white border-left-0 border-md"
+                required
+              />
+            </div>
+
+            <div class="input-group col-lg-6 mb-4">
+              <div class="input-group-prepend">
+                <span
+                  class="input-group-text bg-white px-4 border-md border-right-0"
+                >
+                  <i class="fa fa-user text-muted" style="font-size: 15px"></i>
+                </span>
+              </div>
+              <input
+                id="phoneNumber"
+                type="text"
+                name="number"
+                ng-model="pan_num"
+                style="font-size: 18px"
+                maxlength="16"
+                placeholder="Pan card Number"
+                class="form-control bg-white border-md border-left-0 pl-3"
+                required
+              />
+            </div>
+
+            <div class="input-group col-lg-6 mb-4">
+              <div class="input-group-prepend">
+                <span
+                  class="input-group-text bg-white px-4 border-md border-right-0"
+                >
+                  <i class="fa fa-user text-muted" style="font-size: 15px"></i>
+                </span>
+              </div>
+              <input
+                id="dob"
+                type="text"
+                name="name"
+                ng-model="nominee"
+                placeholder="Nominee Name"
+                style="font-size: 18px"
+                class="form-control bg-white border-left-0 border-md"
+                required
+              />
+            </div>
+
+            <div class="input-group col-lg-6 mb-4">
+              <div class="input-group-prepend">
+                <span
+                  class="input-group-text bg-white px-4 border-md border-right-0"
+                >
+                  <i
+                    class="fa fa-phone-square text-muted"
+                    style="font-size: 15px"
+                  ></i>
+                </span>
+              </div>
+              <input
+                id="phoneNumber"
+                type="tel"
+                name="phone"
+                ng-model="nomineenumber"
+                style="font-size: 18px"
+                pattern="[0-9]{10}"
+                maxlength="10"
+                placeholder="Nominee Number"
+                class="form-control bg-white border-md border-left-0 pl-3"
+                required
+              />
+            </div>
+
+            <div style="margin-left: 3%; font-size: 18px">User Photo:</div>
+            <div class="input-group col-lg-12 mb-4">
+              <span
+                class="input-group-text bg-white px-4 border-md border-right-0"
+              >
+                <i class="fas fa-image text-muted" style="font-size: 15px"></i>
+              </span>
+              <input
+                id="Photo"
+                type="file"
+                name="photo"
+                file-upload
+                ng-model="userimage"
+                placeholder="Photo"
+                style="font-size: 18px"
+                class="form-control bg-white"
+                required
+              />
+            </div>
+
+            <div style="margin-left: 3%; font-size: 18px">Aadhar Card:</div>
+            <div class="input-group col-lg-12 mb-4">
+              <span
+                class="input-group-text bg-white px-4 border-md border-right-0"
+              >
+                <i class="fas fa-file text-muted" style="font-size: 15px"></i>
+              </span>
+              <input
+                id="Aadhar"
+                type="file"
+                name="aadhar"
+                file-upload
+                ng-model="aadhaar"
+                placeholder="Enter Aadhar"
+                style="font-size: 18px"
+                class="form-control bg-white"
+                required
+              />
+            </div>
+
+            <div style="margin-left: 3%; font-size: 18px">Pan Card:</div>
+            <div class="input-group col-lg-12 mb-4">
+              <span
+                class="input-group-text bg-white px-4 border-md border-right-0"
+              >
+                <i class="fas fa-file text-muted" style="font-size: 15px"></i>
+              </span>
+              <input
+                id="Pan"
+                type="file"
+                name="pan"
+                file-upload
+                ng-model="pan"
+                placeholder="Enter Pan"
+                style="font-size: 18px"
+                class="form-control bg-white"
+                required
+              />
+            </div>
+
+            <div class="input-group col-lg-6 mb-4">
+              <select
+                class="input-group-prepend"
+                ng-model="status"
+                ng-click="marital()"
+                style="width: 100%; padding: 2rem; font-size: 15px"
+                aria-label="Default select example"
+                required
+              >
+                <option value="" selected disabled hidden>
+                  Marital Status
+                </option>
+                <option value="{{name}}" ng-repeat="name in status1">
+                  {{name}}
+                </option>
+                <!-- <option value="Unmarried">Unmarried</option> -->
+              </select>
+            </div>
+
+            <div style="margin-left: 3%; font-size: 18px">Address:</div>
+            <div class="input-group col-lg-12 mb-4">
+              <span
+                class="input-group-text bg-white px-4 border-md border-right-0"
+              >
+                <i
+                  class="fas fa-landmark text-muted"
+                  style="font-size: 15px"
+                ></i>
+              </span>
+              <input
+                id="address"
+                type="text"
+                name="address"
+                pattern="[A-Z][a-z]{2,30}"
+                ng-model="address"
+                style="font-size: 18px"
+                placeholder="Enter Address"
+                class="form-control bg-white"
+                required
+              />
+            </div>
+
+            <div class="form-group col-lg-12 mx-auto mb-0">
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg"
+                style="margin-left: 40%; font-size: 15px"
+              >
+                Add Account
+              </button>
+            </div>
+
+            <div class="text-center w-100 mt-lg-4">
+              <p class="text-muted font-weight-bold" style="font-size: 14px">
+                Already Added?
+                <a class="text-primary ml-2" ui-sref="Register">Go Back</a>
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+<!-- <script>
             var ip = "https://10.21.81.234:8000/";
 
         </script> -->
-        

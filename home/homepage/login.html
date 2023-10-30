@@ -1,52 +1,54 @@
 <style>
+  .wrap {
+    height: 150px;
+    width: 150px;
+    display: flex;
+    margin-left: 39%;
+    justify-content: center;
+    align-items: center;
+  }
 
-.wrap{
-  height: 150px;
-  width: 150px;
-  display: flex;
-  margin-left: 39%;
-  justify-content: center;
-  align-items: center;
-}
+  .one, .two, .four, .five, .six, .seven, .eight, .nine{
+  /* .one,
+  .two,
+  .four,
+  .five { */
+    border-radius: 80%;
+    margin: 2vb;
+    animation: animate 1s infinite alternate;
+  }
 
-/* .one, .two, .four, .five, .six, .seven, .eight, .nine{ */
-.one, .two, .four, .five{
-  border-radius: 80%;
-  margin: 2vb;
-  animation: animate 1s infinite alternate;
-}
-
-@keyframes animate{
-  0%{
+  @keyframes animate {
+    0% {
       transform: scale(0.5);
-  }
-  
-  100%{
-      transform: scale(1.2);
-  }
-}
+    }
 
-.one{
-  animation-delay: .2s;
-  border: 10px solid rgb(0, 128, 255);
-}
-.two{
-  animation-delay: .4s;
-  border: 10px solid rgb(61, 142, 240);
-}
-/* .three{
+    100% {
+      transform: scale(1.2);
+    }
+  }
+
+  .one {
+    animation-delay: 0.2s;
+    border: 10px solid rgb(0, 128, 255);
+  }
+  .two {
+    animation-delay: 0.4s;
+    border: 10px solid rgb(61, 142, 240);
+  }
+  /* .three{
   animation-delay: .6s;
   border: 10px solid #00f;
 } */
-.four{
-  animation-delay: .8s;
-  border: 10px solid rgb(120, 224, 255);
-}
-.five{
-  animation-delay: 1s;
-  border: 10px solid rgb(188, 239, 255);
-} 
-/* .six{
+  .four {
+    animation-delay: 0.8s;
+    border: 10px solid rgb(120, 224, 255);
+  }
+  .five {
+    animation-delay: 1s;
+    border: 10px solid rgb(188, 239, 255);
+  }
+  .six{
   animation-delay: 1s;
   border: 10px solid rgb(66, 148, 174);
 }  
@@ -57,8 +59,7 @@
 .eight{
   animation-delay: 1s;
   border: 10px solid rgb(66, 148, 174);
-}          */
-
+}         
 </style>
 
 <!-- <div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
@@ -97,45 +98,109 @@
     </div>
 </div>
      -->
-    
 
-     <div class="card text-center w-50 " style="margin-left: 25%; border: solid rgb(204, 237, 248); margin-top: 6%;">
-        <div class="card-header" style="font-size: 30px;">
-            PayWind Login
-        </div>
-    
-        <form ng-submit="myform()">
-    
-        <div class="card-body" style="font-size: 20px;">
-          <p class="card-text mt-5" style="font-size: 28px;">Enter Mobile Number</p>
-          <div >
-            <input class="input-group-prepend" type="text"  ng-model="number" maxlength="10" placeholder="Enter Registered Mobile Number" autocomplete="off" style="width: 50%; padding: 0.5rem; font-size: 25px; background-color: white; border-radius: 10px; margin-left: 23%; text-align: center;" required>
-        </div>
-        <button class="btn btn-outline-primary" style="width: 15%; font-size: 20px; margin-top: 2%; margin-right: 3%;" ng-click="otp()">Get OTP</button>
-        <div class="wrap" ng-show="loader">
-            <div class="one"></div>
-            <div class="two"></div>
-            <div class="four"></div>
-            <div class="five"></div>
-            <!-- <div class="six">I</div>
-            <div class="seven">N</div>
-            <div class="eight">D</div> -->
-        </div>
-          <!-- <input type="text" class="form-control" id="otp" ng-model="otpverify" placeholder="Enter 4 digit OTP" name="number" style="font-size: 20px;" ng-show="showotp"> -->
-          <input class="input-group-prepend" type="password"  ng-model="otpverify" maxlength="4" placeholder="Enter 4 digit OTP" style="width: 50%; padding: 0.5rem; font-size: 20px; background-color: white; border-radius: 10px; margin-left: 23%; margin-top: 2%; text-align: center;"  ng-show="showotp"  required>
+<div
+  class="card text-center w-50"
+  style="margin-left: 25%; border: solid rgb(204, 237, 248); margin-top: 6%"
+>
+  <div class="card-header" style="font-size: 30px">PayWind Login</div>
 
-        </div>
-        <br>
-    
-        <!-- <p style="margin-top: 5%; font-size: 12px; font-weight: light;">By proceeding you agree to the <a href="">Terms and Condition</a></p> -->
-        <p style="font-size: 15px;">Powered by <br>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn6Y5DVqqrbBoi4HnB-G5YLf9TJHsMqKj-Pg&usqp=CAU" alt="" width="60" height="60">|
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTrzSeqb6V1ldaVC4drFb6axSZ0nZ_H70k4A&usqp=CAU" alt="" height="25"></p>
-    
-        <div class="card-footer text-muted" >
-            <button type="submit" class="btn btn-primary" ng-click="submit()" style="width: 25%; margin-right:3%; margin-top: 2%; font-size: 20px; height: 40px; border-radius: 10px;">Login</button>
-            <p style="font-size: 15px; margin:2%;">Don't have an Account? <a ui-sref="Register">Register</a> </p>
-        </div>
-        </form>
-       
+  <form ng-submit="myform()">
+    <div class="card-body" style="font-size: 20px">
+      <p class="card-text mt-5" style="font-size: 28px">Enter Mobile Number</p>
+      <div class="pt-1 d-flex justify-content-center">
+        <input
+          class="input-group w-50"
+          type="text"
+          ng-model="number"
+          maxlength="10"
+          placeholder="Enter Registered Mobile Number"
+          autocomplete="off"
+          style="
+            width: fit-content;
+            padding: 0.8rem;
+            font-size: 25px;
+            background-color: white;
+            border-radius: 10px;
+            justify-content: center;
+            text-align: center;
+          "
+          required
+        />
       </div>
+      <button
+        class="btn btn-outline-primary"
+        style="width: fit-content; font-size: 20px; margin-top: 2%; margin-right: 3%"
+        ng-click="otp()"
+      >
+        Get OTP
+      </button>
+      <div class="wrap" ng-show="loader">
+        <div class="one">P</div>
+        <div class="two">A</div>
+        <div class="four">Y</div>
+        <div class="five">W</div>
+        <div class="six">I</div>
+            <div class="seven">N</div>
+            <div class="eight">D</div>
+      </div>
+      <!-- <input type="text" class="form-control" id="otp" ng-model="otpverify" placeholder="Enter 4 digit OTP" name="number" style="font-size: 20px;" ng-show="showotp"> -->
+      <input
+        class="input-group-prepend"
+        type="password"
+        ng-model="otpverify"
+        maxlength="4"
+        placeholder="Enter 4 digit OTP"
+        style="
+          width: 50%;
+          padding: 0.5rem;
+          font-size: 20px;
+          background-color: white;
+          border-radius: 10px;
+          margin-left: 23%;
+          margin-top: 2%;
+          text-align: center;
+        "
+        ng-show="showotp"
+        required
+      />
+    </div>
+    <br />
+
+    <!-- <p style="margin-top: 5%; font-size: 12px; font-weight: light;">By proceeding you agree to the <a href="">Terms and Condition</a></p> -->
+    <p style="font-size: 15px">
+      Powered by <br />
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn6Y5DVqqrbBoi4HnB-G5YLf9TJHsMqKj-Pg&usqp=CAU"
+        alt=""
+        width="60"
+        height="60"
+      />|
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTrzSeqb6V1ldaVC4drFb6axSZ0nZ_H70k4A&usqp=CAU"
+        alt=""
+        height="25"
+      />
+    </p>
+
+    <div class="card-footer text-muted">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        ng-click="submit()"
+        style="
+          width: fit-content;
+          margin-right: 3%;
+          margin-top: 2%;
+          font-size: 20px;
+          border-radius: 10px;
+        "
+      >
+        Login
+      </button>
+      <p style="font-size: 15px; margin: 2%">
+        Don't have an Account? <a ui-sref="Register">Register</a>
+      </p>
+    </div>
+  </form>
+</div>

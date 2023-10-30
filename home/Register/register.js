@@ -1,10 +1,9 @@
 // var ip = "https://10.21.81.234:8000/";
 
-app.controller('RegisterController',function($scope,$http,$window,$state){
-
-  $scope.validatePassword = function(){
+app.controller("RegisterController", function ($scope, $http, $window, $state) {
+  $scope.validatePassword = function () {
     $scope.passwordMismatch = $scope.password !== $scope.confpassword;
-    }
+  };
 
   $scope.validateEmail = function () {
     // Regular expression for email validation
@@ -21,116 +20,107 @@ app.controller('RegisterController',function($scope,$http,$window,$state){
     var selectedDate = new Date($scope.date);
     if (selectedDate) {
       var minDate = new Date();
-      minDate.setFullYear(minDate.getFullYear() -18);
-      if(selectedDate < minDate)
-      {
+      minDate.setFullYear(minDate.getFullYear() - 18);
+      if (selectedDate < minDate) {
         var year = selectedDate.getFullYear();
-        var month = (selectedDate.getMonth() + 1).toString().padStart(2, '0');
-        var day = selectedDate.getDate().toString().padStart(2, '0');
-        $scope.date = year + '-' + month + '-' + day;
-      }
-      else{ 
+        var month = (selectedDate.getMonth() + 1).toString().padStart(2, "0");
+        var day = selectedDate.getDate().toString().padStart(2, "0");
+        $scope.date = year + "-" + month + "-" + day;
+      } else {
         $scope.date = null;
       }
-        
     } else {
-        $scope.date = null;
+      $scope.date = null;
     }
-};
+  };
 
-$scope.title1 = function(){
-  var data = {
-    value : 'Prefix'
-  }
-  $http.get(ip + 'dropdown' , { params : data,
-    withCredentials: true
-  })
-  .then(function(response){
-    console.log(response)
-    $scope.prefix = response.data
-  })
-  .catch(function(error){
-    console.log(error)
-  })
-}
- 
-  $scope.gender1 = function(){
+  $scope.title1 = function () {
     var data = {
-      value : 'Gender'
-    }
-    $http.get(ip + 'dropdown' , { params : data,
-      withCredentials: true
-    })
-    .then(function(response){
-      console.log(response)
-      $scope.gender = response.data
-    })
-    .catch(function(error){
-      console.log(error)
-    })
-  }
-    
-  $scope.Register = function(valid){
+      value: "Prefix",
+    };
+    $http
+      .get(ip + "dropdown", { params: data, withCredentials: true })
+      .then(function (response) {
+        console.log(response);
+        $scope.prefix = response.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
+  $scope.gender1 = function () {
+    var data = {
+      value: "Gender",
+    };
+    $http
+      .get(ip + "dropdown", { params: data, withCredentials: true })
+      .then(function (response) {
+        console.log(response);
+        $scope.gender = response.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  $scope.Register = function (valid) {
     var pass = $scope.password;
-		var confpass = $scope.confpassword;
-		var validemail = $scope.emailIsValid
+    var confpass = $scope.confpassword;
+    var validemail = $scope.emailIsValid;
 
-        var formdata = {
-          firstname: $scope.firstname,
-          lastname: $scope.lastname,
-          email: $scope.email,
-          dob: $scope.date,
-          phonenumber: $scope.contact,
-          gender: $scope.genders,
-          password: $scope.password,
-          confirmpassword: $scope.confpassword
-        }
+    var formdata = {
+      firstname: $scope.firstname,
+      lastname: $scope.lastname,
+      email: $scope.email,
+      dob: $scope.date,
+      phonenumber: $scope.contact,
+      gender: $scope.genders,
+      password: $scope.password,
+      confirmpassword: $scope.confpassword,
+    };
 
-        // if(!valid)
-        // {
-        // if($scope.Register)
-        // {
-        // if($scope.Register)
-        // {
-        console.log(formdata)
+    // if(!valid)
+    // {
+    // if($scope.Register)
+    // {
+    // if($scope.Register)
+    // {
+    console.log(formdata);
 
-        if(pass === confpass && validemail){
-
-        $http.post(ip + 'register', formdata,{
-          withCredentials:true,
-          
+    if (pass === confpass && validemail) {
+      $http
+        .post(ip + "register", formdata, {
+          withCredentials: true,
         })
         .then(function (response) {
-          console.log(response.data)
+          console.log(response.data);
           Swal.fire({
-            position: 'centre',
-            icon: 'success',
+            position: "centre",
+            icon: "success",
             title: response.data.message,
             showConfirmButton: false,
-            timer: 1500
-          })
-          $state.go('AddAccount')
+            timer: 1500,
+          });
+          $state.go("AddAccount");
         })
         .catch(function (error) {
-          console.log(error)
+          console.log(error);
           Swal.fire({
-            position: 'centre',
-            icon: 'error',
+            position: "centre",
+            icon: "error",
             title: error.data.message,
             showConfirmButton: false,
-            timer: 1500
-          })
-        })
-      }
-      else{
-
-			Swal.fire({
-				icon: 'error',
-				title: 'Oops...',
-				text: 'Incorrect password or invalid email'
-			  })
-      }    
+            timer: 1500,
+          });
+        });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Incorrect password or invalid email",
+      });
+    }
     // }
     // else{
     //       Swal.fire({
@@ -139,89 +129,85 @@ $scope.title1 = function(){
     //         text: 'Fiels are Empty'
     //         })
     // }
-  }
-      // else{
-      //   console.log("FIll the fields")
-      // } 
-})
+  };
+  // else{
+  //   console.log("FIll the fields")
+  // }
+});
 
-app.directive('fileUpload', function() {
-    return {
-      restrict: 'A',
-      require: 'ngModel',
-      link: function(scope, element, attrs, ngModel) {
-         element.bind('change', function(event) {
-          var file = event.target.files[0];
-          scope.$apply(function() {
-            ngModel.$setViewValue(file);
-          });
+app.directive("fileUpload", function () {
+  return {
+    restrict: "A",
+    require: "ngModel",
+    link: function (scope, element, attrs, ngModel) {
+      element.bind("change", function (event) {
+        var file = event.target.files[0];
+        scope.$apply(function () {
+          ngModel.$setViewValue(file);
         });
-      }
-    };
- })
+      });
+    },
+  };
+});
 
- 
-app.controller('AccountController',function($scope,$http,$window,$state){
-
-  $scope.marital = function(){
+app.controller("AccountController", function ($scope, $http, $window, $state) {
+  $scope.marital = function () {
     var status = {
-      value : 'Marital Status'
-    }
-    $http.get(ip + 'dropdown' , { params : status,
-      withCredentials: true
-    })
-    .then(function(response){
-      console.log(response.data)
-      $scope.status1 = response.data
-    })
-    .catch(function(error){
-      console.log(error)
-    })
-  }
+      value: "Marital Status",
+    };
+    $http
+      .get(ip + "dropdown", { params: status, withCredentials: true })
+      .then(function (response) {
+        console.log(response.data);
+        $scope.status1 = response.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
+  $scope.AddAccount = function () {
+    var formdata = new FormData();
+    formdata.append("photo", $scope.userimage);
+    formdata.append("aadhaar_card", $scope.aadhaar);
+    formdata.append("pan_card", $scope.pan);
+    formdata.append("phonenumber", $scope.number);
+    formdata.append("aadhaar_card_no", $scope.aadharnum);
+    formdata.append("pan_card_no", $scope.pan_num);
+    formdata.append("marital_status", $scope.status);
+    formdata.append("nominee", $scope.nominee);
+    formdata.append("nominee_phoneno", $scope.nomineenumber);
+    formdata.append("address", $scope.address);
 
-  $scope.AddAccount = function(){
-  var formdata = new FormData();
-      formdata.append('photo', $scope.userimage)
-      formdata.append('aadhaar_card', $scope.aadhaar)
-      formdata.append('pan_card', $scope.pan)
-      formdata.append('phonenumber', $scope.number)
-      formdata.append('aadhaar_card_no', $scope.aadharnum)
-      formdata.append('pan_card_no', $scope.pan_num)
-      formdata.append('marital_status', $scope.status)
-      formdata.append('nominee', $scope.nominee)
-      formdata.append('nominee_phoneno', $scope.nomineenumber)
-      formdata.append('address', $scope.address)
+    console.log(formdata);
 
-       console.log(formdata)
-
-  $http.post(ip + 'create_account', formdata, {
-      withCredentials:true,
-      headers: {
-          'Content-Type': undefined
-        }
-  })
-  .then(function(response){
-      console.log(response)
-      Swal.fire({
-          position: 'centre',
-          icon: 'success',
+    $http
+      .post(ip + "create_account", formdata, {
+        withCredentials: true,
+        headers: {
+          "Content-Type": undefined,
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+        Swal.fire({
+          position: "centre",
+          icon: "success",
           title: response.data.message,
           showConfirmButton: false,
-          timer: 1500
-        })
-        $state.go('CreatePin')
-  })
-  .catch(function(error){
-      console.log(error)
-      Swal.fire({
-        position: 'centre',
-        icon: 'error',
-        title: error.data.message,
-        showConfirmButton: false,
-        timer: 1500
+          timer: 1500,
+        });
+        $state.go("CreatePin");
       })
-  })
- }
-})
-
+      .catch(function (error) {
+        console.log(error);
+        Swal.fire({
+          position: "centre",
+          icon: "error",
+          title: error.data.message,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  };
+});

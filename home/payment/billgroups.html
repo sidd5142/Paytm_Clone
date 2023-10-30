@@ -1,84 +1,105 @@
 <style>
-    #nav {
-        font-size: 30px;
-    }
-    .navcolor {
+  #nav {
+    font-size: 30px;
+  }
+  .navcolor {
     background-color: white;
     /* position:fixed;
     block-size:inherit; */
-}
+  }
 
-.navcolor a {
+  .navcolor a {
     font-family: Arial, Helvetica, sans-serif !important;
     margin-left: 10%;
     color: black !important;
     font-size: 15px !important;
     font-weight: bolder;
-}
+  }
 
-#signin {
+  #signin {
     color: white;
     font-weight: bold;
     font-size: 13px;
     padding: 9px;
-}
+  }
 
-#loginimg {
-}
+  #loginimg {
+  }
 
-#loginbutton:hover {
+  #loginbutton:hover {
     background-color: #002970 !important;
-}
+  }
 
-#loginimg:hover {
-  background-color:  #00baf2 !important;
+  #loginimg:hover {
+    background-color: #00baf2 !important;
+  }
 
-}
-
-.nav-item a:hover {
+  .nav-item a:hover {
     background-color: #f5f7fa;
-}
+  }
 
-.navbar-toggler {
+  .navbar-toggler {
     color: black !important;
-}
-
+  }
 </style>
 
 <div ng-controller="PaymentController">
-    <header style="margin-top: 0%;">
-        <nav class="navbar navbar-light bg-light" style="width: 50%; margin-left: 24%;">
-            <div class="container-fluid">
-                <!-- <div  style="float: left;">
+  <header style="margin-top: 0%">
+    <nav
+      class="navbar navbar-light bg-light"
+      style="width: 50%; margin-left: 24%"
+    >
+      <div class="container-fluid">
+        <!-- <div  style="float: left;">
                    <i class="fa-solid fa-arrow-left"></i>
                 </div> -->
-              <a class="navbar-brand" id="nav" style="margin-right: 45%;">Split Bill Group Details</a>
-            
+        <a class="navbar-brand" id="nav" style="margin-right: 45%"
+          >Split Bill Group Details</a
+        >
+      </div>
+    </nav>
+  </header>
+  <div class="card text-center" style="width: 50%; margin-left: 24%">
+    <div class="card-body">
+      <div style="margin-bottom: 2%">
+        <form class="d-flex">
+          <input
+            class="form-control me-2"
+            type="search"
+            ng-model="search"
+            placeholder="&#x1F50D;   Search"
+            aria-label="Search"
+            style="height: 50px; border-radius: 15px; font-size: 20px"
+          />
+        </form>
+      </div>
+
+      <table style="width: 100%; font-size: 20px">
+        <tr ng-repeat="split in contact | filter : search">
+          <td>
+            <img
+              src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg"
+              alt=""
+              id="loginimg"
+              width="50"
+              height="50"
+            />
+          </td>
+          <td>
+            <div style="float: left">
+              {{split.key}}<br />
+              <p
+                style="font-size: 12px; font-weight: light; float: left"
+                ng-click="send(split)"
+              >
+                &#8377; {{split.id}} to pay
+              </p>
             </div>
-          </nav>
-    </header>
-        <div class="card text-center" style="width: 50%; margin-left: 24%;">
-            <div class="card-body">
-                <div style="margin-bottom: 2%;">
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" ng-model="search" placeholder="&#x1F50D;   Search" aria-label="Search" style="height: 50px; border-radius: 15px; font-size:20px;">
-                    </form>
-                </div>
-                
-                <table style="width: 100%; font-size: 20px;">
+          </td>
+          <td>Pay</td>
+        </tr>
 
-                  <tr ng-repeat="split in contact | filter : search">
-                    <td><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="" id="loginimg" width="50" height="50"></td>
-                    <td>
-                      <div style="float: left;">
-                        {{split.key}}<br>
-                        <p style="font-size: 12px; font-weight: light; float: left;" ng-click="send(split)">&#8377; {{split.id}} to pay </p>
-                      </div>
-                   </td>                    
-                   <td>Pay</td>
-                  </tr>
-
-                    <!-- <tr>
+        <!-- <tr>
                         <td><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg" width="50" height="50">
                         </td>
 
@@ -97,9 +118,9 @@
                         </td>
                     </tr> -->
 
-                    <hr>
+        <hr />
 
-                    <!-- <tr>
+        <!-- <tr>
                         <td>
                             <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg" width="50" height="50">
                         </td>
@@ -115,7 +136,7 @@
                             </div>
                          </td>
                     </tr>                     -->
-                </table>
-            </div>
-          </div>
+      </table>
+    </div>
+  </div>
 </div>
