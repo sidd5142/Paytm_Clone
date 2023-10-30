@@ -2,11 +2,6 @@ var admin = [];
 var panels = [];
 
 app.controller("HomeController", function ($scope, $http, $window, $state) {
-  // to generate the otp
-
-  // $scope.$on('$locationChangeStart', function(event){
-  //     event.preventDefault();
-  // });
 
   $scope.otp = function () {
     if ($scope.number) {
@@ -155,7 +150,7 @@ app.controller("BillController", function ($scope, $http, $state) {
         $http
           .get(ip + "show_data", { params: data, withCredentials: true })
           .then(function (response) {
-            console.log(response);
+            // console.log(response);
             // console.log(info)
             $state.go("SplitBillPayment");
             $scope.splitdata = response.data;
@@ -216,9 +211,9 @@ app.controller("PaymentController", function ($scope, $http, $window, $state) {
       var divequal = equalValue / ($scope.bankers.no - 2);
       console.log(divequal);
       $scope.bankerss = divequal;
-      divide_amount.push(divequal);
-      change_amount.push(value);
-      //    change_number.push(number)
+      // divide_amount.push(divequal);
+      // change_amount.push(value);
+      // change_number.push(number)
       change_number.push({
         numbers: number,
         amount: value,
@@ -234,7 +229,7 @@ app.controller("PaymentController", function ($scope, $http, $window, $state) {
   };
   
 
-  $scope.paid = function (number, value) {
+  $scope.paid = function () {
     $scope.contacts = [];
   
     // $scope.contacts = change_number.push({
@@ -251,7 +246,6 @@ app.controller("PaymentController", function ($scope, $http, $window, $state) {
 
     $http
       .post(ip + "split_bill", datas, {
-        // $http.post(ip + 'split_bill', $scope.paymentlist)
         withCredentials: true,
       })
       .then(function (response) {
@@ -265,6 +259,7 @@ app.controller("PaymentController", function ($scope, $http, $window, $state) {
         });
         // console.log(info)
         $state.go("Dashboard.SplitBill");
+
       })
       .catch(function (error) {
         console.log(error);
@@ -293,7 +288,7 @@ app.controller("DashboardController", function ($scope, $http, $state) {
         console.log(response);
         $scope.dash.user = response.data[0].user;
         $scope.dash.dashboard = response.data[1].dashboard;
-        console.log($scope.dash.user.phone_no);
+        // console.log($scope.dash.user.phone_no);
 
         $scope.getotp = function (admin) {
           $scope.scanbtn = true;
@@ -310,14 +305,11 @@ app.controller("DashboardController", function ($scope, $http, $state) {
         Swal.fire({
           icon: "error",
           title: "Something went wrong",
-          // text : error.data.message,
           showConfirmButton: false,
           timer: 2000,
         });
       });
   };
-
-  // $scope.number = '9569673877'
 
   $scope.logout = function () {
     $http
@@ -350,8 +342,7 @@ app.controller("DashboardController", function ($scope, $http, $state) {
       inputPlaceholder: "Enter your PIN",
     });
 
-    if (pass) {
-      // Swal.fire(`Entered email: ${email}`)
+    if (pass.length > 4) {
       swal.fire("You have exceeded 4 characters!");
       return false;
     } else {
@@ -367,15 +358,17 @@ app.controller("DashboardController", function ($scope, $http, $state) {
           console.log($scope.money);
           Swal.fire(`Your Total Account Balance is : &#x20b9; ${$scope.money}`);
         })
-        .then(function (error) {
+        .catch(function(error) {
           console.log(error);
-          Swal.fire({
-            icon: "error",
-            title: "Something went wrong",
-            text: error.data.message,
-            showConfirmButton: false,
-            timer: 2000,
-          });
+          $scope.err = error.data;
+          // console.log($scope.err);
+          Swal.fire(`Error : ${$scope.err.message}` 
+            // icon: "error",
+            // title: "Something went wrong",
+            // text: error.data.message,
+            // showConfirmButton: false,
+            // timer: 2000,
+          );
         });
     }
   };
@@ -401,30 +394,12 @@ app.controller("DashboardController", function ($scope, $http, $state) {
         .then(function (response) {
           console.log(response);
           $state.go("CreatePin");
-        });
+        })
+        .catch(function(error) {
+          Swal.fire(`Error : ${error.data.message}` )
+        })
     }
   };
-
-  //   $scope.profile = function() {
-  //     $http.get(ip + 'profile',{
-  //         withCredentials:true
-  //     })
-  //     .then(function(response){
-  //         console.log(response)
-  //         profiles.push(response.data)
-  //         $state.go('Dashboard.Profile')
-  //     })
-  //     .catch(function(error){
-  //         console.log(error)
-  //         Swal.fire({
-  //             icon: 'error',
-  //             title: 'Something went wrong',
-  //             // text : error.data.message,
-  //             showConfirmButton: false,
-  //             timer: 2000
-  //         })
-  //     })
-  //   }
 });
 
 app.controller("CashbackController", function ($scope, $http, $window, $state) {
@@ -468,7 +443,6 @@ app.controller("CashbackController", function ($scope, $http, $window, $state) {
 });
 
 app.controller("ProfileController", function ($scope, $http, $window, $state) {
-  // $scope.details = profiles
 
   $http
     .get(ip + "profile", {
@@ -477,8 +451,7 @@ app.controller("ProfileController", function ($scope, $http, $window, $state) {
     .then(function (response) {
       console.log(response);
       $scope.details = response.data;
-      // profiles.push(response.data)
-      // $state.go('Dashboard.Profile')
+      
     })
     .catch(function (error) {
       console.log(error);

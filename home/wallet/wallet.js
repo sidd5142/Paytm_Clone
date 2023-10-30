@@ -94,7 +94,6 @@ $scope.submit = function(){
                     timer: 1500
                   }) 
             })
-            // Swal.fire(`Amount Added: ${amount}`)
           }
     })
     .catch(function(error){
@@ -102,7 +101,6 @@ $scope.submit = function(){
         Swal.fire({
             position: 'centre',
             icon: 'error',
-            // title: error.data.message,
             title : 'Something went wrong',
             showConfirmButton: false,
             timer: 1500
@@ -113,7 +111,6 @@ $scope.submit = function(){
     Swal.fire({
         position: 'centre',
         icon: 'error',
-        // title: error.data.message,
         title : 'Enter OTP',
         showConfirmButton: false,
         timer: 1500

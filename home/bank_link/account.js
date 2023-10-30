@@ -4,7 +4,6 @@ app.controller("BankController", function ($scope, $http, $window, $state) {
   $scope.$on("$locationChangeStart", function (event) {
     event.preventDefault();
   });
-  // $scope.bank = function(){
   var na = {
     value: "Bank Name",
   };
@@ -186,5 +185,3 @@ app.controller("HistoryController", function ($scope, $http, $window, $state) {
   $scope.detail = detailed;
   console.log($scope.detail);
 });
-
-// 9524485485

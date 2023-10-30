@@ -1,4 +1,3 @@
-// var ip = "https://10.21.81.234:8000/";
 
 app.controller("RegisterController", function ($scope, $http, $window, $state) {
   $scope.validatePassword = function () {
@@ -77,15 +76,9 @@ app.controller("RegisterController", function ($scope, $http, $window, $state) {
       phonenumber: $scope.contact,
       gender: $scope.genders,
       password: $scope.password,
-      confirmpassword: $scope.confpassword,
+      confirmpassword: $scope.confpassword
     };
 
-    // if(!valid)
-    // {
-    // if($scope.Register)
-    // {
-    // if($scope.Register)
-    // {
     console.log(formdata);
 
     if (pass === confpass && validemail) {
@@ -109,7 +102,7 @@ app.controller("RegisterController", function ($scope, $http, $window, $state) {
           Swal.fire({
             position: "centre",
             icon: "error",
-            title: error.data.message,
+            title: error.data.error,
             showConfirmButton: false,
             timer: 1500,
           });
@@ -121,18 +114,9 @@ app.controller("RegisterController", function ($scope, $http, $window, $state) {
         text: "Incorrect password or invalid email",
       });
     }
-    // }
-    // else{
-    //       Swal.fire({
-    //         icon: 'error',
-    //         title: 'Oops...',
-    //         text: 'Fiels are Empty'
-    //         })
-    // }
+   
   };
-  // else{
-  //   console.log("FIll the fields")
-  // }
+  
 });
 
 app.directive("fileUpload", function () {
