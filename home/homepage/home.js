@@ -1,16 +1,16 @@
 // var ip = "https://10.21.81.234:8000/";
 
 app.controller("HomePageController", function ($scope, $http, $window, $state) {
-  $http
-  .get(ip + "login_page", {
-    withCredentials: true,
-  })
-  .then(function (response) {
-    // console.log(response);
-  })
-  .catch(function (error) {
-    // console.log(error);
-  });
+  // $http
+  // .get(ip + "login_page", {
+  //   withCredentials: true,
+  // })
+  // .then(function (response) {
+  //   // console.log(response);
+  // })
+  // .catch(function (error) {
+  //   // console.log(error);
+  // });
 
 $scope.otp = function () {
   if ($scope.number) {
