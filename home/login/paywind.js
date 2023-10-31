@@ -3,6 +3,10 @@ var panels = [];
 
 app.controller("HomeController", function ($scope, $http, $window, $state) {
 
+  $scope.$on("$locationChangeStart", function (event) {
+    event.preventDefault();
+  });
+  
   $scope.otp = function () {
     if ($scope.number) {
       var formdata = {
