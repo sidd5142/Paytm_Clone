@@ -1,23 +1,6 @@
 
 app.controller("RegisterController", function ($scope, $http, $window, $state) {
 
-  // $scope.verify = function(){
-  //   var para = {
-  //     mobile : $scope.contact
-  //   }
-  //   console.log(para)
-  //   $http.post('https://api.digitallocker.gov.in/public/oauth2/1/authorize', para ,{
-    
-  //   })
-  //   .then(function(response){
-  //     console.log(response)
-  //   })
-  //   .catch(function(error){
-  //     console.log(error)
-  //   })
-  // }
-
-
   $scope.validatePassword = function () {
     $scope.passwordMismatch = $scope.password !== $scope.confpassword;
   };
@@ -120,7 +103,7 @@ app.controller("RegisterController", function ($scope, $http, $window, $state) {
           Swal.fire({
             position: "centre",
             icon: "error",
-            title: error.data.error,
+            title: error.data.message,
             showConfirmButton: false,
             timer: 1500,
           });

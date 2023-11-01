@@ -290,7 +290,7 @@ td:hover {
     
                 <button
                   style="background-color: #00baf2; border-style: none; border-radius:20px; height:3%; width: 12%; margin-left: 10%; margin-top: 2%; "
-                  id="loginbutton" ng-click="signin()" data-bs-toggle="modal" data-bs-target="#my-Modal">
+                  id="loginbutton" ng-click="signin()" >
                   <span id="signin">Sign In</span>
                   <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/loginImg.svg" alt="user" id="loginimg">
                 </button>
@@ -302,7 +302,7 @@ td:hover {
         </nav>
       </section>
 
-      <div class="modal" id="my-Modal">
+      <div class="modal" id="my-Modal" data-bs-backdrop="static">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
       
@@ -323,7 +323,7 @@ td:hover {
             <div class="modal-body">
               <table style="font-size: 15px;">
                 <tr>
-                  <td>View profile</td>
+                  <td data-bs-dismiss="modal">View profile</td>
                 </tr>
                 <tr>
                  <td ng-click="balance()">Your Balance</td>
@@ -332,7 +332,7 @@ td:hover {
                   <td ng-click="pin()" data-bs-dismiss="modal">Pin Change</td>
                  </tr>
                  <tr>
-                  <td>Your Offer</td>
+                  <td data-bs-dismiss="modal">Your Offer</td>
                  </tr>
                  <tr>
                   <td ng-click="logout()" data-bs-dismiss="modal">Log Out</td>

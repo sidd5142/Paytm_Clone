@@ -17,10 +17,8 @@
     "bootstrap": "^3.4.1",
     "bootstrap-icons": "^1.11.1",
     "core-js": "^3.33.1",
-    "idempotent-babel-polyfill": "^7.4.4",
     "jquery": "^3.5.1",
     "ngx-bootstrap-icons": "^1.9.2",
-    "promise-polyfill": "8.3.0",
     "qr-scanner": "^1.4.2",
     "sweetalert": "^2.1.2",
     "webcam": "^3.2.1"

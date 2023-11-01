@@ -2,69 +2,9 @@ var admin = [];
 var panels = [];
 
 app.controller("HomeController", function ($scope, $http, $window, $state) {
-
-  $scope.$on("$locationChangeStart", function (event) {
-    event.preventDefault();
-  });
-  
-  $scope.otp = function () {
-    if ($scope.number) {
-      var formdata = {
-        phone: $scope.number,
-      };
-
-      $http
-        .post(ip + "otp", formdata, {
-          withCredentials: true,
-        })
-        .then(function (response) {
-          console.log(response);
-          $scope.showotp = true;
-          Swal.fire({
-            position: "centre",
-            icon: "success",
-            title: response.data.message,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        })
-        .catch(function (error) {
-          console.log(error);
-          Swal.fire({
-            icon: "error",
-            title: "Something went wrong",
-            text: error.data.message,
-            showConfirmButton: false,
-            timer: 2000,
-          });
-        });
-    } else {
-      window.alert("Input Number");
-    }
-  };
-
-  // to submit otp
-
-  $scope.submit = function () {
-    var number = {
-      phone: $scope.number,
-      otp: $scope.otpverify,
-    };
-
-    console.log(number);
-
-    $http
-      .post(ip + "confirm_otp", number, {
-        withCredentials: true,
-      })
-      .then(function (response) {
-        console.log(response);
-        $state.go("BankAccount");
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
+  // $scope.$on("$locationChangeStart", function (event) {
+  //   event.preventDefault();
+  // });
 
   // to scan a qr code
   var scan_number = {};
@@ -119,10 +59,13 @@ var amount = 0;
 var names = [];
 var info = {};
 var numbers = [];
-
+var n = 0;
+var pn = 0;
+var amtval = [];
 app.controller("BillController", function ($scope, $http, $state) {
   $scope.contacts = [];
   $scope.numbers = [];
+  $scope.input = [];
 
   $scope.number = "";
 
@@ -130,32 +73,48 @@ app.controller("BillController", function ($scope, $http, $state) {
     // count++;
     if ($scope.number) {
       $scope.contacts.push($scope.number);
-      count = $scope.contacts.length + 1;
+      count = $scope.contacts.length;
       amount = $scope.rupees;
-
+      console.log(count);
       $scope.number = "";
 
       names = $scope.contacts;
 
-      var equal = amount / count;
-      var data = {
-        UPI: $scope.contacts,
-        amount: amount,
-        no: count,
-        equal: equal,
-      };
-      info = data;
+      //   var equal = amount / count;
+      //     console.log($scope.contacts[n])
 
-
+      //     $scope.input.push({
+      //       number : $scope.contacts[n],
+      //       equal : equal
+      //     })
+      //   var data = {
+      //    UPI : $scope.input,
+      //    amount : amount
+      //   };
+      //     n++;
+      // info = data
       $scope.Continue = function () {
-        // $state.go('SplitBillPayment')
+        var equal = amount / count;
+        pn = equal;
+        for (n = 0; n < count; n++) {
+          console.log($scope.contacts[n]);
 
-        console.log(data);
+          $scope.input.push({
+            numbers: $scope.contacts[n],
+            amount: equal,
+          });
+          var data = {
+            UPI: $scope.input,
+            amount1: amount,
+          };
+          amtval = $scope.input;
+          // n++;
+          info = data;
+          console.log(data);
+        }
         $http
           .get(ip + "show_data", { params: data, withCredentials: true })
           .then(function (response) {
-            // console.log(response);
-            // console.log(info)
             $state.go("SplitBillPayment");
             $scope.splitdata = response.data;
             numbers = $scope.splitdata;
@@ -173,8 +132,9 @@ app.controller("BillController", function ($scope, $http, $state) {
             });
           });
       };
-      // }
-    } else {
+    }
+    // }
+    else {
       Swal.fire({
         icon: "error",
         title: "Enter Valid Mobile Number...",
@@ -184,9 +144,9 @@ app.controller("BillController", function ($scope, $http, $state) {
     }
   };
 
-  $scope.removeContactField = function (index) {
-    $scope.contacts.splice(index, 1);
-  };
+  // $scope.removeContactField = function (index) {
+  //   $scope.contacts.splice(index, 1);
+  // };
 });
 
 var earlier = 0;
@@ -200,28 +160,26 @@ app.controller("PaymentController", function ($scope, $http, $window, $state) {
   console.log(info);
   $scope.bankers = info;
   console.log($scope.bankers);
-  earlier = $scope.bankers.equal;
+  // earlier = $scope.bankers.UPI.equal;
+  // console.log(earlier);
   $scope.amounts = numbers;
 
-  $scope.updateData = function (number, value) {
+  $scope.update = function (number) {
+    console.log(number.numbers);
+    console.log(number.amount);
     console.log($scope.bankers.amount);
-    console.log(number);
-    console.log(earlier);
-    console.log(value);
-    // change_amount.push(value)
-    // change_number.push(number)
-    if (value <= $scope.bankers.amount - earlier) {
-      var equalValue = parseFloat($scope.bankers.amount - earlier) - value;
-      var divequal = equalValue / ($scope.bankers.no - 2);
+    $scope.updateamt = number.amount;
+    console.log($scope.updateamt);
+    console.log(n);
+    if ($scope.updateamt <= $scope.bankers.amount - earlier) {
+      var equalValue =
+        parseFloat($scope.bankers.amount - pn) - $scope.updateamt;
+      console.log(equalValue);
+      var divequal = equalValue / n;
       console.log(divequal);
-      $scope.bankerss = divequal;
-      // divide_amount.push(divequal);
-      // change_amount.push(value);
-      // change_number.push(number)
-      change_number.push({
-        numbers: number,
-        amount: value,
-      });
+      // number.equal = divequal
+
+      // number.equal = equalValue
     } else {
       Swal.fire({
         icon: "error",
@@ -230,18 +188,49 @@ app.controller("PaymentController", function ($scope, $http, $window, $state) {
         timer: 1500,
       });
     }
-  };
-  
+    // number.equal = equalValue
+    console.log(number.equal);
+    change_number.push({
+      numbers: number.numbers,
+      amount: $scope.updateamt,
+    });
 
-  $scope.paid = function () {
+    // $scope.updateData = function (number, value) {
+    //   console.log($scope.bankers.amount);
+    //   console.log(number);
+    //   console.log(earlier);
+    //   console.log('value',value);
+    //   console.log($scope.amount)
+    //   // change_amount.push(value)
+    //   // change_number.push(number)
+    //   if ($scope.update <= $scope.bankers.amount - earlier) {
+    //     var equalValue = parseFloat($scope.bankers.amount - earlier) - $scope.update;
+    //     var divequal = equalValue / ($scope.bankers.no - 2);
+    //     console.log(divequal);
+    //     $scope.bankerss = divequal;
+    //     // divide_amount.push(divequal);
+    //     // change_amount.push(value);
+    //     // change_number.push(number)
+    //     change_number.push({
+    //       numbers: number,
+    //       amount: number,
+    //     });
+    //   } else {
+    //     Swal.fire({
+    //       icon: "error",
+    //       title: "Amount more than the actual amount",
+    //       showConfirmButton: false,
+    //       timer: 1500,
+    //     });
+    //   }
+    // };
+  };
+
+  $scope.paid = function (number) {
     $scope.contacts = [];
-  
-    // $scope.contacts = change_number.push({
-    //     'numbers' : number,
-    //     'amount' : bankers.eqaul
-    //    })
+
     var datas = {
-      UPI: change_number,
+      UPI: amtval,
       amount1: amount,
       //  UPI : number,
       //  amount : value
@@ -263,7 +252,6 @@ app.controller("PaymentController", function ($scope, $http, $window, $state) {
         });
         // console.log(info)
         $state.go("Dashboard.SplitBill");
-
       })
       .catch(function (error) {
         console.log(error);
@@ -277,6 +265,16 @@ var profiles = [];
 app.controller("DashboardController", function ($scope, $http, $state) {
   $scope.dashuser = [];
   $scope.dashpanel = [];
+
+  const container = document.getElementById("my-Modal");
+  const modal = new bootstrap.Modal(container);
+
+  document.getElementById("signin").addEventListener("click", function () {
+    modal.show();
+  });
+  // document.getElementById("btnSave").addEventListener("click", function () {
+  //   modal.hide();
+  // });
 
   $scope.click = function () {
     $scope.dash = {
@@ -362,11 +360,12 @@ app.controller("DashboardController", function ($scope, $http, $state) {
           console.log($scope.money);
           Swal.fire(`Your Total Account Balance is : &#x20b9; ${$scope.money}`);
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log(error);
           $scope.err = error.data;
           // console.log($scope.err);
-          Swal.fire(`Error : ${$scope.err.message}` 
+          Swal.fire(
+            `Error : ${$scope.err.message}`
             // icon: "error",
             // title: "Something went wrong",
             // text: error.data.message,
@@ -399,9 +398,9 @@ app.controller("DashboardController", function ($scope, $http, $state) {
           console.log(response);
           $state.go("CreatePin");
         })
-        .catch(function(error) {
-          Swal.fire(`Error : ${error.data.message}` )
-        })
+        .catch(function (error) {
+          Swal.fire(`Error : ${error.data.message}`);
+        });
     }
   };
 });
@@ -447,7 +446,6 @@ app.controller("CashbackController", function ($scope, $http, $window, $state) {
 });
 
 app.controller("ProfileController", function ($scope, $http, $window, $state) {
-
   $http
     .get(ip + "profile", {
       withCredentials: true,
@@ -455,7 +453,6 @@ app.controller("ProfileController", function ($scope, $http, $window, $state) {
     .then(function (response) {
       console.log(response);
       $scope.details = response.data;
-      
     })
     .catch(function (error) {
       console.log(error);

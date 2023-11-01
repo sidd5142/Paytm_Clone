@@ -68,6 +68,14 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
     var scan_number = 0
     $scope.payment = function(){
 
+        const container = document.getElementById("myPayment");
+        const modal = new bootstrap.Modal(container);
+        modal.show();
+
+        document.getElementById("scanpay").addEventListener("click", function () {
+        modal.hide();
+        });
+
         var data = document.getElementById('scanner');
         data.style.display = 'block';
 
@@ -92,6 +100,15 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
     }
 
     $scope.ScanPay = function(){
+
+        const container = document.getElementById("FinalPayment");
+        const modal = new bootstrap.Modal(container);
+        modal.show();
+
+        document.getElementById("final").addEventListener("click", function () {
+            modal.hide();
+          }); 
+
         $http.get(ip + 'continue1' , {
             withCredentials: true 
            })
@@ -141,6 +158,7 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
              title: 'Cashback Earned...',
              text: 'Cashback Received : ' + response.data[0].cashback,
           } )
+          this.myModal.hide();
           $state.reload('Dashboard.PayWind')
          })
          .catch(function(error){
@@ -148,7 +166,9 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
          Swal.fire({
              icon: 'error',
             //  title: 'Inputs are missing...',
-             text: 'error'
+             text: error.data.message,
+             showConfirmButton: false,
+            timer: 1500
           } )
          })
         }
@@ -157,7 +177,9 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
             Swal.fire({
                 icon: 'error',
                 title: 'Inputs are missing...',
-                text: 'error'
+                text: 'error',
+                showConfirmButton: false,
+                timer: 1500
              } )
         }
      }
@@ -165,7 +187,26 @@ app.controller('TransactionController',function($scope,$http,$window,$state){
 
      // By a number
 
+    $scope.numberpay = function(){
+        const container = document.getElementById("PhonePayment");
+        const modal = new bootstrap.Modal(container);
+        modal.show();
+
+        document.getElementById("ContinuePhone").addEventListener("click", function () {
+            modal.hide();
+          });
+    }
+
     $scope.ContinuePhone = function(){
+
+        const container = document.getElementById("FinalPhonePayment");
+        const modal = new bootstrap.Modal(container);
+        modal.show();
+
+        document.getElementById("PhonePay").addEventListener("click", function () {
+            modal.hide();
+          });       
+        
         $http.get(ip + 'continue1' , {
         withCredentials: true 
        })

@@ -1,16 +1,30 @@
 // var ip = "https://10.21.81.234:8000/";
 
 app.controller("HomePageController", function ($scope, $http, $window, $state) {
-  // $http
-  // .get(ip + "login_page", {
-  //   withCredentials: true,
-  // })
-  // .then(function (response) {
-  //   // console.log(response);
-  // })
-  // .catch(function (error) {
-  //   // console.log(error);
-  // });
+  $http
+  .get(ip + "login_page", {
+    withCredentials: true,
+  })
+  .then(function (response) {
+    console.log(response)
+    console.log("Back")
+    // console.log(response);
+  })
+  .catch(function (error) {
+    console.log("baked")
+    $state.go('Dashboard.PayWind');
+    // console.log(error);
+  });
+
+  $scope.signin = function(){
+        const container = document.getElementById("myModal");
+        const modal = new bootstrap.Modal(container);
+        modal.show();
+
+        document.getElementById("submit").addEventListener("click", function () {
+            modal.hide();
+          }); 
+  }
 
 $scope.otp = function () {
   if ($scope.number) {
